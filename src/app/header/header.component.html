@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <span>Welcome to V.I.P. Coding - Training</span>
+  <span class="example-spacer"></span>
+
+  <div class="example-button-row">
+    <button mat-raised-button color="secondary" routerLink="/dashboard" *ngIf="isAuthenticated">Dashboard</button>
+    <button mat-raised-button color="primary" routerLink="/login" *ngIf="showLogin()">Login</button>
+    <button mat-raised-button color="primary" (click)="logout()" *ngIf="isAuthenticated">Logout</button>
+  </div>
+
+</mat-toolbar>
