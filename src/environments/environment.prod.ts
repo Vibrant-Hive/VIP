@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://localhost:8080'
+  baseUrl: 'https://vip-coders-service.de.r.appspot.com'
 };
