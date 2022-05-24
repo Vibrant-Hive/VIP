@@ -23,6 +23,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import {MatSelectModule} from "@angular/material/select";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {CustomHttpInterceptor} from "./providers/http-interceptor";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -34,21 +35,22 @@ import {CustomHttpInterceptor} from "./providers/http-interceptor";
     DashboardComponent,
     CreateAccountComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatSliderModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule,
-        FormsModule,
-        MatFormFieldModule,
-        HttpClientModule,
-        MatInputModule,
-        MatSelectModule,
-        NgxSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatSelectModule,
+    NgxSpinnerModule,
+    MatIconModule
+  ],
   providers: [AuthService, LoginService, HttpClient, {
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,

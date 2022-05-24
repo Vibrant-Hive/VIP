@@ -28,7 +28,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "./node_modules/ngx-spinner/animations/ball-running-dots.css",
+              "./node_modules/ngx-spinner/animations/square-jelly-box.css",
               "src/styles.css"
             ],
             "scripts": []

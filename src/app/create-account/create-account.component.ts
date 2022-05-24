@@ -15,6 +15,7 @@ export class CreateAccountComponent implements OnInit {
   password: any;
   confirmPassword: any;
   alreadyExist: any;
+  hide: boolean = true;
 
   constructor(private _registerService: RegisterService, private _router: Router, private _authService: AuthService) { }
 

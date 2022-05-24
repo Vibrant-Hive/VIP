@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   public loginValid = true;
   public email = '';
   public password = '';
+  hide = true;
 
   private _destroySub$ = new Subject<void>();
 
