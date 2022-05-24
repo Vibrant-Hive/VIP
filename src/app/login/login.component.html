@@ -6,7 +6,7 @@
         The email and password were not recognized
       </mat-error>
       <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+        <input matInput placeholder="Email" [(ngModel)]="email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
         <mat-error>
           Please provide a valid email address
         </mat-error>

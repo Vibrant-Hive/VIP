@@ -5,7 +5,7 @@
     <form #registerForm="ngForm" class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder= "Email" [(ngModel)]="email" name="email" required>
+          <input matInput placeholder= "Email" [(ngModel)]="email" name="email" (input)="alreadyExist = false" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
           <span *ngIf="alreadyExist && email" class="error">
             Email Already Exists. Please try Login.
           </span>
