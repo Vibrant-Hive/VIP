@@ -16,11 +16,13 @@ import {FormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {AuthService} from "./service/auth/auth-service.service";
 import {LoginService} from "./service/login/login.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import {MatSelectModule} from "@angular/material/select";
+import {NgxSpinnerModule} from "ngx-spinner";
+import {CustomHttpInterceptor} from "./providers/http-interceptor";
 
 @NgModule({
   declarations: [
@@ -44,9 +46,14 @@ import {MatSelectModule} from "@angular/material/select";
         MatFormFieldModule,
         HttpClientModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        NgxSpinnerModule
     ],
-  providers: [AuthService, LoginService, HttpClient],
+  providers: [AuthService, LoginService, HttpClient, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CustomHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
