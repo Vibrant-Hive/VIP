@@ -12,7 +12,7 @@ import {MatCardModule} from "@angular/material/card";
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {AuthService} from "./service/auth/auth-service.service";
 import {LoginService} from "./service/login/login.service";
@@ -24,6 +24,11 @@ import {MatSelectModule} from "@angular/material/select";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {CustomHttpInterceptor} from "./providers/http-interceptor";
 import {MatIconModule} from "@angular/material/icon";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatDividerModule} from "@angular/material/divider";
+import {DashboardService} from "./service/dashboard/dashboard.service";
 
 @NgModule({
   declarations: [
@@ -49,9 +54,13 @@ import {MatIconModule} from "@angular/material/icon";
     MatInputModule,
     MatSelectModule,
     NgxSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatDividerModule,
   ],
-  providers: [AuthService, LoginService, HttpClient, {
+  providers: [AuthService, LoginService, DashboardService, HttpClient, {
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,
     multi: true

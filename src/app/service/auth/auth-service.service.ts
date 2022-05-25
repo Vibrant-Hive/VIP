@@ -25,10 +25,17 @@ export class AuthService implements OnDestroy {
 
   public login(email: string, password: string): Observable<Object> {
     return this._authClient.signInWithCredentials(email, password).pipe(
-       tap( userId => {
-         if(userId) {
+       tap( user => {
+         if(user) {
            this._authSub$.next(true);
-           sessionStorage.setItem('email', email);
+           // @ts-ignore
+           sessionStorage.setItem('email', user.email);
+           // @ts-ignore
+           sessionStorage.setItem('userId', user.id);
+           // @ts-ignore
+           sessionStorage.setItem('role', user.role);
+           // @ts-ignore
+           sessionStorage.setItem('active', user.active);
          }
        })
     );

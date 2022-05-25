@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.email, this.password).pipe(
       take(1)
     ).subscribe({
-      next: userId => {
-        if(userId) {
+      next: user => {
+        if(user) {
           this.loginValid = true;
           this._router.navigateByUrl('/dashboard').then();
         } else {

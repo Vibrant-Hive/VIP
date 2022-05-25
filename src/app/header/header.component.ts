@@ -33,6 +33,6 @@ export class HeaderComponent implements OnInit {
   }
 
   showLogin() {
-    return !this.isAuthenticated && !this._router.url.includes('login') && !this._router.url.includes('createAccount');
+    return !this.isAuthenticated && !this._router.url.includes('login');
   }
 }

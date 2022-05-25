@@ -1,1 +1,69 @@
-<p>dashboard works!</p>
+<mat-card class="mentor-all-details">
+  <mat-card-title *ngIf="!underReview">Become a Mentor</mat-card-title>
+  <mat-card-title *ngIf="underReview">Your application in under review</mat-card-title>
+
+  <mat-card-content *ngIf="!underReview">
+    <form #mentorForm="ngForm" (ngSubmit)="apply()">
+      <mat-form-field>
+        <input matInput placeholder="Full Name" name="fullName" [(ngModel)]="fullName" required>
+        <mat-error>
+          Please provide a valid name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Skills" name="skills" [(ngModel)]="skills" required>
+        <mat-error>
+          Please provide your skill-set
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Years of Experience" name="experience" [(ngModel)]="experience" required>
+        <mat-error>
+          Please provide a valid no. of years
+        </mat-error>
+      </mat-form-field>
+      <input type="file" class="file-input"
+             (change)="onFileSelected($event)" #fileUpload>
+
+      {{fileName || "Upload Resume"}}
+      <button mat-mini-fab color="primary" class="upload-btn"
+              (click)="fileUpload.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+
+      <button mat-raised-button color="primary" class="apply-button" [disabled]="!mentorForm.form.valid">Apply as a
+        mentor
+      </button>
+    </form>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card class="available-mentors">
+  <mat-card-title>Book a Mentor</mat-card-title>
+
+  <mat-card-content>
+    <mat-grid-list cols="4">
+      <mat-grid-tile>
+        <mat-grid-tile-header>Radha Krishnan, Senior Developer</mat-grid-tile-header>
+        <mat-card>
+          <mat-card-content class="mentor-card">
+            <div class="mentor-image">
+              <img mat-card-image src="../../assets/devsenior.jpg" alt="">
+            </div>
+            <span>Experience, 5 years</span>
+            <span>Java Full Stack</span>
+          </mat-card-content>
+        </mat-card>
+        <mat-grid-tile-footer>
+          <button mat-raised-button color="primary" class="book-button">Book</button>
+          <span class="rate"> ₹400 / 90 mins of collaboration</span>
+        </mat-grid-tile-footer>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
