@@ -1,8 +1,89 @@
-<mat-card class="mentor-all-details">
-  <mat-card-title *ngIf="!underReview">Become a Mentor</mat-card-title>
-  <mat-card-title *ngIf="underReview">Your application in under review</mat-card-title>
+<mat-card class="available-mentors" *ngIf="availableMentorsShow">
+  <mat-card-title>Book a Mentor</mat-card-title>
 
-  <mat-card-content *ngIf="!underReview">
+  <mat-card-content>
+    <mat-grid-list cols="4">
+      <mat-grid-tile>
+        <mat-grid-tile-header>Radha Krishnan, Senior Developer</mat-grid-tile-header>
+        <mat-card>
+          <mat-card-content class="mentor-card">
+            <div class="mentor-image">
+              <img mat-card-image src="../../assets/devsenior.jpg" alt="">
+            </div>
+            <span>Experience, 5 years</span>
+            <span>Java Full Stack</span>
+          </mat-card-content>
+        </mat-card>
+        <mat-grid-tile-footer>
+          <button mat-raised-button color="primary" class="book-button">Book</button>
+          <span class="rate"> ₹400 / 90 mins of collaboration</span>
+        </mat-grid-tile-footer>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card class="mentor-all-details">
+  <mat-card-title *ngIf="applyMentorShow">Become a Mentor</mat-card-title>
+  <mat-card-title *ngIf="underReview">Your application in under review</mat-card-title>
+  <mat-card-title *ngIf="appliedMentorsShow">Applied Mentors</mat-card-title>
+
+  <mat-card-content *ngIf="appliedMentorsShow">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef> Experience </th>
+        <td mat-cell *matCellDef="let element"> {{element["experience"]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="skills">
+        <th mat-header-cell *matHeaderCellDef> Skills </th>
+        <td mat-cell *matCellDef="let element"> {{element["skills"]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="resume">
+        <th mat-header-cell *matHeaderCellDef> Resume </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent">
+            Download Resume
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="approve">
+        <th mat-header-cell *matHeaderCellDef> Approve </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary">
+            Approve Mentor
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+
+
+  <mat-card-content *ngIf="applyMentorShow">
     <form #mentorForm="ngForm" (ngSubmit)="apply()">
       <mat-form-field>
         <input matInput placeholder="Full Name" name="fullName" [(ngModel)]="fullName" required>
@@ -39,31 +120,4 @@
   </mat-card-content>
 </mat-card>
 
-<mat-divider></mat-divider>
-
-<mat-card class="available-mentors">
-  <mat-card-title>Book a Mentor</mat-card-title>
-
-  <mat-card-content>
-    <mat-grid-list cols="4">
-      <mat-grid-tile>
-        <mat-grid-tile-header>Radha Krishnan, Senior Developer</mat-grid-tile-header>
-        <mat-card>
-          <mat-card-content class="mentor-card">
-            <div class="mentor-image">
-              <img mat-card-image src="../../assets/devsenior.jpg" alt="">
-            </div>
-            <span>Experience, 5 years</span>
-            <span>Java Full Stack</span>
-          </mat-card-content>
-        </mat-card>
-        <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button">Book</button>
-          <span class="rate"> ₹400 / 90 mins of collaboration</span>
-        </mat-grid-tile-footer>
-
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-card-content>
-</mat-card>
 

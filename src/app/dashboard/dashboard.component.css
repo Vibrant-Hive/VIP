@@ -65,3 +65,8 @@ mat-grid-tile-header{
   width: 60%;
   margin: 2%!important;
 }
+
+table {
+  width: 100%;
+  text-align: left;
+}
