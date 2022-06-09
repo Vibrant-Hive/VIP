@@ -3,22 +3,22 @@
 
   <mat-card-content>
     <mat-grid-list cols="4">
-      <mat-grid-tile>
-        <mat-grid-tile-header>Radha Krishnan, Senior Developer</mat-grid-tile-header>
+      <mat-grid-tile *ngFor="let mentor of availableMentors">
+        <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
             <div class="mentor-image">
               <img mat-card-image src="../../assets/devsenior.jpg" alt="">
             </div>
-            <span>Experience, 5 years</span>
-            <span>Java Full Stack</span>
+            <span>Spoken Languages: {{mentor.languages}}</span>
+            <span>Industry Experience: {{mentor["experience"]}} years</span>
+            <span>Skills: {{mentor["skills"]}}</span>
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
           <button mat-raised-button color="primary" class="book-button">Book</button>
-          <span class="rate"> ₹400 / 90 mins of collaboration</span>
+          <span class="rate"> ₹{{mentor.rate}} / 90 mins of collaboration</span>
         </mat-grid-tile-footer>
-
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
@@ -32,46 +32,41 @@
   <mat-card-title *ngIf="appliedMentorsShow">Applied Mentors</mat-card-title>
 
   <mat-card-content *ngIf="appliedMentorsShow">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="appliedMentors" class="mat-elevation-z8">
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="fullName">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="experience">
         <th mat-header-cell *matHeaderCellDef> Experience </th>
-        <td mat-cell *matCellDef="let element"> {{element["experience"]}} </td>
+        <td mat-cell *matCellDef="let element"> {{element['experience']}} </td>
       </ng-container>
 
       <ng-container matColumnDef="skills">
         <th mat-header-cell *matHeaderCellDef> Skills </th>
-        <td mat-cell *matCellDef="let element"> {{element["skills"]}} </td>
+        <td mat-cell *matCellDef="let element"> {{element['skills']}} </td>
       </ng-container>
 
       <ng-container matColumnDef="resume">
         <th mat-header-cell *matHeaderCellDef> Resume </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="accent">
+          <button mat-raised-button color="accent" (click)="downloadResume(element['id'])">
             Download Resume
           </button>
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef> Experience </th>
+        <td mat-cell *matCellDef="let element"> {{element['experience']}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="approve">
         <th mat-header-cell *matHeaderCellDef> Approve </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary">
+          <button mat-raised-button color="primary" (click)="approveMentor(element['id'])">
             Approve Mentor
           </button>
         </td>
@@ -101,6 +96,18 @@
         <input matInput type="number" placeholder="Years of Experience" name="experience" [(ngModel)]="experience" required>
         <mat-error>
           Please provide a valid no. of years
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Current Designation" name="designation" [(ngModel)]="designation" required>
+        <mat-error>
+          Please provide your current designation
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Spoken Languages" name="languages" [(ngModel)]="languages" required>
+        <mat-error>
+          Please provide the languages you can speak
         </mat-error>
       </mat-form-field>
       <input type="file" class="file-input"

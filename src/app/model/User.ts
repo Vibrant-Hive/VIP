@@ -6,4 +6,8 @@ export class User {
   skills?: string;
   experience?:number;
   active?: boolean;
+  availability?: string;
+  languages?: string;
+  designation?: string;
+  rate?: number;
 }
