@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
       });
     } else {
       this.availableMentorsShow = true;
-      this._dashboardService.availableMentors().subscribe(availableMentors => {
+      this._dashboardService.availableMentors().subscribe((availableMentors : User[]) => {
         if (availableMentors) {
           this.availableMentors = availableMentors;
         }
