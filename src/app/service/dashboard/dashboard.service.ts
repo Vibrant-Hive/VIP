@@ -45,9 +45,10 @@ export class DashboardService {
   }
 
   // @ts-ignore
-  approveMentor(userId) {
+  approveMentor(userId,rate) {
     const params = new HttpParams()
-      .set('userId', userId);
+      .set('userId', userId)
+      .set('rate', rate);
     return this._httpClient.get<boolean[]>(this.approveMentorUrl, {params});
   }
 }

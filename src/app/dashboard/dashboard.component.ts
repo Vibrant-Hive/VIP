@@ -14,12 +14,13 @@ export class DashboardComponent implements OnInit {
   fullName: any;
   skills: any;
   experience: any;
+  public rate: any;
   underReview: boolean = false;
   appliedMentorsShow: boolean = false;
   applyMentorShow: boolean = false;
   availableMentorsShow: boolean = false;
   appliedMentors: User[] = [];
-  displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume', 'approve'];
+  displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume','rate', 'approve'];
   availableMentors: User[] = [];
   designation: any;
   languages: any;
@@ -81,7 +82,7 @@ export class DashboardComponent implements OnInit {
 
   // @ts-ignore
   approveMentor(userId) {
-    this._dashboardService.approveMentor(userId).subscribe(isSuccess => {
+    this._dashboardService.approveMentor(userId,this.rate).subscribe(isSuccess => {
       if(isSuccess){
         alert(isSuccess);
       }
