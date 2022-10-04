@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
   fullName: any;
   skills: any;
   experience: any;
-  public rate: any;
   underReview: boolean = false;
   appliedMentorsShow: boolean = false;
   applyMentorShow: boolean = false;
@@ -81,8 +80,8 @@ export class DashboardComponent implements OnInit {
   }
 
   // @ts-ignore
-  approveMentor(userId) {
-    this._dashboardService.approveMentor(userId,this.rate).subscribe(isSuccess => {
+  approveMentor(userId, rate) {
+    this._dashboardService.approveMentor(userId, rate).subscribe(isSuccess => {
       if(isSuccess){
         alert(isSuccess);
       }
