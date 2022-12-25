@@ -5,3 +5,18 @@
 .example-button-row .mat-button-base {
   margin: 8px 8px 8px 0;
 }
+
+mat-toolbar{
+  background-image: url("src/assets/images/VibrantHive.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+html {
+    height: 100%
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 124px;
+}
