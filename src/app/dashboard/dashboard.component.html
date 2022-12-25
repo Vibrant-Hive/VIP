@@ -121,6 +121,16 @@
         <mat-icon>attach_file</mat-icon>
       </button>
 
+      <input type="file" class="file-input" #photoUpload
+      (change)="onPhotoSelected($event)">
+
+      {{photoName || "Upload Photo"}}
+
+      <button mat-mini-fab color="primary" class="upload-btn"
+        (click)="photoUpload.click()">
+        <mat-icon>insert_photo</mat-icon>
+      </button>
+
       <button mat-raised-button color="primary" class="apply-button" [disabled]="!mentorForm.form.valid">Apply as a
         mentor
       </button>

@@ -16,16 +16,17 @@ export class DashboardService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  apply(fullName: any, skills: any, experience: any, designation:any, languages:any, userId: any, resume: any) {
+  apply(fullName: any, skills: any, experience: any, designation:any, languages:any, userId: any, resume: any, photo: any) {
     const params = new HttpParams().set('fullName', fullName)
       .set('skills', skills)
       .set('experience', experience)
       .set('designation', designation)
       .set('languages', languages)
       .set('userId', userId);
-    const resumeData = new FormData();
-    resumeData.append("resume", resume);
-    return this._httpClient.post<boolean>(this.applyUrl, resumeData, {params});
+    const fileData = new FormData();
+    fileData.append("document", resume, resume.fullName);
+    fileData.append("document",photo, photo.fullName);
+    return this._httpClient.post<boolean>(this.applyUrl, fileData, {params});
   }
 
   availableMentors() {

@@ -11,6 +11,8 @@ import { saveAs } from 'file-saver';
 export class DashboardComponent implements OnInit {
   fileName?: string;
   resume?: File;
+  photoName?: string;
+  photo?: File;
   fullName: any;
   skills: any;
   experience: any;
@@ -58,10 +60,22 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  onPhotoSelected($event: Event) {
+
+      if (this.photo) {
+        this.photoName = this.photo.name;
+        if(this.photoName.split('?')[0].split('.').pop() != ("jpg" || "jpeg" || "png")) {
+          alert("photo image should be either jpg or png ")
+        } else {
+          this.photo = $event.target.files[0];
+        }
+      }
+    }
+
   apply() {
     let userId = sessionStorage.getItem('userId');
     if (this.resume) {
-      this._dashboardService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume).subscribe(isSuccess => {
+      this._dashboardService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume, this.photo).subscribe(isSuccess => {
         if (isSuccess) {
           alert('success');
         }
