@@ -61,20 +61,17 @@ export class DashboardComponent implements OnInit {
   }
 
   onPhotoSelected($event: Event) {
+      // @ts-ignore
+      this.photo = $event.target.files[0];
 
       if (this.photo) {
         this.photoName = this.photo.name;
-        if(this.photoName.split('?')[0].split('.').pop() != ("jpg" || "jpeg" || "png")) {
-          alert("photo image should be either jpg or png ")
-        } else {
-          this.photo = $event.target.files[0];
-        }
       }
     }
 
   apply() {
     let userId = sessionStorage.getItem('userId');
-    if (this.resume) {
+    if (this.resume && this.photo) {
       this._dashboardService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume, this.photo).subscribe(isSuccess => {
         if (isSuccess) {
           alert('success');
