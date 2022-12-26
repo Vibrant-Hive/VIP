@@ -29,6 +29,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatDividerModule} from "@angular/material/divider";
 import {DashboardService} from "./service/dashboard/dashboard.service";
 import {MatTableModule} from "@angular/material/table";
+import {MentorProfileComponent} from './mentor-profile/mentor-profile.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import {MatTableModule} from "@angular/material/table";
     HeaderComponent,
     LoginComponent,
     DashboardComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    MentorProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import {MatTableModule} from "@angular/material/table";
     ReactiveFormsModule,
     MatDividerModule,
     MatTableModule,
+    MatDialogModule
   ],
   providers: [AuthService, LoginService, DashboardService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

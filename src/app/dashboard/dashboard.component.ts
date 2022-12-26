@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DashboardService} from "../service/dashboard/dashboard.service";
 import {User} from "../model/User";
-import { saveAs } from 'file-saver';
+import {saveAs} from 'file-saver';
+import {MatDialog} from "@angular/material/dialog";
+import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,11 +23,12 @@ export class DashboardComponent implements OnInit {
   applyMentorShow: boolean = false;
   availableMentorsShow: boolean = false;
   appliedMentors: User[] = [];
-  displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume','rate', 'approve'];
+  displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume', 'rate', 'approve'];
   availableMentors: User[] = [];
   designation: any;
   languages: any;
-  constructor(private _dashboardService: DashboardService) {
+
+  constructor(private _dashboardService: DashboardService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -40,12 +43,11 @@ export class DashboardComponent implements OnInit {
       });
     } else {
       this.availableMentorsShow = true;
-      this._dashboardService.availableMentors().subscribe((availableMentors : User[]) => {
+      this._dashboardService.availableMentors().subscribe((availableMentors: User[]) => {
         if (availableMentors) {
           this.availableMentors = availableMentors;
         }
       });
-
 
       this.applyMentorShow = true;
     }
@@ -61,13 +63,13 @@ export class DashboardComponent implements OnInit {
   }
 
   onPhotoSelected($event: Event) {
-      // @ts-ignore
-      this.photo = $event.target.files[0];
+    // @ts-ignore
+    this.photo = $event.target.files[0];
 
-      if (this.photo) {
-        this.photoName = this.photo.name;
-      }
+    if (this.photo) {
+      this.photoName = this.photo.name;
     }
+  }
 
   apply() {
     let userId = sessionStorage.getItem('userId');
@@ -83,7 +85,7 @@ export class DashboardComponent implements OnInit {
   // @ts-ignore
   downloadResume(userId) {
     this._dashboardService.downloadResume(userId).subscribe(response => {
-      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
+      let blob: any = new Blob([response], {type: 'text/json; charset=utf-8'});
       window.URL.createObjectURL(blob);
       //window.open(url);
       saveAs(blob, 'resume.docx');
@@ -93,9 +95,16 @@ export class DashboardComponent implements OnInit {
   // @ts-ignore
   approveMentor(userId, rate) {
     this._dashboardService.approveMentor(userId, rate).subscribe(isSuccess => {
-      if(isSuccess){
+      if (isSuccess) {
         alert(isSuccess);
       }
     })
+  }
+
+  viewMentor() {
+    this.dialog.open(MentorProfileComponent, {
+      height: '98%',
+      width: '80%',
+    });
   }
 }
