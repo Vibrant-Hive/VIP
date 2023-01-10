@@ -1,4 +1,4 @@
-export class User {
+export interface User {
   id?: number;
   email?: string;
   role?: string;
@@ -8,7 +8,8 @@ export class User {
   active?: boolean;
   availability?: string;
   languages?: string;
-  photo?: any;
+  photo: any;
   designation?: string;
   rate?: number;
+  resume: any;
 }

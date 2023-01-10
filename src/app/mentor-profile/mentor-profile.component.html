@@ -1,21 +1,35 @@
 <mat-card>
   <mat-card-title>Mentor Profile</mat-card-title>
-
   <mat-card-content>
     <mat-grid-list cols="4" rowHeight="3:1">
       <mat-grid-tile [colspan]="1" [rowspan]="4" class="photo">
-        Photo
+        <mat-grid-tile-header>Profile Photo</mat-grid-tile-header>
+        <div class="mentor-image">
+          <img mat-card-image [src]="mentor.photo" alt="">
+        </div>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="3" [rowspan]="5" class="profile">
-        Profile
+      <mat-grid-tile [colspan]="3" [rowspan]="4" class="profile">
+        <mat-grid-tile-header>Profile</mat-grid-tile-header>
+        <mat-list role="list">
+          <mat-list-item role="list-item">Full Name: {{mentor.fullName}}</mat-list-item>
+          <mat-list-item role="list-item">Spoken Languages: {{mentor.languages}}</mat-list-item>
+          <mat-list-item role="list-item">Industry Experience: {{mentor["experience"]}} years</mat-list-item>
+          <mat-list-item role="list-item">Skills: {{mentor["skills"]}}</mat-list-item>
+        </mat-list>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="2" class="contact">
-        Contact
+        <mat-grid-tile-header>Contact</mat-grid-tile-header>
+        <mat-icon> email</mat-icon>
+        <span>{{mentor.email}}</span>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="3" [rowspan]="1" class="booking">
-        Booking
+      <mat-grid-tile [colspan]="3" [rowspan]="2" class="booking">
+        <mat-grid-tile-header>Booking</mat-grid-tile-header>
+        <span style="font-size:large;">₹{{mentor.rate}} Per Session (approx. 90 Minutes)</span>
+        <mat-grid-tile-footer>
+          <button mat-raised-button color="primary" class="book-button">Pay Now</button>
+          <button mat-raised-button color="secondary" class="book-button">Pay After</button>
+        </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-card-content>
-
 </mat-card>

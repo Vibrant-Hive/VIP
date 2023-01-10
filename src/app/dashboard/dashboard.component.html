@@ -7,16 +7,12 @@
         <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
-            <div class="mentor-image">
-              <img mat-card-image src="../../assets/devsenior.jpg" alt="">
-            </div>
-            <span>Spoken Languages: {{mentor.languages}}</span>
             <span>Industry Experience: {{mentor["experience"]}} years</span>
             <span>Skills: {{mentor["skills"]}}</span>
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor()">Book</button>
+          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">Book</button>
           <span class="rate"> ₹{{mentor.rate}} / 90 mins of collaboration</span>
         </mat-grid-tile-footer>
       </mat-grid-tile>

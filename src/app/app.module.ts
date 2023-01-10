@@ -31,6 +31,7 @@ import {DashboardService} from "./service/dashboard/dashboard.service";
 import {MatTableModule} from "@angular/material/table";
 import {MentorProfileComponent} from './mentor-profile/mentor-profile.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     ReactiveFormsModule,
     MatDividerModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule
   ],
   providers: [AuthService, LoginService, DashboardService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

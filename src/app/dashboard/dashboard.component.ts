@@ -5,11 +5,16 @@ import {saveAs} from 'file-saver';
 import {MatDialog} from "@angular/material/dialog";
 import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component";
 
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
 export class DashboardComponent implements OnInit {
   fileName?: string;
   resume?: File;
@@ -38,6 +43,7 @@ export class DashboardComponent implements OnInit {
       this.appliedMentorsShow = true;
       this._dashboardService.appliedMentors().subscribe(appliedMentors => {
         if (appliedMentors) {
+          this.preparePhoto(appliedMentors);
           this.appliedMentors = appliedMentors;
         }
       });
@@ -45,12 +51,19 @@ export class DashboardComponent implements OnInit {
       this.availableMentorsShow = true;
       this._dashboardService.availableMentors().subscribe((availableMentors: User[]) => {
         if (availableMentors) {
+          this.preparePhoto(availableMentors);
           this.availableMentors = availableMentors;
         }
       });
 
       this.applyMentorShow = true;
     }
+  }
+
+  private preparePhoto(mentors: User[]) {
+    mentors.forEach(mentor => {
+      mentor.photo = 'data:image/jpg;base64,' + mentor.photo;
+    });
   }
 
   onFileSelected($event: Event) {
@@ -101,10 +114,11 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  viewMentor() {
+  viewMentor(user: User){
     this.dialog.open(MentorProfileComponent, {
-      height: '98%',
-      width: '80%',
+      data: user,
+      height: '85%',
+      width: '70%',
     });
   }
 }

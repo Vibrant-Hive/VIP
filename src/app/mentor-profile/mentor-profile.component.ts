@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {User} from "../model/User";
 
 @Component({
   selector: 'app-mentor-profile',
@@ -7,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MentorProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public mentor: User) { }
 
   ngOnInit(): void {
   }
