@@ -13,7 +13,7 @@ export class RegisterService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  register( user: {email: string, password : string}) {
+  register( user: {email: string, mobileNo: string, password : string}) {
     return this._httpClient.post<User>(this.createAccountUrl, user);
   }
 }

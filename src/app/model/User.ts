@@ -1,6 +1,7 @@
 export interface User {
   id?: number;
   email?: string;
+  mobileNo?: string;
   role?: string;
   fullName?: string;
   skills?: string;

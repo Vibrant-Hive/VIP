@@ -23,13 +23,15 @@ export class AuthService implements OnDestroy {
     this._authSub$.complete();
   }
 
-  public login(email: string, password: string): Observable<Object> {
-    return this._authClient.signInWithCredentials(email, password).pipe(
+  public login(userName: string, password: string): Observable<Object> {
+    return this._authClient.signInWithCredentials(userName, password).pipe(
        tap( user => {
          if(user) {
            this._authSub$.next(true);
            // @ts-ignore
            sessionStorage.setItem('email', user.email);
+           // @ts-ignore
+           sessionStorage.setItem('mobileNo', user.mobileNo);
            // @ts-ignore
            sessionStorage.setItem('userId', user.id);
            // @ts-ignore

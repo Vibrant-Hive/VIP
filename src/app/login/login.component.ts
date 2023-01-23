@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {filter, Subject, take, takeUntil} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth/auth-service.service";
@@ -11,7 +11,7 @@ import {AuthService} from "../service/auth/auth-service.service";
 export class LoginComponent implements OnInit {
 
   public loginValid = true;
-  public email = '';
+  public userName = '';
   public password = '';
   hide = true;
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     this.loginValid = true;
 
-    this._authService.login(this.email, this.password).pipe(
+    this._authService.login(this.userName, this.password).pipe(
       take(1)
     ).subscribe({
       next: user => {

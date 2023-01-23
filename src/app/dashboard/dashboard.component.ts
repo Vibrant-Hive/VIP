@@ -4,14 +4,13 @@ import {User} from "../model/User";
 import {saveAs} from 'file-saver';
 import {MatDialog} from "@angular/material/dialog";
 import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component";
+import {MessageService} from "primeng/api";
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [MessageService]
 })
 
 
@@ -33,7 +32,7 @@ export class DashboardComponent implements OnInit {
   designation: any;
   languages: any;
 
-  constructor(private _dashboardService: DashboardService, public dialog: MatDialog) {
+  constructor(private _dashboardService: DashboardService, public dialog: MatDialog,private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -43,7 +42,7 @@ export class DashboardComponent implements OnInit {
       this.appliedMentorsShow = true;
       this._dashboardService.appliedMentors().subscribe(appliedMentors => {
         if (appliedMentors) {
-          this.preparePhoto(appliedMentors);
+          DashboardComponent.preparePhoto(appliedMentors);
           this.appliedMentors = appliedMentors;
         }
       });
@@ -51,7 +50,7 @@ export class DashboardComponent implements OnInit {
       this.availableMentorsShow = true;
       this._dashboardService.availableMentors().subscribe((availableMentors: User[]) => {
         if (availableMentors) {
-          this.preparePhoto(availableMentors);
+          DashboardComponent.preparePhoto(availableMentors);
           this.availableMentors = availableMentors;
         }
       });
@@ -60,7 +59,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  private preparePhoto(mentors: User[]) {
+  private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
       mentor.photo = 'data:image/jpg;base64,' + mentor.photo;
     });
@@ -89,7 +88,11 @@ export class DashboardComponent implements OnInit {
     if (this.resume && this.photo) {
       this._dashboardService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume, this.photo).subscribe(isSuccess => {
         if (isSuccess) {
-          alert('success');
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Applied Successfully!',
+            life:3000,
+          });
         }
       });
     }
@@ -109,7 +112,11 @@ export class DashboardComponent implements OnInit {
   approveMentor(userId, rate) {
     this._dashboardService.approveMentor(userId, rate).subscribe(isSuccess => {
       if (isSuccess) {
-        alert(isSuccess);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Mentor Approved Successfully!',
+          life:3000,
+        });
       }
     })
   }

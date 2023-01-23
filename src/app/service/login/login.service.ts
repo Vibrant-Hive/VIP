@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
@@ -11,8 +11,8 @@ export class LoginService {
 
   constructor(private _httpClient: HttpClient) {
   }
-  signInWithCredentials( email: string, password : string) {
-    const params = new HttpParams().set('email', email).set('password', password);
+  signInWithCredentials( userName: string, password : string) {
+    const params = new HttpParams().set('userName', userName).set('password', password);
     return this._httpClient.get<User>(this.loginUrl, {params, responseType: "json"});
   }
 

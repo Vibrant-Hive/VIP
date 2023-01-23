@@ -32,6 +32,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MentorProfileComponent} from './mentor-profile/mentor-profile.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatListModule} from '@angular/material/list';
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {MatListModule} from '@angular/material/list';
     MatDividerModule,
     MatTableModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    ToastModule
   ],
   providers: [AuthService, LoginService, DashboardService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

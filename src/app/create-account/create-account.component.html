@@ -5,8 +5,17 @@
     <form #registerForm="ngForm" class="example-form" (ngSubmit)="register()">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder= "Email" [(ngModel)]="email" name="email" (input)="alreadyExist = false" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
-          <span *ngIf="alreadyExist && email" class="error">
+          <input matInput placeholder= "Mobile Number" [(ngModel)]="mobileNo" name="mobileNo" (input)="mobileNoAlreadyExist = false" pattern="[789][0-9]{9}" required>
+          <span *ngIf="mobileNoAlreadyExist && mobileNo" class="error">
+            Mobile Number Already Exists. Please try Login.
+          </span>
+          <mat-error>
+            Please provide a valid mobile number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder= "Email" [(ngModel)]="email" name="email" (input)="emailAlreadyExist = false" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+          <span *ngIf="emailAlreadyExist && email" class="error">
             Email Already Exists. Please try Login.
           </span>
           <mat-error>

@@ -24,6 +24,7 @@
     "file-saver": "^2.0.5",
     "firebase": "^9.8.1",
     "ngx-spinner": "^13.1.1",
+    "primeng": "^13.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

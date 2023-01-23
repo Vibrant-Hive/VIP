@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegisterService} from "../service/register/register.service";
 import {Router} from "@angular/router";
 import {take} from "rxjs";
@@ -14,29 +14,34 @@ export class CreateAccountComponent implements OnInit {
   email: any;
   password: any;
   confirmPassword: any;
-  alreadyExist: any;
+  mobileNoAlreadyExist: any;
   hide: boolean = true;
+  mobileNo: any;
+  emailAlreadyExist: any;
 
-  constructor(private _registerService: RegisterService, private _router: Router, private _authService: AuthService) { }
+  constructor(private _registerService: RegisterService, private _router: Router, private _authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
   register() {
-    this.alreadyExist = false;
-    this._registerService.register({email: this.email, password: this.password})
+    this.mobileNoAlreadyExist = false;
+    this.emailAlreadyExist = false;
+    this._registerService.register({email: this.email, mobileNo: this.mobileNo, password: this.password})
       .subscribe(user => {
-        if(user.id) {
-          this._authService.login(this.email, this.password).pipe(
-            take(1)
-          ).subscribe({
-            next: _ => {
-              this._router.navigateByUrl('/dashboard').then();
-            }
-          });
-        } else {
-          this.alreadyExist = true;
-        }
-      });
+        this._authService.login(this.email, this.password).pipe(
+          take(1)
+        ).subscribe({
+          next: _ => {
+            this._router.navigateByUrl('/dashboard').then();
+          }
+        });
+      }, error => {
+        if (error.error.message == "Mobile No Already Exists")
+          this.mobileNoAlreadyExist = true;
+        if (error.error.message == "Email Already Exists")
+          this.emailAlreadyExist = true;
+      },);
   }
 }
