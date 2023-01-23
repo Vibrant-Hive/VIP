@@ -13,4 +13,5 @@ export interface User {
   designation?: string;
   rate?: number;
   resume: any;
+  displayPic?: string;
 }

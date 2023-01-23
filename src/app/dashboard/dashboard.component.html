@@ -9,6 +9,7 @@
         <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
+            <img [src]="mentor['displayPic']" alt="">
             <span>Industry Experience: {{mentor["experience"]}} years</span>
             <span>Skills: {{mentor["skills"]}}</span>
           </mat-card-content>

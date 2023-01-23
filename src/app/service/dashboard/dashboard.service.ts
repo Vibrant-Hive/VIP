@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
@@ -14,9 +14,10 @@ export class DashboardService {
   private downloadResumeUrl = environment.baseUrl + '/downloadResume';
   private approveMentorUrl = environment.baseUrl + '/approveMentor';
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {
+  }
 
-  apply(fullName: any, skills: any, experience: any, designation:any, languages:any, userId: any, resume: any, photo: any) {
+  apply(fullName: any, skills: any, experience: any, designation: any, languages: any, userId: any, resume: any, photo: any) {
     const params = new HttpParams().set('fullName', fullName)
       .set('skills', skills)
       .set('experience', experience)
@@ -25,7 +26,7 @@ export class DashboardService {
       .set('userId', userId);
     const fileData = new FormData();
     fileData.append("document", resume, resume.fullName);
-    fileData.append("document",photo, photo.fullName);
+    fileData.append("document", photo, photo.fullName);
     return this._httpClient.post<boolean>(this.applyUrl, fileData, {params});
   }
 
@@ -42,11 +43,11 @@ export class DashboardService {
     const params = new HttpParams()
       .set('userId', userId);
     // @ts-ignore
-    return this._httpClient.get<any[]>(this.downloadResumeUrl, {params, responseType: 'blob' });
+    return this._httpClient.get<any[]>(this.downloadResumeUrl, {params, responseType: 'blob'});
   }
 
   // @ts-ignore
-  approveMentor(userId,rate) {
+  approveMentor(userId, rate) {
     const params = new HttpParams()
       .set('userId', userId)
       .set('rate', rate);

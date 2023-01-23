@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   designation: any;
   languages: any;
 
-  constructor(private _dashboardService: DashboardService, public dialog: MatDialog,private messageService: MessageService) {
+  constructor(private _dashboardService: DashboardService, public dialog: MatDialog, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -61,7 +61,18 @@ export class DashboardComponent implements OnInit {
 
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
-      mentor.photo = 'data:image/jpg;base64,' + mentor.photo;
+      mentor.photo = 'data:image/png;base64,' + mentor.photo;
+      if (mentor.skills?.toLowerCase().includes("full stack")) {
+        mentor.displayPic = "../../assets/images/full-stack.png"
+      } else if (mentor.skills?.toLowerCase().includes("selenium")) {
+        mentor.displayPic = "../../assets/images/selenium.svg"
+      } else if (mentor.skills?.toLowerCase().includes("java")) {
+        mentor.displayPic = "../../assets/images/java.svg"
+      } else if (mentor.skills?.toLowerCase().includes("sql")) {
+        mentor.displayPic = "../../assets/images/sql.png"
+      } else {
+        mentor.displayPic = "../../assets/images/coder.svg"
+      }
     });
   }
 
@@ -91,7 +102,7 @@ export class DashboardComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Applied Successfully!',
-            life:3000,
+            life: 3000,
           });
         }
       });
@@ -115,13 +126,13 @@ export class DashboardComponent implements OnInit {
         this.messageService.add({
           severity: 'success',
           summary: 'Mentor Approved Successfully!',
-          life:3000,
+          life: 3000,
         });
       }
     })
   }
 
-  viewMentor(user: User){
+  viewMentor(user: User) {
     this.dialog.open(MentorProfileComponent, {
       data: user,
       height: '85%',
