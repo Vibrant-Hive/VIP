@@ -19,15 +19,30 @@
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="2" class="contact">
         <mat-grid-tile-header>Contact</mat-grid-tile-header>
-        <mat-icon> email</mat-icon>
-        <span>{{mentor.email}}</span>
+        <mat-list role="list" style="padding-top: 15%">
+          <mat-list-item role="list-item">
+            <mat-icon style="padding-right: 15%"> email</mat-icon>
+            <span><a style="color:#FFFFFF;font-size: small" href="mailto:{{mentor.email}}">{{mentor.email}}</a></span>
+          </mat-list-item>
+          <mat-list-item role="list-item">
+            <mat-icon style="padding-right: 15%"> phone</mat-icon>
+            <span><a style="color:#FFFFFF;" href="tel:{{mentor.mobileNo}}"> +91- {{mentor.mobileNo}}</a></span>
+          </mat-list-item>
+        </mat-list>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="3" [rowspan]="2" class="booking">
         <mat-grid-tile-header>Booking</mat-grid-tile-header>
-        <span style="font-size:large;">₹{{mentor.rate}} Per Session (approx. 90 Minutes)</span>
+        <span style="font-size:large;">₹ {{mentor.rate}} <span
+          style="font-size: small">/ 40 mins of collaboration</span></span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button">Pay Now</button>
-          <button mat-raised-button color="secondary" class="book-button">Pay After</button>
+          <a aria-label="Chat on WhatsApp" target="_blank"
+             href="https://wa.me/91{{mentor.mobileNo}}?text=Hi,%20I%20need%20your%20support%2E%20" style="margin-right: 1%">
+            <img alt="Chat on WhatsApp" src="../../assets/images/WhatsAppButtonGreenSmall.svg"/>
+          </a>
+          <a aria-label="Connect on Zoom" target="_blank"
+             href="{{mentor.zoomLink}}">
+            <img alt="Connect on Zoom" src="../../assets/images/connectOnZoom.svg" style="width: 160px"/>
+          </a>
         </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>

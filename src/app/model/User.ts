@@ -14,4 +14,5 @@ export interface User {
   rate?: number;
   resume: any;
   displayPic?: string;
+  zoomLink?: string;
 }
