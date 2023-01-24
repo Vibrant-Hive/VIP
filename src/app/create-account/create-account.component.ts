@@ -34,7 +34,7 @@ export class CreateAccountComponent implements OnInit {
           take(1)
         ).subscribe({
           next: _ => {
-            this._router.navigateByUrl('/dashboard').then();
+            this._router.navigateByUrl('/mentors').then();
           }
         });
       }, error => {

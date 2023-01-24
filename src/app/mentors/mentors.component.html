@@ -1,0 +1,83 @@
+<p-toast></p-toast>
+
+<mat-card class="available-mentors" *ngIf="availableMentorsShow">
+  <mat-card-title>Book a Mentor</mat-card-title>
+
+  <mat-card-content>
+    <mat-grid-list cols="4">
+      <mat-grid-tile *ngFor="let mentor of availableMentors">
+        <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
+        <mat-card>
+          <mat-card-content class="mentor-card">
+            <img [src]="mentor['displayPic']" alt="">
+            <span>Industry Experience: {{mentor["experience"]}} years</span>
+            <span>Skills: {{mentor["skills"]}}</span>
+          </mat-card-content>
+        </mat-card>
+        <mat-grid-tile-footer>
+          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">Book</button>
+          <span class="rate"> ₹{{mentor.rate}} <span
+            style="font-size: small">/ 40 mins</span>
+          </span>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mentor-all-details" *ngIf="appliedMentorsShow">
+  <mat-card-title >Applied Mentors</mat-card-title>
+
+  <mat-card-content>
+    <table mat-table [dataSource]="appliedMentors" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef> Experience</th>
+        <td mat-cell *matCellDef="let element"> {{element['experience']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="skills">
+        <th mat-header-cell *matHeaderCellDef> Skills</th>
+        <td mat-cell *matCellDef="let element"> {{element['skills']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="resume">
+        <th mat-header-cell *matHeaderCellDef> Resume</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent" (click)="downloadResume(element['id'])">
+            Download Resume
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef> Rate</th>
+        <td mat-cell *matCellDef="let element">
+          <input matInput type="number" placeholder="Rate" [(ngModel)]="element['rate']" required>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="approve">
+        <th mat-header-cell *matHeaderCellDef> Approve</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="approveMentor(element['id'], element['rate'])">
+            Approve Mentor
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+
+
+
+</mat-card>
+
+

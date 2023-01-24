@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DashboardService} from "../service/dashboard/dashboard.service";
+import {MentorsService} from "../service/mentors/mentors.service";
 import {User} from "../model/User";
 import {saveAs} from 'file-saver';
 import {MatDialog} from "@angular/material/dialog";
@@ -7,55 +7,42 @@ import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component
 import {MessageService} from "primeng/api";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'app-mentors',
+  templateUrl: './mentors.component.html',
+  styleUrls: ['./mentors.component.css'],
   providers: [MessageService]
 })
 
 
-export class DashboardComponent implements OnInit {
-  fileName?: string;
-  resume?: File;
-  photoName?: string;
-  photo?: File;
-  fullName: any;
-  skills: any;
-  experience: any;
-  underReview: boolean = false;
+export class MentorsComponent implements OnInit {
+
   appliedMentorsShow: boolean = false;
-  applyMentorShow: boolean = false;
   availableMentorsShow: boolean = false;
   appliedMentors: User[] = [];
   displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume', 'rate', 'approve'];
   availableMentors: User[] = [];
-  designation: any;
-  languages: any;
 
-  constructor(private _dashboardService: DashboardService, public dialog: MatDialog, private messageService: MessageService) {
+
+  constructor(private _mentorsService: MentorsService, public dialog: MatDialog, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem("role") === 'MENTOR' && sessionStorage.getItem("active") === 'false') {
-      this.underReview = true;
-    } else if (sessionStorage.getItem("role") === 'MASTER') {
+    if (sessionStorage.getItem("role") === 'MASTER') {
       this.appliedMentorsShow = true;
-      this._dashboardService.appliedMentors().subscribe(appliedMentors => {
+      this._mentorsService.appliedMentors().subscribe((appliedMentors: User[]) => {
         if (appliedMentors) {
-          DashboardComponent.preparePhoto(appliedMentors);
+          MentorsComponent.preparePhoto(appliedMentors);
           this.appliedMentors = appliedMentors;
         }
       });
     } else {
       this.availableMentorsShow = true;
-      this._dashboardService.availableMentors().subscribe((availableMentors: User[]) => {
+      this._mentorsService.availableMentors().subscribe((availableMentors: User[]) => {
         if (availableMentors) {
-          DashboardComponent.preparePhoto(availableMentors);
+          MentorsComponent.preparePhoto(availableMentors);
           this.availableMentors = availableMentors;
         }
       });
-
-      this.applyMentorShow = true;
     }
   }
 
@@ -76,42 +63,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  onFileSelected($event: Event) {
-    // @ts-ignore
-    this.resume = $event.target.files[0];
 
-    if (this.resume) {
-      this.fileName = this.resume.name;
-    }
-  }
 
-  onPhotoSelected($event: Event) {
-    // @ts-ignore
-    this.photo = $event.target.files[0];
-
-    if (this.photo) {
-      this.photoName = this.photo.name;
-    }
-  }
-
-  apply() {
-    let userId = sessionStorage.getItem('userId');
-    if (this.resume && this.photo) {
-      this._dashboardService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume, this.photo).subscribe(isSuccess => {
-        if (isSuccess) {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Applied Successfully!',
-            life: 3000,
-          });
-        }
-      });
-    }
-  }
 
   // @ts-ignore
   downloadResume(userId) {
-    this._dashboardService.downloadResume(userId).subscribe(response => {
+    this._mentorsService.downloadResume(userId).subscribe((response: BlobPart) => {
       let blob: any = new Blob([response], {type: 'text/json; charset=utf-8'});
       window.URL.createObjectURL(blob);
       //window.open(url);
@@ -121,7 +78,7 @@ export class DashboardComponent implements OnInit {
 
   // @ts-ignore
   approveMentor(userId, rate) {
-    this._dashboardService.approveMentor(userId, rate).subscribe(isSuccess => {
+    this._mentorsService.approveMentor(userId, rate).subscribe((isSuccess: any) => {
       if (isSuccess) {
         this.messageService.add({
           severity: 'success',

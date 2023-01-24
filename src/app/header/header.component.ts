@@ -35,4 +35,12 @@ export class HeaderComponent implements OnInit {
   showLogin() {
     return !this.isAuthenticated && !this._router.url.includes('login');
   }
+
+  showMentors() {
+    return this.isAuthenticated && !this._router.url.includes('mentors');
+  }
+
+  showApply() {
+    return this.isAuthenticated && !this._router.url.includes('apply');
+  }
 }

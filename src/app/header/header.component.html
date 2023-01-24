@@ -2,7 +2,8 @@
   <span class="example-spacer"></span>
 
   <div class="example-button-row">
-    <button mat-raised-button color="secondary" routerLink="/dashboard" *ngIf="isAuthenticated">Dashboard</button>
+    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">Available Mentors</button>
+    <button mat-raised-button color="secondary" routerLink="/apply" *ngIf="showApply()">Apply as Mentor</button>
     <button mat-raised-button color="primary" routerLink="/login" *ngIf="showLogin()">Login</button>
     <button mat-raised-button color="primary" (click)="logout()" *ngIf="isAuthenticated">Logout</button>
   </div>

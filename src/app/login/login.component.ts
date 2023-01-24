@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       next: user => {
         if(user) {
           this.loginValid = true;
-          this._router.navigateByUrl('/dashboard').then();
+          this._router.navigateByUrl('/mentors').then();
         } else {
           this.loginValid = false
         }

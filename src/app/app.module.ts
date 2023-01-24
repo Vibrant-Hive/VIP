@@ -18,7 +18,7 @@ import {AuthService} from "./service/auth/auth-service.service";
 import {LoginService} from "./service/login/login.service";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {MentorsComponent} from './mentors/mentors.component';
 import {CreateAccountComponent} from './create-account/create-account.component';
 import {MatSelectModule} from "@angular/material/select";
 import {NgxSpinnerModule} from "ngx-spinner";
@@ -27,12 +27,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatDividerModule} from "@angular/material/divider";
-import {DashboardService} from "./service/dashboard/dashboard.service";
+import {MentorsService} from "./service/mentors/mentors.service";
 import {MatTableModule} from "@angular/material/table";
 import {MentorProfileComponent} from './mentor-profile/mentor-profile.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatListModule} from '@angular/material/list';
 import {ToastModule} from "primeng/toast";
+import {BecomeMentorComponent} from './become-mentor/become-mentor.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,10 @@ import {ToastModule} from "primeng/toast";
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    DashboardComponent,
+    MentorsComponent,
     CreateAccountComponent,
-    MentorProfileComponent
+    MentorProfileComponent,
+    BecomeMentorComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ import {ToastModule} from "primeng/toast";
     MatListModule,
     ToastModule
   ],
-  providers: [AuthService, LoginService, DashboardService, HttpClient, {
+  providers: [AuthService, LoginService, MentorsService, HttpClient, {
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,
     multi: true
