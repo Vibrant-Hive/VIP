@@ -1,0 +1,81 @@
+<mat-card class="mentor-all-details">
+  <mat-card-title *ngIf="applyMentorShow">Become a Mentor</mat-card-title>
+  <mat-card-content>
+    <mat-card-title *ngIf="underReview">Your application in under review</mat-card-title>
+    <form #mentorForm="ngForm" (ngSubmit)="apply()">
+      <mat-list role="list">
+        <mat-list-item role="list-item">
+          <mat-form-field>
+            <input matInput placeholder="Full Name" name="fullName" [(ngModel)]="fullName" required>
+            <mat-error>
+              Please provide a valid name
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="Skills" name="skills" [(ngModel)]="skills" required>
+            <mat-error>
+              Please provide your skill-set
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Years of Experience" name="experience" [(ngModel)]="experience"
+                   required>
+            <mat-error>
+              Please provide a valid no. of years
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Current Designation" name="designation" [(ngModel)]="designation"
+                   required>
+            <mat-error>
+              Please provide your current designation
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Spoken Languages" name="languages" [(ngModel)]="languages"
+                   required>
+            <mat-error>
+              Please provide the languages you can speak
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <input type="file" class="file-input"
+                 (change)="onFileSelected($event)" #fileUpload>
+
+          {{fileName || "Upload Resume"}}
+          <button mat-mini-fab color="primary" class="upload-btn"
+                  (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </mat-list-item>
+
+        <mat-list-item role="list-item">
+          <input type="file" class="file-input" #photoUpload
+                 (change)="onPhotoSelected($event)">
+
+          {{photoName || "Upload Photo"}}
+
+          <button mat-mini-fab color="primary" class="upload-btn"
+                  (click)="photoUpload.click()">
+            <mat-icon>insert_photo</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <button mat-raised-button color="primary" class="apply-button" [disabled]="!mentorForm.form.valid">Apply as a
+            mentor
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </form>
+
+  </mat-card-content>
+</mat-card>

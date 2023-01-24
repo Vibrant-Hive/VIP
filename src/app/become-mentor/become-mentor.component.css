@@ -1,0 +1,29 @@
+.upload-btn{
+  margin: 0.5%;
+}
+
+.apply-button{
+  margin: 1%;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-upload{
+  width:25%
+}
+
+mat-form-field{
+  margin: 1%;
+}
+
+mat-grid-tile-header{
+  justify-content: center;
+}
+
+.mentor-all-details{
+  margin: 2% 2% 1%;
+  text-align: center;
+  padding: 2%;
+}

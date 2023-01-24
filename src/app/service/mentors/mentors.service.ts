@@ -6,7 +6,7 @@ import {User} from "../../model/User";
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class MentorsService {
 
   private applyUrl = environment.baseUrl + '/apply';
   private availableMentorsUrl = environment.baseUrl + '/availableMentors';
