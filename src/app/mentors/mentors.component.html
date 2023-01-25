@@ -49,8 +49,8 @@
       <ng-container matColumnDef="resume">
         <th mat-header-cell *matHeaderCellDef> Resume</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="accent" (click)="downloadResume(element['id'])">
-            Download Resume
+          <button mat-raised-button color="accent" (click)="viewMentor(element)">
+            View Profile
           </button>
         </td>
       </ng-container>

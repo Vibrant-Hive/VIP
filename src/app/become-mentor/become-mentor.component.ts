@@ -2,6 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MessageService} from "primeng/api";
 import {MentorsService} from "../service/mentors/mentors.service";
 
+interface AvailabilityOption {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-become-mentor',
   templateUrl: './become-mentor.component.html',
@@ -20,9 +25,17 @@ export class BecomeMentorComponent implements OnInit {
   languages: any;
   applyMentorShow: boolean = false;
   underReview: boolean = false;
+  zoomLink: any;
+  availability: any;
+  availabilityOptions: AvailabilityOption[] = [
+    {value: 'morning', viewValue: 'Morning'},
+    {value: 'afternoon', viewValue: 'Afternoon'},
+    {value: 'evening', viewValue: 'Evening'},
+    {value: 'night', viewValue: 'Night'},
+  ];
 
 
-  constructor(private _mentorsService: MentorsService, private messageService: MessageService) { }
+    constructor(private _mentorsService: MentorsService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("role") === 'MENTOR' && sessionStorage.getItem("active") === 'false') {
@@ -53,7 +66,7 @@ export class BecomeMentorComponent implements OnInit {
   apply() {
     let userId = sessionStorage.getItem('userId');
     if (this.resume && this.photo) {
-      this._mentorsService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.resume, this.photo).subscribe((isSuccess: any) => {
+      this._mentorsService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.zoomLink, this.availability, this.resume, this.photo).subscribe((isSuccess: any) => {
         if (isSuccess) {
           this.messageService.add({
             severity: 'success',

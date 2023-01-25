@@ -15,6 +15,11 @@
           <mat-list-item role="list-item">Spoken Languages: {{mentor.languages}}</mat-list-item>
           <mat-list-item role="list-item">Industry Experience: {{mentor["experience"]}} years</mat-list-item>
           <mat-list-item role="list-item">Skills: {{mentor["skills"]}}</mat-list-item>
+          <mat-list-item role="list-item">
+            <button mat-raised-button color="accent" (click)="downloadResume(mentor.id)">
+              Download Resume
+            </button>
+          </mat-list-item>
         </mat-list>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="2" class="contact">

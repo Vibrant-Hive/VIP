@@ -17,12 +17,14 @@ export class MentorsService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  apply(fullName: any, skills: any, experience: any, designation: any, languages: any, userId: any, resume: any, photo: any) {
+  apply(fullName: any, skills: any, experience: any, designation: any, languages: any, userId: any, zoomLink:any, availability: any, resume: any, photo: any) {
     const params = new HttpParams().set('fullName', fullName)
       .set('skills', skills)
       .set('experience', experience)
       .set('designation', designation)
       .set('languages', languages)
+      .set('zoomLink', zoomLink)
+      .set('availability', availability)
       .set('userId', userId);
     const fileData = new FormData();
     fileData.append("document", resume, resume.fullName);

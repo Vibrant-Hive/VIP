@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MentorsService} from "../service/mentors/mentors.service";
 import {User} from "../model/User";
-import {saveAs} from 'file-saver';
 import {MatDialog} from "@angular/material/dialog";
 import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component";
 import {MessageService} from "primeng/api";
@@ -27,9 +26,9 @@ export class MentorsComponent implements OnInit {
 
   ngOnInit() {
     if (sessionStorage.getItem("role") === 'MASTER') {
-      this.appliedMentorsShow = true;
       this._mentorsService.appliedMentors().subscribe((appliedMentors: User[]) => {
-        if (appliedMentors) {
+        if (appliedMentors.length > 0) {
+          this.appliedMentorsShow = true;
           MentorsComponent.preparePhoto(appliedMentors);
           this.appliedMentors = appliedMentors;
         }
@@ -60,16 +59,6 @@ export class MentorsComponent implements OnInit {
     });
   }
 
-
-  // @ts-ignore
-  downloadResume(userId) {
-    this._mentorsService.downloadResume(userId).subscribe((response: BlobPart) => {
-      let blob: any = new Blob([response], {type: 'text/json; charset=utf-8'});
-      window.URL.createObjectURL(blob);
-      //window.open(url);
-      saveAs(blob, 'resume.docx');
-    });
-  }
 
   // @ts-ignore
   approveMentor(userId, rate) {

@@ -48,6 +48,24 @@
           </mat-form-field>
         </mat-list-item>
         <mat-list-item role="list-item">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Zoom Personal Room Link" name="languages" [(ngModel)]="zoomLink"
+                   required>
+            <mat-error>
+              Please provide the Zoom Personal Room Link
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
+          <mat-form-field>
+            <mat-label>Select Availability</mat-label>
+            <mat-select [(ngModel)]="availability" name="availability" multiple>
+              <mat-option *ngFor="let option of availabilityOptions"
+                          [value]="option.value">{{option.viewValue}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item role="list-item">
           <input type="file" class="file-input"
                  (change)="onFileSelected($event)" #fileUpload>
 
