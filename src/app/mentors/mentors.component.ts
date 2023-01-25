@@ -17,7 +17,6 @@ import {MessageService} from "primeng/api";
 export class MentorsComponent implements OnInit {
 
   appliedMentorsShow: boolean = false;
-  availableMentorsShow: boolean = false;
   appliedMentors: User[] = [];
   displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume', 'rate', 'approve'];
   availableMentors: User[] = [];
@@ -35,15 +34,13 @@ export class MentorsComponent implements OnInit {
           this.appliedMentors = appliedMentors;
         }
       });
-    } else {
-      this.availableMentorsShow = true;
-      this._mentorsService.availableMentors().subscribe((availableMentors: User[]) => {
-        if (availableMentors) {
-          MentorsComponent.preparePhoto(availableMentors);
-          this.availableMentors = availableMentors;
-        }
-      });
     }
+    this._mentorsService.availableMentors().subscribe((availableMentors: User[]) => {
+      if (availableMentors) {
+        MentorsComponent.preparePhoto(availableMentors);
+        this.availableMentors = availableMentors;
+      }
+    });
   }
 
   private static preparePhoto(mentors: User[]) {
@@ -62,8 +59,6 @@ export class MentorsComponent implements OnInit {
       }
     });
   }
-
-
 
 
   // @ts-ignore
