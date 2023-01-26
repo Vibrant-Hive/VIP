@@ -1,11 +1,22 @@
 <mat-toolbar>
   <span class="example-spacer"></span>
 
-  <div class="example-button-row">
-    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">Available Mentors</button>
+  <button style="margin-right: 1%" mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">Mentors</button>
+
+  <div class="example-button-row" *ngIf="!isMobile()">
     <button mat-raised-button color="secondary" routerLink="/apply" *ngIf="showApply()">{{applyButtonText}}</button>
     <button mat-raised-button color="primary" routerLink="/login" *ngIf="showLogin()">Login</button>
     <button mat-raised-button color="primary" (click)="logout()" *ngIf="isAuthenticated">Logout</button>
   </div>
 
+  <div *ngIf="isMobile()">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Account">
+      <mat-icon color="primary">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/apply" *ngIf="showApply()">{{applyButtonText}}</button>
+      <button mat-menu-item routerLink="/login" *ngIf="showLogin()">Login</button>
+      <button mat-menu-item (click)="logout()" *ngIf="isAuthenticated">Logout</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>

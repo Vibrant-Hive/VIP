@@ -8,14 +8,15 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {
+  }
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("userId")){
+    if (sessionStorage.getItem("userId")) {
       this._router.navigateByUrl('/mentors').then();
     } else {
       this._router.navigateByUrl('/login').then();
     }
-  }
 
+  }
 }

@@ -35,6 +35,7 @@ import {MatListModule} from '@angular/material/list';
 import {ToastModule} from "primeng/toast";
 import {BecomeMentorComponent} from './become-mentor/become-mentor.component';
 import {UserService} from "./service/user/user.service";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import {UserService} from "./service/user/user.service";
     MatTableModule,
     MatDialogModule,
     MatListModule,
-    ToastModule
+    ToastModule,
+    MatMenuModule
   ],
   providers: [AuthService, LoginService, MentorsService, UserService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

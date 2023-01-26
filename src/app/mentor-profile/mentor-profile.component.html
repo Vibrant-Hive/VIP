@@ -1,14 +1,14 @@
 <mat-card>
   <mat-card-title>Mentor Profile</mat-card-title>
   <mat-card-content>
-    <mat-grid-list cols="4" rowHeight="3:1">
-      <mat-grid-tile [colspan]="1" [rowspan]="4" class="photo">
+    <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
+      <mat-grid-tile [colspan]="1" [rowspan]="rowSpan_1_4()" class="photo">
         <mat-grid-tile-header>Profile Photo</mat-grid-tile-header>
         <div class="mentor-image">
           <img mat-card-image [src]="mentor.photo" alt="">
         </div>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="3" [rowspan]="4" class="profile">
+      <mat-grid-tile [colspan]="colSpan()" [rowspan]="rowSpan_2_4()" class="profile">
         <mat-grid-tile-header>Profile</mat-grid-tile-header>
         <mat-list role="list">
           <mat-list-item role="list-item">Full Name: {{mentor.fullName}}</mat-list-item>
@@ -22,7 +22,7 @@
           </mat-list-item>
         </mat-list>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="2" class="contact">
+      <mat-grid-tile [colspan]="1" [rowspan]="rowSpan_1_2()" class="contact">
         <mat-grid-tile-header>Contact</mat-grid-tile-header>
         <mat-list role="list" style="padding-top: 15%">
           <mat-list-item role="list-item">
@@ -35,7 +35,7 @@
           </mat-list-item>
         </mat-list>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="3" [rowspan]="2" class="booking">
+      <mat-grid-tile [colspan]="colSpan()" [rowspan]="rowSpan_1_2()" class="booking">
         <mat-grid-tile-header>Booking</mat-grid-tile-header>
         <span style="font-size:large;">₹ {{mentor.rate}} <span
           style="font-size: small">/ 40 mins of collaboration</span></span>

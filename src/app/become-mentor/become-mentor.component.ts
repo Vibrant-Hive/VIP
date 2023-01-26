@@ -3,6 +3,7 @@ import {MessageService} from "primeng/api";
 import {MentorsService} from "../service/mentors/mentors.service";
 import {UserService} from "../service/user/user.service";
 import {User} from "../model/User";
+import {saveAs} from "file-saver";
 
 interface Option {
   value: string;
@@ -17,9 +18,8 @@ interface Option {
 })
 export class BecomeMentorComponent implements OnInit {
   fileName?: string;
-  resume?: File;
-  photoName?: string;
-  photo?: File;
+  resume?: any;
+  photo?: any;
   photoDP: any;
   fullName: any;
   skills: any;
@@ -49,6 +49,9 @@ export class BecomeMentorComponent implements OnInit {
   applyButtonText: any;
   active?: boolean;
   role?: any;
+  resumeFileName: any;
+  resumeFileType: any;
+  resumeDL: any;
   skillOptions: Option[] = [
     {value: 'fullstack', viewValue: 'Full Stack'},
     {value: 'sql', viewValue: 'SQL'},
@@ -57,7 +60,6 @@ export class BecomeMentorComponent implements OnInit {
     {value: 'selenium', viewValue: 'Selenium-Automation'},
     {value: 'tester', viewValue: 'Testing-Manual'},
   ];
-
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService) {
   }
@@ -73,6 +75,7 @@ export class BecomeMentorComponent implements OnInit {
       this.availability = user.availability.split(',');
       this.zoomLink = user.zoomLink;
       this.resume = user.resume;
+      this.resumeDL = this.resume;
       this.photo = user.photo;
       this.photoDP = 'data:image/png;base64,' + user.photo;
       this.skills = user.skills;
@@ -81,6 +84,9 @@ export class BecomeMentorComponent implements OnInit {
       this.languages = user.languages.split(',');
       this.active = user.active;
       this.role = user.role;
+      this.resumeFileName = user.resumeFileName;
+      this.resumeFileType = user.resumeFileType;
+      this.fileName = this.resumeFileName;
     });
 
     if(sessionStorage.getItem('role') =='MENTOR' || sessionStorage.getItem('role') =='MASTER'){
@@ -88,6 +94,14 @@ export class BecomeMentorComponent implements OnInit {
     } else {
       this.active = false;
       this.applyButtonText = "Apply as Mentor"
+    }
+  }
+
+  gridCols(): number {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 3;
     }
   }
 
@@ -126,6 +140,13 @@ export class BecomeMentorComponent implements OnInit {
         this.ngOnInit();
       }
     });
+  }
+
+  downloadResume() {
+    const byteArray = new Uint8Array(atob(this.resumeDL).split('').map(char => char.charCodeAt(0)));
+    let blob: any = new Blob([byteArray], {type: this.resumeFileType });
+    window.URL.createObjectURL(blob);
+    saveAs(blob, this.resumeFileName);
   }
 
 }

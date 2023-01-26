@@ -21,12 +21,58 @@ export class MentorProfileComponent implements OnInit {
     });
   }
 
+  gridCols(): number {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 4;
+    }
+  }
+
   // @ts-ignore
+  colSpan(){
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 3;
+    }
+  }
   downloadResume() {
       const byteArray = new Uint8Array(atob(this.mentor.resume).split('').map(char => char.charCodeAt(0)));
       let blob: any = new Blob([byteArray], {type: this.mentor.resumeFileType });
       window.URL.createObjectURL(blob);
-      //window.open(url);
       saveAs(blob, this.mentor.resumeFileName);
+  }
+
+  rowHeight() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return "1:1";
+    } else {
+      return "3:1";
+    }
+  }
+
+  rowSpan_2_4() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 2;
+    } else {
+      return 4;
+    }
+  }
+
+  rowSpan_1_4() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 4;
+    }
+  }
+
+  rowSpan_1_2() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 2;
+    }
   }
 }

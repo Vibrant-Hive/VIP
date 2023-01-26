@@ -1,14 +1,14 @@
 <p-toast></p-toast>
 <mat-card class="mentor-details">
-  <mat-card-title *ngIf="yourProfileShow">Your Profile</mat-card-title>
+  <mat-card-title *ngIf="yourProfileShow">Profile</mat-card-title>
   <mat-card-content>
     <mat-card-title *ngIf="underReview">Application Under Review</mat-card-title>
     <form #mentorForm="ngForm">
-      <mat-grid-list cols="3">
+      <mat-grid-list [cols]="gridCols()">
         <mat-grid-tile>
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
-              <mat-grid-tile-header mar>Profile Photo</mat-grid-tile-header>
+              <mat-grid-tile-header>Photo</mat-grid-tile-header>
               <div class="mentor-image">
                 <img mat-card-image [src]="photoDP" alt="">
               </div>
@@ -102,6 +102,9 @@
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="fileUpload.click()">
                   <mat-icon>attach_file</mat-icon>
+                </button>
+                <button mat-raised-button style="margin:5%" color="accent" (click)="downloadResume()">
+                  Download Resume
                 </button>
               </div>
             </mat-card-content>

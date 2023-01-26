@@ -4,7 +4,7 @@
   <mat-card-title>Available Mentors</mat-card-title>
 
   <mat-card-content>
-    <mat-grid-list cols="4">
+    <mat-grid-list [cols]="gridCols()">
       <mat-grid-tile *ngFor="let mentor of availableMentors">
         <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
         <mat-card>

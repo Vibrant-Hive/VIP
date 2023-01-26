@@ -42,6 +42,14 @@ export class MentorsComponent implements OnInit {
     });
   }
 
+  gridCols(): number {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return 1;
+    } else {
+      return 4;
+    }
+  }
+
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
       if (mentor.skills?.toLowerCase().includes("fullstack") || mentor.skills?.toLowerCase().includes("tester") || mentor.skills?.toLowerCase().includes("sql")) {

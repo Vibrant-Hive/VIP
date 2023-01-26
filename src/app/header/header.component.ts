@@ -23,13 +23,23 @@ export class HeaderComponent implements OnInit {
       takeUntil(this._destroySub$)
     ).subscribe((isAuthenticated: boolean) => {
       this.isAuthenticated = isAuthenticated;
-      if(sessionStorage.getItem('role') =='MENTOR' || sessionStorage.getItem('role') =='MASTER'){
+      if (sessionStorage.getItem('role') == 'MENTOR' || sessionStorage.getItem('role') == 'MASTER') {
         this.applyButtonText = "Profile: " + sessionStorage.getItem('fullName')
       } else {
         this.applyButtonText = "Apply as Mentor"
       }
+      HeaderComponent.setDevice();
+      window.onresize = () => {
+        HeaderComponent.setDevice();
+      }
     })
+  }
 
+  private static setDevice() {
+    if (window.innerWidth <= 500)
+      sessionStorage.setItem('device', 'mobile');
+    else
+      sessionStorage.setItem('device', 'desktop');
   }
 
   public ngOnDestroy(): void {
@@ -51,5 +61,9 @@ export class HeaderComponent implements OnInit {
 
   showApply() {
     return this.isAuthenticated && !this._router.url.includes('apply');
+  }
+
+  isMobile(){
+    return sessionStorage.getItem('device') === 'mobile';
   }
 }
