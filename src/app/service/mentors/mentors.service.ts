@@ -8,7 +8,7 @@ import {User} from "../../model/User";
 })
 export class MentorsService {
 
-  private applyUrl = environment.baseUrl + '/apply';
+  private updateProfileUrl = environment.baseUrl + '/updateProfile';
   private availableMentorsUrl = environment.baseUrl + '/availableMentors';
   private appliedMentorsUrl = environment.baseUrl + '/appliedMentors';
   private downloadResumeUrl = environment.baseUrl + '/downloadResume';
@@ -17,9 +17,11 @@ export class MentorsService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  apply(fullName: any, skills: any, experience: any, designation: any, languages: any, userId: any, zoomLink:any, availability: any, resume: any, photo: any) {
+  updateProfile(fullName: any, skills: any, role: any, active: any, experience: any, designation: any, languages: any, userId: any, zoomLink: any, availability: any, resume: any, photo: any) {
     const params = new HttpParams().set('fullName', fullName)
       .set('skills', skills)
+      .set('role', role)
+      .set('active', active)
       .set('experience', experience)
       .set('designation', designation)
       .set('languages', languages)
@@ -27,9 +29,11 @@ export class MentorsService {
       .set('availability', availability)
       .set('userId', userId);
     const fileData = new FormData();
-    fileData.append("document", resume, resume.fullName);
-    fileData.append("document", photo, photo.fullName);
-    return this._httpClient.post<boolean>(this.applyUrl, fileData, {params});
+    if (resume instanceof File)
+      fileData.append("resume", resume, resume.name);
+    if (photo instanceof File)
+      fileData.append("photo", photo, photo.name);
+    return this._httpClient.post<boolean>(this.updateProfileUrl, fileData, {params});
   }
 
   availableMentors() {

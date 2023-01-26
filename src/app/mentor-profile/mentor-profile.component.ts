@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {User} from "../model/User";
 import {saveAs} from "file-saver";
 import {MentorsService} from "../service/mentors/mentors.service";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-mentor-profile',
@@ -11,18 +12,21 @@ import {MentorsService} from "../service/mentors/mentors.service";
 })
 export class MentorProfileComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public mentor: User, private _mentorsService: MentorsService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public mentor: User, private _mentorsService: MentorsService, private _userService: UserService) { }
 
   ngOnInit(): void {
+    this._userService.getUser(this.mentor.id).subscribe((user: User) => {
+      this.mentor = user;
+      this.mentor.photo = 'data:image/png;base64,' + this.mentor.photo;
+    });
   }
 
   // @ts-ignore
-  downloadResume(userId) {
-    this._mentorsService.downloadResume(userId).subscribe((response: BlobPart) => {
-      let blob: any = new Blob([response], {type: 'text/json; charset=utf-8'});
+  downloadResume() {
+      const byteArray = new Uint8Array(atob(this.mentor.resume).split('').map(char => char.charCodeAt(0)));
+      let blob: any = new Blob([byteArray], {type: this.mentor.resumeFileType });
       window.URL.createObjectURL(blob);
       //window.open(url);
-      saveAs(blob, 'resume.docx');
-    });
+      saveAs(blob, this.mentor.resumeFileName);
   }
 }

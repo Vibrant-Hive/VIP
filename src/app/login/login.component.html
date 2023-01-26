@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #loginForm="ngForm">
       <h2>Log In</h2>
       <mat-error *ngIf="!loginValid">
         The credentials were not recognized
@@ -18,9 +18,9 @@
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+      <button mat-button style="background: dimgrey; float: right;" routerLink="/createAccount">Create a New Account</button>
     </form>
   </mat-card-content>
-  <button mat-button color="secondary" routerLink="/createAccount">Create a New Account</button>
 </mat-card>
 

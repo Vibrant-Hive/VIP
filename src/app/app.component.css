@@ -1,3 +1,6 @@
 main{
   min-height: 100%;
+  background-image: url('../assets/images/tent.jpg');
+  background-size: cover;
+  padding: 1%
 }

@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
+  applyButtonText: any;
 
   constructor(
     private _authService: AuthService,
@@ -20,7 +21,15 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this._authService.isAuthenticated$.pipe(
       takeUntil(this._destroySub$)
-    ).subscribe((isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated)
+    ).subscribe((isAuthenticated: boolean) => {
+      this.isAuthenticated = isAuthenticated;
+      if(sessionStorage.getItem('role') =='MENTOR' || sessionStorage.getItem('role') =='MASTER'){
+        this.applyButtonText = "Profile: " + sessionStorage.getItem('fullName')
+      } else {
+        this.applyButtonText = "Apply as Mentor"
+      }
+    })
+
   }
 
   public ngOnDestroy(): void {

@@ -1,7 +1,5 @@
 .mentor-image{
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 5% !important;
+  margin: 30% 20%;
 }
 
 mat-card-title{
@@ -26,3 +24,9 @@ mat-grid-tile-footer{
   width: 40%;
   margin: 2%!important;
 }
+
+mat-card {
+  margin: auto;
+}
+
+

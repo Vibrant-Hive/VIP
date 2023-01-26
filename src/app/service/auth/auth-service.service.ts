@@ -2,6 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {BehaviorSubject, Observable, tap} from 'rxjs';
 import {Router} from '@angular/router';
 import {LoginService} from "../login/login.service";
+import {User} from "../../model/User";
 
 
 @Injectable({
@@ -23,21 +24,17 @@ export class AuthService implements OnDestroy {
     this._authSub$.complete();
   }
 
-  public login(userName: string, password: string): Observable<Object> {
+  public login(userName: string, password: string): Observable<User> {
     return this._authClient.signInWithCredentials(userName, password).pipe(
        tap( user => {
-         if(user) {
-           this._authSub$.next(true);
-           // @ts-ignore
+         if(user.id) {
            sessionStorage.setItem('email', user.email);
-           // @ts-ignore
+           sessionStorage.setItem('fullName', user.fullName);
            sessionStorage.setItem('mobileNo', user.mobileNo);
-           // @ts-ignore
-           sessionStorage.setItem('userId', user.id);
-           // @ts-ignore
+           sessionStorage.setItem('userId', String(user.id));
            sessionStorage.setItem('role', user.role);
-           // @ts-ignore
-           sessionStorage.setItem('active', user.active);
+           sessionStorage.setItem('active', String(user.active));
+           this._authSub$.next(true);
          }
        })
     );

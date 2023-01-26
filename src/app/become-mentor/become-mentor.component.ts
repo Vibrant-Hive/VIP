@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "primeng/api";
 import {MentorsService} from "../service/mentors/mentors.service";
+import {UserService} from "../service/user/user.service";
+import {User} from "../model/User";
 
-interface AvailabilityOption {
+interface Option {
   value: string;
   viewValue: string;
 }
@@ -18,30 +20,74 @@ export class BecomeMentorComponent implements OnInit {
   resume?: File;
   photoName?: string;
   photo?: File;
+  photoDP: any;
   fullName: any;
   skills: any;
   experience: any;
   designation: any;
   languages: any;
-  applyMentorShow: boolean = false;
+  yourProfileShow: boolean = false;
   underReview: boolean = false;
   zoomLink: any;
   availability: any;
-  availabilityOptions: AvailabilityOption[] = [
+  availabilityOptions: Option[] = [
     {value: 'morning', viewValue: 'Morning'},
     {value: 'afternoon', viewValue: 'Afternoon'},
     {value: 'evening', viewValue: 'Evening'},
     {value: 'night', viewValue: 'Night'},
   ];
+  languageOptions: Option[] = [
+    {value: 'english', viewValue: 'English'},
+    {value: 'tamil', viewValue: 'Tamil'},
+    {value: 'hindi', viewValue: 'Hindi'},
+    {value: 'urdu', viewValue: 'Urdu'},
+    {value: 'telugu', viewValue: 'Telugu'},
+    {value: 'malayalam', viewValue: 'Malayalam'},
+    {value: 'french', viewValue: 'French'},
+    {value: 'kannada', viewValue: 'Kannada'},
+  ];
+  applyButtonText: any;
+  active?: boolean;
+  role?: any;
+  skillOptions: Option[] = [
+    {value: 'fullstack', viewValue: 'Full Stack'},
+    {value: 'sql', viewValue: 'SQL'},
+    {value: 'java', viewValue: 'Java-Backend'},
+    {value: 'angular', viewValue: 'Angular-UI'},
+    {value: 'selenium', viewValue: 'Selenium-Automation'},
+    {value: 'tester', viewValue: 'Testing-Manual'},
+  ];
 
 
-    constructor(private _mentorsService: MentorsService, private messageService: MessageService) { }
+  constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService) {
+  }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("role") === 'MENTOR' && sessionStorage.getItem("active") === 'false') {
       this.underReview = true;
     } else {
-      this.applyMentorShow = true;
+      this.yourProfileShow = true;
+    }
+    this._userService.getUser(sessionStorage.getItem('userId')).subscribe((user: User) => {
+      this.fullName = user.fullName;
+      this.availability = user.availability.split(',');
+      this.zoomLink = user.zoomLink;
+      this.resume = user.resume;
+      this.photo = user.photo;
+      this.photoDP = 'data:image/png;base64,' + user.photo;
+      this.skills = user.skills;
+      this.designation = user.designation;
+      this.experience = user.experience;
+      this.languages = user.languages.split(',');
+      this.active = user.active;
+      this.role = user.role;
+    });
+
+    if(sessionStorage.getItem('role') =='MENTOR' || sessionStorage.getItem('role') =='MASTER'){
+      this.applyButtonText = "Save Profile"
+    } else {
+      this.active = false;
+      this.applyButtonText = "Apply as Mentor"
     }
   }
 
@@ -59,23 +105,27 @@ export class BecomeMentorComponent implements OnInit {
     this.photo = $event.target.files[0];
 
     if (this.photo) {
-      this.photoName = this.photo.name;
+      let reader = new FileReader();
+      reader.readAsDataURL(this.photo);
+
+      reader.onload = (_event) => {
+        this.photoDP = reader.result;
+      }
     }
   }
 
-  apply() {
+  updateProfile() {
     let userId = sessionStorage.getItem('userId');
-    if (this.resume && this.photo) {
-      this._mentorsService.apply(this.fullName, this.skills, this.experience, this.designation, this.languages, userId, this.zoomLink, this.availability, this.resume, this.photo).subscribe((isSuccess: any) => {
-        if (isSuccess) {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Applied Successfully!',
-            life: 3000,
-          });
-        }
-      });
-    }
+    this._mentorsService.updateProfile(this.fullName, this.skills, this.role, this.active, this.experience, this.designation, this.languages, userId, this.zoomLink, this.availability, this.resume, this.photo).subscribe((isSuccess: any) => {
+      if (isSuccess) {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Applied Successfully!',
+          life: 3000,
+        });
+        this.ngOnInit();
+      }
+    });
   }
 
 }

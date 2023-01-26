@@ -1,8 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
 
-.mentor-all-details .mat-list-base .mat-list-item .mat-list-item-content{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mentor-all-details .mat-list-base .mat-list-item .mat-list-item-content {
   justify-content: center;
+}
+
+.mat-dialog-container {
+  background-color: rgba(120, 120, 120, 0.9) !important;
+}
+
+.available-mentors .mat-grid-tile-content {
+  height: 85%;
+  width: 90%;
 }

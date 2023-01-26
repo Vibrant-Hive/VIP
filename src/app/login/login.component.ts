@@ -41,12 +41,12 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.userName, this.password).pipe(
       take(1)
     ).subscribe({
-      next: user => {
-        if(user) {
+      next: (user) => {
+        if(user.id) {
           this.loginValid = true;
           this._router.navigateByUrl('/mentors').then();
         } else {
-          this.loginValid = false
+          this.loginValid = false;
         }
       },
       error: _ => this.loginValid = false

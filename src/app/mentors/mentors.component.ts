@@ -44,17 +44,10 @@ export class MentorsComponent implements OnInit {
 
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
-      mentor.photo = 'data:image/png;base64,' + mentor.photo;
-      if (mentor.skills?.toLowerCase().includes("full stack")) {
-        mentor.displayPic = "../../assets/images/full-stack.png"
-      } else if (mentor.skills?.toLowerCase().includes("selenium")) {
-        mentor.displayPic = "../../assets/images/selenium.svg"
-      } else if (mentor.skills?.toLowerCase().includes("java")) {
-        mentor.displayPic = "../../assets/images/java.svg"
-      } else if (mentor.skills?.toLowerCase().includes("sql")) {
-        mentor.displayPic = "../../assets/images/sql.png"
+      if (mentor.skills?.toLowerCase().includes("fullstack") || mentor.skills?.toLowerCase().includes("tester") || mentor.skills?.toLowerCase().includes("sql")) {
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase() +".png"
       } else {
-        mentor.displayPic = "../../assets/images/coder.svg"
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase() +".svg"
       }
     });
   }
@@ -69,6 +62,7 @@ export class MentorsComponent implements OnInit {
           summary: 'Mentor Approved Successfully!',
           life: 3000,
         });
+        this.ngOnInit();
       }
     })
   }
@@ -76,7 +70,7 @@ export class MentorsComponent implements OnInit {
   viewMentor(user: User) {
     this.dialog.open(MentorProfileComponent, {
       data: user,
-      height: '85%',
+      height: '90%',
       width: '70%',
     });
   }

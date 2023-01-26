@@ -3,15 +3,12 @@
   flex-direction: column;
 }
 
-.mentor-image{
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 5% !important;
+mat-card {
+  background-color: rgba(0,0,0,0.9)!important;
 }
 
 mat-card-content img{
-  border-style: solid;
-  border-width: 5px;
+  border-style: inset;
 }
 
 .mentor-form{
@@ -25,7 +22,7 @@ mat-card-content img{
 }
 
 .available-mentors{
-  margin: 1% 2% 2%;
+  margin: 0 2%;
   text-align: center;
 }
 
