@@ -20,6 +20,7 @@ export class BecomeMentorComponent implements OnInit {
   fileName?: string;
   resume?: any;
   photo?: any;
+  photoName?: any;
   photoDP: any;
   fullName: any;
   skills: any;
@@ -72,29 +73,31 @@ export class BecomeMentorComponent implements OnInit {
     }
     this._userService.getUser(sessionStorage.getItem('userId')).subscribe((user: User) => {
       this.fullName = user.fullName;
-      this.availability = user.availability.split(',');
+      this.availability = user.availability?user.availability.split(','):'';
       this.zoomLink = user.zoomLink;
       this.resume = user.resume;
       this.resumeDL = this.resume;
       this.photo = user.photo;
+      this.photoName = user.photoFileName;
       this.photoDP = 'data:image/png;base64,' + user.photo;
       this.skills = user.skills;
       this.designation = user.designation;
       this.experience = user.experience;
-      this.languages = user.languages.split(',');
+      this.languages = user.languages?user.languages.split(','):'';
       this.active = user.active;
       this.role = user.role;
       this.resumeFileName = user.resumeFileName;
       this.resumeFileType = user.resumeFileType;
       this.fileName = this.resumeFileName;
-    });
 
-    if(sessionStorage.getItem('role') =='MENTOR' || sessionStorage.getItem('role') =='MASTER'){
-      this.applyButtonText = "Save Profile"
-    } else {
-      this.active = false;
-      this.applyButtonText = "Apply as Mentor"
-    }
+      if(!this.role){
+        this.active = false;
+        this.role = "MENTOR";
+        this.applyButtonText = "Apply as Mentor"
+      } else {
+        this.applyButtonText = "Save Profile"
+      }
+    });
   }
 
   gridCols(): number {
@@ -124,6 +127,7 @@ export class BecomeMentorComponent implements OnInit {
 
       reader.onload = (_event) => {
         this.photoDP = reader.result;
+        this.photoName = this.photo.name;
       }
     }
   }

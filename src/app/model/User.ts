@@ -15,6 +15,7 @@ export interface User {
   resume: any;
   resumeFileType: string;
   resumeFileName: string;
+  photoFileName: string;
   displayPic: string;
   zoomLink: string;
 }

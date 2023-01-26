@@ -8,7 +8,6 @@
         <mat-grid-tile>
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
-              <mat-grid-tile-header>Photo</mat-grid-tile-header>
               <div class="mentor-image">
                 <img mat-card-image [src]="photoDP" alt="">
               </div>
@@ -16,7 +15,7 @@
                 <input type="file" class="file-input" #photoUpload
                        (change)="onPhotoSelected($event)">
 
-                <!--            {{photoName || "Upload Photo"}}-->
+                            {{photoName || "Upload Photo"}}
 
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="photoUpload.click()">
