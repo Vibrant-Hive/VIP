@@ -26,7 +26,7 @@ mat-grid-tile-header{
 
 .mentor-details {
   text-align: center;
-  width: 90%;
+  width: 75%;
   margin: auto!important;
   background-color: rgba(0,0,0,0.9)!important;
 }
@@ -36,9 +36,31 @@ mat-grid-tile-header{
   flex-direction: column;
 }
 
-.mentor-image{
-  margin: 10% 10% -10% 10%;
-  padding-top: 5%;
+
+@media (min-width: 300px) {
+  .mentor-image{
+    padding: 15% 25% 15% 25%;
+    max-height:250px;
+  }
+  .mentor-details {
+    width: 95%;
+  }
+  mat-list-item{
+    height:38px!important;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mentor-image{
+    padding: 5% 25% 5% 25%;
+    max-height:350px;
+  }
+  .mentor-details {
+    width: 80%;
+  }
+  mat-list-item{
+    height:48px!important;
+  }
 }
 
 .mentor-section{
@@ -46,3 +68,5 @@ mat-grid-tile-header{
   min-height: 100%;
   min-width: 100%;
 }
+
+

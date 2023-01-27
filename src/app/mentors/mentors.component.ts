@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MentorsService} from "../service/mentors/mentors.service";
 import {User} from "../model/User";
-import {MatDialog} from "@angular/material/dialog";
-import {MentorProfileComponent} from "../mentor-profile/mentor-profile.component";
 import {MessageService} from "primeng/api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-mentors',
@@ -21,7 +20,7 @@ export class MentorsComponent implements OnInit {
   availableMentors: User[] = [];
 
 
-  constructor(private _mentorsService: MentorsService, public dialog: MatDialog, private messageService: MessageService) {
+  constructor(private _mentorsService: MentorsService, private _router: Router, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -52,10 +51,10 @@ export class MentorsComponent implements OnInit {
 
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
-      if (mentor.skills?.toLowerCase().includes("fullstack") || mentor.skills?.toLowerCase().includes("tester") || mentor.skills?.toLowerCase().includes("sql")) {
-        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase() +".png"
+      if (mentor.skills?.includes("FULL STACK") || mentor.skills?.includes("TESTING MANUAL") || mentor.skills?.includes("SQL")) {
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".png"
       } else {
-        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase() +".svg"
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".svg"
       }
     });
   }
@@ -76,10 +75,8 @@ export class MentorsComponent implements OnInit {
   }
 
   viewMentor(user: User) {
-    this.dialog.open(MentorProfileComponent, {
-      data: user,
-      height: '90%',
-      width: '70%',
-    });
+    sessionStorage.setItem('currentUserId', String(user.id));
+    sessionStorage.setItem('action', 'book');
+    this._router.navigateByUrl('/profile').then();
   }
 }

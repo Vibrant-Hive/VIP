@@ -32,20 +32,20 @@ export class BecomeMentorComponent implements OnInit {
   zoomLink: any;
   availability: any;
   availabilityOptions: Option[] = [
-    {value: 'morning', viewValue: 'Morning'},
-    {value: 'afternoon', viewValue: 'Afternoon'},
-    {value: 'evening', viewValue: 'Evening'},
-    {value: 'night', viewValue: 'Night'},
+    {value: 'Morning', viewValue: 'Morning'},
+    {value: 'Afternoon', viewValue: 'Afternoon'},
+    {value: 'Evening', viewValue: 'Evening'},
+    {value: 'Night', viewValue: 'Night'},
   ];
   languageOptions: Option[] = [
-    {value: 'english', viewValue: 'English'},
-    {value: 'tamil', viewValue: 'Tamil'},
-    {value: 'hindi', viewValue: 'Hindi'},
-    {value: 'urdu', viewValue: 'Urdu'},
-    {value: 'telugu', viewValue: 'Telugu'},
-    {value: 'malayalam', viewValue: 'Malayalam'},
-    {value: 'french', viewValue: 'French'},
-    {value: 'kannada', viewValue: 'Kannada'},
+    {value: 'English', viewValue: 'English'},
+    {value: 'Tamil', viewValue: 'Tamil'},
+    {value: 'Hindi', viewValue: 'Hindi'},
+    {value: 'Urdu', viewValue: 'Urdu'},
+    {value: 'Telugu', viewValue: 'Telugu'},
+    {value: 'Malayalam', viewValue: 'Malayalam'},
+    {value: 'French', viewValue: 'French'},
+    {value: 'Kannada', viewValue: 'Kannada'},
   ];
   applyButtonText: any;
   active?: boolean;
@@ -53,25 +53,26 @@ export class BecomeMentorComponent implements OnInit {
   resumeFileName: any;
   resumeFileType: any;
   resumeDL: any;
+  editing?: boolean;
+  mobileNo: any;
   skillOptions: Option[] = [
-    {value: 'fullstack', viewValue: 'Full Stack'},
-    {value: 'sql', viewValue: 'SQL'},
-    {value: 'java', viewValue: 'Java-Backend'},
-    {value: 'angular', viewValue: 'Angular-UI'},
-    {value: 'selenium', viewValue: 'Selenium-Automation'},
-    {value: 'tester', viewValue: 'Testing-Manual'},
+    {value: 'FULL STACK', viewValue: 'FULL STACK'},
+    {value: 'SQL', viewValue: 'SQL'},
+    {value: 'JAVA BACKEND', viewValue: 'JAVA BACKEND'},
+    {value: 'ANGULAR UI', viewValue: 'ANGULAR UI'},
+    {value: 'SELENIUM AUTOMATION', viewValue: 'SELENIUM AUTOMATION'},
+    {value: 'TESTING MANUAL', viewValue: 'TESTING MANUAL'},
   ];
+  email?: string;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService) {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("role") === 'MENTOR' && sessionStorage.getItem("active") === 'false') {
-      this.underReview = true;
-    } else {
-      this.yourProfileShow = true;
+    if (sessionStorage.getItem('action') === 'edit') {
+      this.editing = true;
     }
-    this._userService.getUser(sessionStorage.getItem('userId')).subscribe((user: User) => {
+    this._userService.getUser(sessionStorage.getItem('currentUserId')).subscribe((user: User) => {
       this.fullName = user.fullName;
       this.availability = user.availability?user.availability.split(','):'';
       this.zoomLink = user.zoomLink;
@@ -88,14 +89,22 @@ export class BecomeMentorComponent implements OnInit {
       this.role = user.role;
       this.resumeFileName = user.resumeFileName;
       this.resumeFileType = user.resumeFileType;
-      this.fileName = this.resumeFileName;
+      this.fileName = user.resumeFileName;
+      this.mobileNo = user.mobileNo;
+      this.email = user.email;
 
       if(!this.role){
         this.active = false;
         this.role = "MENTOR";
         this.applyButtonText = "Apply as Mentor"
+        if (this.role === 'MENTOR' && !this.active) {
+          this.underReview = true;
+        } else {
+          this.yourProfileShow = true;
+        }
       } else {
         this.applyButtonText = "Save Profile"
+        this.yourProfileShow = true;
       }
     });
   }
@@ -104,7 +113,11 @@ export class BecomeMentorComponent implements OnInit {
     if (sessionStorage.getItem('device') === 'mobile') {
       return 1;
     } else {
-      return 3;
+      if(sessionStorage.getItem('action') === 'edit'){
+        return 3;
+      } else {
+        return 2;
+      }
     }
   }
 
@@ -138,8 +151,7 @@ export class BecomeMentorComponent implements OnInit {
       if (isSuccess) {
         this.messageService.add({
           severity: 'success',
-          summary: 'Applied Successfully!',
-          life: 3000,
+          summary: 'Updated Successfully!',
         });
         this.ngOnInit();
       }
@@ -153,4 +165,15 @@ export class BecomeMentorComponent implements OnInit {
     saveAs(blob, this.resumeFileName);
   }
 
+  rowHeight() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return "1:1";
+    } else {
+      if(sessionStorage.getItem('action') === 'edit'){
+        return "1:1";
+      } else {
+        return "3:2";
+      }
+    }
+  }
 }

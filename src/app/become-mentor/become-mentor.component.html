@@ -4,18 +4,18 @@
   <mat-card-content>
     <mat-card-title *ngIf="underReview">Application Under Review</mat-card-title>
     <form #mentorForm="ngForm">
-      <mat-grid-list [cols]="gridCols()">
+      <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
         <mat-grid-tile>
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
               <div class="mentor-image">
                 <img mat-card-image [src]="photoDP" alt="">
               </div>
-              <div>
+              <div *ngIf="editing">
                 <input type="file" class="file-input" #photoUpload
                        (change)="onPhotoSelected($event)">
 
-                            {{photoName || "Upload Photo"}}
+                {{photoName?'':"Upload Photo"}}
 
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="photoUpload.click()">
@@ -25,7 +25,7 @@
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <mat-grid-tile *ngIf="editing">
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
               <mat-form-field>
@@ -34,6 +34,7 @@
                   Please provide a name
                 </mat-error>
               </mat-form-field>
+
               <mat-form-field>
                 <mat-label>Languages Spoken</mat-label>
                 <mat-select [(ngModel)]="languages" name="languages" multiple>
@@ -44,6 +45,7 @@
                   Please provide the languages you can speak
                 </mat-error>
               </mat-form-field>
+
               <mat-form-field>
                 <input matInput type="text" placeholder="Zoom Personal Room Link" name="zoomLink" [(ngModel)]="zoomLink"
                        required>
@@ -51,6 +53,7 @@
                   Please provide the Zoom Personal Room Link
                 </mat-error>
               </mat-form-field>
+
               <mat-form-field>
                 <mat-label>Select Availability</mat-label>
                 <mat-select [(ngModel)]="availability" name="availability" multiple>
@@ -61,10 +64,11 @@
                   Please provide your availability
                 </mat-error>
               </mat-form-field>
+
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <mat-grid-tile *ngIf="editing">
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
               <mat-form-field class="example-full-width">
@@ -102,10 +106,36 @@
                         (click)="fileUpload.click()">
                   <mat-icon>attach_file</mat-icon>
                 </button>
-                <button mat-raised-button style="margin:5%" color="accent" (click)="downloadResume()">
-                  Download Resume
-                </button>
               </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="!editing">
+          <mat-card class="mentor-section">
+            <mat-card-content class="mentor-card">
+              <mat-list role="list">
+                <mat-list-item *ngIf="!editing" role="list-item"
+                               style="font-size: x-large; color: deeppink; font-weight: bold">{{fullName}}</mat-list-item>
+
+                <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold; font-style: italic">{{skills}}</mat-list-item>
+                <mat-list-item *ngIf="!editing" role="list-item"><span style="color: slategray">Speaks&nbsp; </span>
+                  {{languages?languages.toString().replace(',', ', '):''}}
+                </mat-list-item>
+                <mat-list-item *ngIf="!editing" role="list-item"><span
+                  style="color: slategray">Teaches at&nbsp;  </span>
+                  {{availability?availability.toString().replace(',', ', '):''}}
+                </mat-list-item>
+                <mat-list-item *ngIf="!editing" role="list-item"><span
+                  style="color: slategray">Experience of&nbsp; </span>
+                  {{experience}} years
+                </mat-list-item>
+                <mat-list-item>
+                  <button mat-raised-button style="margin:5%" color="accent" (click)="downloadResume()">
+                    Download Resume
+                  </button>
+                </mat-list-item>
+                <mat-list-item *ngIf="!editing" role="list-item">{{designation}}</mat-list-item>
+              </mat-list>
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
@@ -115,9 +145,21 @@
 
   </mat-card-content>
   <mat-card-footer>
-    <button mat-raised-button color="primary" class="apply-button" (click)="updateProfile()"
+    <button *ngIf="editing" mat-raised-button color="primary" class="apply-button" (click)="updateProfile()"
             [disabled]="!mentorForm.form.valid">
       {{applyButtonText}}
     </button>
+
+    <div *ngIf="!editing">
+      <a aria-label="Chat on WhatsApp" target="_blank"
+         href="https://wa.me/91{{mobileNo}}?text=Hi,%20I%20need%20your%20support%2E%20"
+         style="margin-right: 1%">
+        <img alt="Chat on WhatsApp" src="../../assets/images/WhatsAppButtonGreenSmall.svg"/>
+      </a>
+      <a aria-label="Connect on Zoom" target="_blank"
+         href="{{zoomLink}}">
+        <img alt="Connect on Zoom" src="../../assets/images/connectOnZoom.svg" style="width: 160px"/>
+      </a>
+    </div>
   </mat-card-footer>
 </mat-card>

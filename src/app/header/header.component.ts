@@ -60,10 +60,16 @@ export class HeaderComponent implements OnInit {
   }
 
   showApply() {
-    return this.isAuthenticated && !this._router.url.includes('apply');
+    return this.isAuthenticated && !this._router.url.includes('profile');
   }
 
   isMobile(){
     return sessionStorage.getItem('device') === 'mobile';
+  }
+
+  showProfile() {
+    sessionStorage.setItem('currentUserId', String(sessionStorage.getItem('userId')));
+    sessionStorage.setItem('action', 'edit');
+    this._router.navigateByUrl('/profile').then();
   }
 }

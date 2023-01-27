@@ -9,7 +9,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.mentor-all-details .mat-list-base .mat-list-item .mat-list-item-content {
+.mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
   justify-content: center;
 }
 
@@ -17,10 +17,22 @@ body {
   background-color: rgba(120, 120, 120, 0.9) !important;
 }
 
+@media (min-width: 300px) {
+  .p-toast {
+    width: 75%!important;
+    opacity:1.0;
+  }
+}
+
 @media (min-width: 1000px) {
   .available-mentors .mat-grid-tile-content {
     height: 85%;
     width: 90%;
+  }
+
+  .p-toast {
+    width: 25%!important;
+    opacity:1.0;
   }
 }
 

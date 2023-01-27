@@ -29,4 +29,10 @@ mat-card {
   margin: auto;
 }
 
+.mentor-details {
+  text-align: center;
+  width: 90%;
+  margin: auto!important;
+  background-color: rgba(0,0,0,0.9)!important;
+}
 
