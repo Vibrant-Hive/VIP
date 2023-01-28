@@ -62,6 +62,8 @@ export class BecomeMentorComponent implements OnInit {
     {value: 'ANGULAR UI', viewValue: 'ANGULAR UI'},
     {value: 'SELENIUM AUTOMATION', viewValue: 'SELENIUM AUTOMATION'},
     {value: 'TESTING MANUAL', viewValue: 'TESTING MANUAL'},
+    {value: 'GRAPHICS DESIGN', viewValue: 'GRAPHICS DESIGN'},
+    {value: 'ARCHITECTURE DESIGN', viewValue: 'ARCHITECTURE DESIGN'},
   ];
   email?: string;
 
