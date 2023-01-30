@@ -66,6 +66,7 @@ export class BecomeMentorComponent implements OnInit {
     {value: 'ARCHITECTURE DESIGN', viewValue: 'ARCHITECTURE DESIGN'},
   ];
   email?: string;
+  showProfileDetails?: boolean;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService) {
   }
@@ -108,6 +109,7 @@ export class BecomeMentorComponent implements OnInit {
         this.applyButtonText = "Save Profile"
         this.yourProfileShow = true;
       }
+      this.showProfileDetails = true;
     });
   }
 

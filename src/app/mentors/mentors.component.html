@@ -1,25 +1,26 @@
 <p-toast></p-toast>
 
 <mat-card class="available-mentors">
-  <mat-card-title>Available Mentors</mat-card-title>
+  <mat-card-title><span class="mentor-header">&nbsp;&nbsp;&nbsp;&nbsp;ACTIVE MENTORS&nbsp;&nbsp;&nbsp;&nbsp;</span></mat-card-title>
 
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()">
       <mat-grid-tile *ngFor="let mentor of availableMentors">
-        <mat-grid-tile-header>{{mentor.fullName}}, {{mentor["designation"]}}</mat-grid-tile-header>
+        <mat-grid-tile-header><span style="color: deeppink;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span style="color: lightslategray;font-weight: bold; font-size: small">{{mentor["skills"]}}</span></mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
             <div class="mentor-image">
               <img [src]="mentor['displayPic']" alt="">
             </div>
-            <span style="margin-top: 5%">{{mentor["experience"]}} years of Industry Experience</span>
-            <span>{{mentor["skills"]}} Expertise</span>
+            <span style="margin-top: 5%">{{mentor["experience"]}} years Industry Exp.</span>
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
           <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">Book</button>
           <span class="rate"> ₹{{mentor.rate}} <span
-            style="font-size: small">/ 40 mins</span>
+            style="font-size: small">/ Session </span>
+            <br>
+            <span style="font-size: x-small">(avg. duration: 40-60 mins)</span>
           </span>
         </mat-grid-tile-footer>
       </mat-grid-tile>

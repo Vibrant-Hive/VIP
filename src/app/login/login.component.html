@@ -13,7 +13,7 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password" name="password" required>
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-icon style="font-family: 'Material Icons',serif !important;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error>
           Please provide a valid password
         </mat-error>

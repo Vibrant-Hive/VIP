@@ -56,3 +56,12 @@ table {
 .filler{
   height: 35%;
 }
+
+.mentor-header {
+  color: forestgreen;
+  border: 5px outset darkslategray;
+  font-weight: bold;
+  font-size: xx-large;
+  border-radius: 10px;
+  font-family: Agency FB, serif!important;
+}

@@ -6,11 +6,10 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
-  justify-content: center;
+* {
+  font-family: Raleway, "Segoe UI", sans-serif !important;
 }
 
 .mat-dialog-container {
@@ -21,6 +20,10 @@ body {
   .p-toast {
     width: 75%!important;
     opacity:1.0;
+  }
+
+  .mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
+    justify-content: center;
   }
 }
 
@@ -34,5 +37,9 @@ body {
     width: 25%!important;
     opacity:1.0;
   }
+  .mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
+    justify-content: start;
+  }
+
 }
 

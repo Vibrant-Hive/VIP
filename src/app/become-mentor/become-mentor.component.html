@@ -1,6 +1,6 @@
 <p-toast></p-toast>
 <mat-card class="mentor-details">
-  <mat-card-title *ngIf="yourProfileShow">Profile</mat-card-title>
+  <mat-card-title *ngIf="yourProfileShow"><span class="mentor-header">&nbsp;&nbsp;&nbsp;&nbsp;PROFILE&nbsp;&nbsp;&nbsp;&nbsp;</span></mat-card-title>
   <mat-card-content>
     <mat-card-title *ngIf="underReview">Application Under Review</mat-card-title>
     <form #mentorForm="ngForm">
@@ -19,7 +19,7 @@
 
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="photoUpload.click()">
-                  <mat-icon>upload</mat-icon>
+                  <mat-icon style="font-family: 'Material Icons',serif !important;">upload</mat-icon>
                 </button>
               </div>
             </mat-card-content>
@@ -104,7 +104,7 @@
                 {{fileName || "Upload Resume"}}
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="fileUpload.click()">
-                  <mat-icon>attach_file</mat-icon>
+                  <mat-icon style="font-family: 'Material Icons',serif !important;" >attach_file</mat-icon>
                 </button>
               </div>
             </mat-card-content>
@@ -113,28 +113,28 @@
         <mat-grid-tile *ngIf="!editing">
           <mat-card class="mentor-section">
             <mat-card-content class="mentor-card">
-              <mat-list role="list">
+              <mat-list role="list" *ngIf="showProfileDetails">
                 <mat-list-item *ngIf="!editing" role="list-item"
                                style="font-size: x-large; color: deeppink; font-weight: bold">{{fullName}}</mat-list-item>
 
-                <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold; font-style: italic">{{skills}}</mat-list-item>
-                <mat-list-item *ngIf="!editing" role="list-item"><span style="color: slategray">Speaks&nbsp; </span>
+                <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold;">{{skills}}</mat-list-item>
+                <mat-list-item *ngIf="!editing && languages" role="list-item"><span style="color: slategray">Speaks&nbsp; </span>
                   {{languages?languages.toString().replace(',', ', '):''}}
                 </mat-list-item>
-                <mat-list-item *ngIf="!editing" role="list-item"><span
+                <mat-list-item *ngIf="!editing && availability" role="list-item"><span
                   style="color: slategray">Teaches at&nbsp;  </span>
                   {{availability?availability.toString().replace(',', ', '):''}}
                 </mat-list-item>
-                <mat-list-item *ngIf="!editing" role="list-item"><span
+                <mat-list-item *ngIf="!editing && experience" role="list-item"><span
                   style="color: slategray">Experience of&nbsp; </span>
                   {{experience}} years
                 </mat-list-item>
+                <mat-list-item *ngIf="!editing && designation" role="list-item">{{designation}}</mat-list-item>
                 <mat-list-item>
                   <button mat-raised-button style="margin:5%" color="accent" (click)="downloadResume()">
                     Download Resume
                   </button>
                 </mat-list-item>
-                <mat-list-item *ngIf="!editing" role="list-item">{{designation}}</mat-list-item>
               </mat-list>
             </mat-card-content>
           </mat-card>
