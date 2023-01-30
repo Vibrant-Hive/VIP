@@ -77,7 +77,7 @@ export class BecomeMentorComponent implements OnInit {
     }
     this._userService.getUser(sessionStorage.getItem('currentUserId')).subscribe((user: User) => {
       this.fullName = user.fullName;
-      this.availability = user.availability?user.availability.split(','):'';
+      this.availability = user.availability ? user.availability.split(',') : '';
       this.zoomLink = user.zoomLink;
       this.resume = user.resume;
       this.resumeDL = this.resume;
@@ -87,7 +87,7 @@ export class BecomeMentorComponent implements OnInit {
       this.skills = user.skills;
       this.designation = user.designation;
       this.experience = user.experience;
-      this.languages = user.languages?user.languages.split(','):'';
+      this.languages = user.languages ? user.languages.split(',') : '';
       this.active = user.active;
       this.role = user.role;
       this.resumeFileName = user.resumeFileName;
@@ -96,7 +96,7 @@ export class BecomeMentorComponent implements OnInit {
       this.mobileNo = user.mobileNo;
       this.email = user.email;
 
-      if(!this.role){
+      if (!this.role) {
         this.active = false;
         this.role = "MENTOR";
         this.applyButtonText = "Apply as Mentor"
@@ -117,7 +117,7 @@ export class BecomeMentorComponent implements OnInit {
     if (sessionStorage.getItem('device') === 'mobile') {
       return 1;
     } else {
-      if(sessionStorage.getItem('action') === 'edit'){
+      if (sessionStorage.getItem('action') === 'edit') {
         return 3;
       } else {
         return 2;
@@ -173,7 +173,7 @@ export class BecomeMentorComponent implements OnInit {
     if (sessionStorage.getItem('device') === 'mobile') {
       return "1:1";
     } else {
-      if(sessionStorage.getItem('action') === 'edit'){
+      if (sessionStorage.getItem('action') === 'edit') {
         return "1:1";
       } else {
         return "3:2";
