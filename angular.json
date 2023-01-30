@@ -28,7 +28,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "./node_modules/ngx-spinner/animations/square-jelly-box.css",
+              "./node_modules/ngx-spinner/animations/ball-atom.css",
               "./node_modules/primeng/resources/themes/nova-accent/theme.css",
               "./node_modules/primeng/resources/primeng.css",
               "src/styles.css"
