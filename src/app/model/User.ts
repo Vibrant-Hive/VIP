@@ -9,13 +9,18 @@ export interface User {
   active: boolean;
   availability: string;
   languages: string;
-  photo: any;
   designation: string;
   rate: number;
+  displayPic: string;
+  zoomLink: string;
+  mentorFiles: MentorFiles;
+}
+
+export interface MentorFiles{
+  photo: any;
   resume: any;
   resumeFileType: string;
   resumeFileName: string;
   photoFileName: string;
-  displayPic: string;
-  zoomLink: string;
+  photoFileType: string;
 }

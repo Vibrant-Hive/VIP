@@ -29,7 +29,6 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatDividerModule} from "@angular/material/divider";
 import {MentorsService} from "./service/mentors/mentors.service";
 import {MatTableModule} from "@angular/material/table";
-import {MentorProfileComponent} from './mentor-profile/mentor-profile.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatListModule} from '@angular/material/list';
 import {ToastModule} from "primeng/toast";
@@ -46,7 +45,6 @@ import {MatMenuModule} from "@angular/material/menu";
     LoginComponent,
     MentorsComponent,
     CreateAccountComponent,
-    MentorProfileComponent,
     BecomeMentorComponent
   ],
   imports: [

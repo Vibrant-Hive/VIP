@@ -79,33 +79,36 @@ export class BecomeMentorComponent implements OnInit {
       this.fullName = user.fullName;
       this.availability = user.availability ? user.availability.split(',') : '';
       this.zoomLink = user.zoomLink;
-      this.resume = user.resume;
-      this.resumeDL = this.resume;
-      this.photo = user.photo;
-      this.photoName = user.photoFileName;
-      this.photoDP = 'data:image/png;base64,' + user.photo;
       this.skills = user.skills;
       this.designation = user.designation;
       this.experience = user.experience;
       this.languages = user.languages ? user.languages.split(',') : '';
       this.active = user.active;
       this.role = user.role;
-      this.resumeFileName = user.resumeFileName;
-      this.resumeFileType = user.resumeFileType;
-      this.fileName = user.resumeFileName;
       this.mobileNo = user.mobileNo;
       this.email = user.email;
+
+      if(user.mentorFiles) {
+        this.resume = user.mentorFiles.resume;
+        this.resumeDL = this.resume;
+        this.photo = user.mentorFiles.photo;
+        this.photoName = user.mentorFiles.photoFileName;
+        this.photoDP = 'data:image/png;base64,' + user.mentorFiles.photo;
+        this.resumeFileName = user.mentorFiles.resumeFileName;
+        this.resumeFileType = user.mentorFiles.resumeFileType;
+        this.fileName = user.mentorFiles.resumeFileName;
+      }
 
       if (!this.role) {
         this.active = false;
         this.role = "MENTOR";
         this.applyButtonText = "Apply as Mentor"
+      } else {
         if (this.role === 'MENTOR' && !this.active) {
           this.underReview = true;
         } else {
           this.yourProfileShow = true;
         }
-      } else {
         this.applyButtonText = "Save Profile"
         this.yourProfileShow = true;
       }
