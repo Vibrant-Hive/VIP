@@ -6,6 +6,7 @@
     <button mat-raised-button color="secondary" (click)="showProfile()" *ngIf="showApply()">{{applyButtonText}}</button>
     <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">Mentors</button>
     <button mat-raised-button color="primary" routerLink="/login" *ngIf="showLogin()">Login</button>
+    <button mat-raised-button color="primary" routerLink="/home" *ngIf="showHome()">Home</button>
     <button mat-raised-button color="primary" (click)="logout()" *ngIf="isAuthenticated">Logout</button>
   </div>
 
