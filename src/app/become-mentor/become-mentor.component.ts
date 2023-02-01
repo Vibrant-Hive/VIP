@@ -58,12 +58,12 @@ export class BecomeMentorComponent implements OnInit {
   skillOptions: Option[] = [
     {value: 'FULL STACK', viewValue: 'FULL STACK'},
     {value: 'SQL', viewValue: 'SQL'},
-    {value: 'JAVA BACKEND', viewValue: 'JAVA BACKEND'},
-    {value: 'ANGULAR UI', viewValue: 'ANGULAR UI'},
-    {value: 'SELENIUM AUTOMATION', viewValue: 'SELENIUM AUTOMATION'},
-    {value: 'TESTING MANUAL', viewValue: 'TESTING MANUAL'},
+    {value: 'JAVA', viewValue: 'JAVA'},
+    {value: 'ANGULAR', viewValue: 'ANGULAR'},
+    {value: 'SELENIUM', viewValue: 'SELENIUM'},
+    {value: 'TESTING', viewValue: 'TESTING'},
     {value: 'GRAPHICS DESIGN', viewValue: 'GRAPHICS DESIGN'},
-    {value: 'ARCHITECTURE DESIGN', viewValue: 'ARCHITECTURE DESIGN'},
+    {value: 'ARCH. DESIGN', viewValue: 'ARCH. DESIGN'}
   ];
   email?: string;
   showProfileDetails?: boolean;
