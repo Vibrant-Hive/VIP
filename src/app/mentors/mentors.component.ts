@@ -51,7 +51,7 @@ export class MentorsComponent implements OnInit {
 
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
-      if (mentor.skills?.includes("FULL STACK") || mentor.skills?.includes("TESTING MANUAL") || mentor.skills?.includes("SQL")) {
+      if (mentor.skills?.includes("FULL STACK") || mentor.skills?.includes("TESTING") || mentor.skills?.includes("SQL")) {
         mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".png"
       } else {
         mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".svg"
