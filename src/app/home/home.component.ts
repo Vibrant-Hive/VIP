@@ -12,11 +12,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("userId")) {
-      this._router.navigateByUrl('/mentors').then();
-    } else {
-      this._router.navigateByUrl('/login').then();
-    }
-
+    this._router.navigateByUrl('/mentors').then();
   }
 }
