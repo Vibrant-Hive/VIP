@@ -10,13 +10,15 @@
     <button mat-raised-button color="primary" (click)="logout()" *ngIf="isAuthenticated">Logout</button>
   </div>
 
-  <div *ngIf="isMobile() && isAuthenticated">
+  <div *ngIf="isMobile()">
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Account">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="primary">account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="showProfile()" *ngIf="showApply()">{{applyButtonText}}</button>
+      <button mat-menu-item routerLink="/mentors" *ngIf="showMentors()">Mentors</button>
       <button mat-menu-item routerLink="/login" *ngIf="showLogin()">Login</button>
+      <button mat-menu-item routerLink="/home" *ngIf="showHome()">Home</button>
       <button mat-menu-item (click)="logout()" *ngIf="isAuthenticated">Logout</button>
     </mat-menu>
   </div>
