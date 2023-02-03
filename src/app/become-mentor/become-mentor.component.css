@@ -73,8 +73,8 @@ mat-grid-tile-header{
   color: forestgreen;
   border: 2px dashed darkslategray;
   font-weight: bold;
-  font-size: xx-large;
-  font-family: Agency FB, serif!important;
+  font-size: x-large;
+  /*font-family: Agency FB, serif!important;*/
 }
 
 mat-card-footer {

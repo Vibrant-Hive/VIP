@@ -61,7 +61,7 @@ table {
   color: forestgreen;
   border: 5px outset darkslategray;
   font-weight: bold;
-  font-size: xx-large;
+  font-size: x-large;
   border-radius: 10px;
-  font-family: Agency FB, serif!important;
+  /*font-family: Agency FB, serif!important;*/
 }
