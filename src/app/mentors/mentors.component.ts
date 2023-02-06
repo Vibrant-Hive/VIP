@@ -24,19 +24,21 @@ export class MentorsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem("role") === 'MASTER') {
-      this._mentorsService.appliedMentors().subscribe((appliedMentors: User[]) => {
-        if (appliedMentors.length > 0) {
-          this.appliedMentorsShow = true;
-          MentorsComponent.preparePhoto(appliedMentors);
-          this.appliedMentors = appliedMentors;
-        }
-      });
-    }
+
     this._mentorsService.availableMentors().subscribe((availableMentors: User[]) => {
       if (availableMentors) {
         MentorsComponent.preparePhoto(availableMentors);
         this.availableMentors = availableMentors;
+      }
+
+      if (sessionStorage.getItem("role") === 'MASTER') {
+        this._mentorsService.appliedMentors().subscribe((appliedMentors: User[]) => {
+          if (appliedMentors.length > 0) {
+            this.appliedMentorsShow = true;
+            MentorsComponent.preparePhoto(appliedMentors);
+            this.appliedMentors = appliedMentors;
+          }
+        });
       }
     });
   }
