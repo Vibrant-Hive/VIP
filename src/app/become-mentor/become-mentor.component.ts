@@ -59,9 +59,11 @@ export class BecomeMentorComponent implements OnInit {
     {value: 'FULL STACK', viewValue: 'FULL STACK'},
     {value: 'SQL', viewValue: 'SQL'},
     {value: 'JAVA', viewValue: 'JAVA'},
+    {value: 'PYTHON', viewValue: 'PYTHON'},
     {value: 'ANGULAR', viewValue: 'ANGULAR'},
     {value: 'SELENIUM', viewValue: 'SELENIUM'},
     {value: 'TESTING', viewValue: 'TESTING'},
+    {value: 'ANDROID', viewValue: 'ANDROID'},
     {value: 'GRAPHICS DESIGN', viewValue: 'GRAPHICS DESIGN'},
     {value: 'ARCH. DESIGN', viewValue: 'ARCH. DESIGN'}
   ];
