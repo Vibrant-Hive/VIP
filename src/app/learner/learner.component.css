@@ -1,0 +1,13 @@
+.available-mentors{
+  margin: 0 2%;
+  text-align: center;
+}
+
+.mentor-header {
+  color: black;
+  border: 5px outset darkslategray;
+  font-weight: bold;
+  font-size: x-large;
+  border-radius: 10px;
+  /*font-family: Agency FB, serif!important;*/
+}
