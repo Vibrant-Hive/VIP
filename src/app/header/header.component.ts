@@ -62,9 +62,9 @@ export class HeaderComponent implements OnInit {
   showApply() {
     return this.isAuthenticated && !this._router.url.includes('profile');
   }
-  
+
   showHome() {
-    return this._router.url.includes('login');
+    return this._router.url.includes('login') || this._router.url.includes('learner');
   }
 
   isMobile(){
