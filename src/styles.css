@@ -4,16 +4,19 @@ html, body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  background-image: url('assets/images/tent.jpg');
-  background-size: cover;
-}
 @media (min-width: 300px) {
   body{
     margin: 0;
     background-image: url('assets/images/tent.jpg');
     background-size: contain;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    margin: 0;
+    background-image: url('assets/images/tent.jpg');
+    background-size: cover;
   }
 }
 
