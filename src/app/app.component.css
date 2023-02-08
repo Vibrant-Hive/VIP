@@ -1,6 +1,5 @@
 main{
   padding: 5%;
-  background-image: url('../assets/images/tent.jpg');
 }
 
 @media (min-width: 300px) {
