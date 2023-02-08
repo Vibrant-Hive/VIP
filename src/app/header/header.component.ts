@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     ).subscribe((isAuthenticated: boolean) => {
       this.isAuthenticated = isAuthenticated;
       if (sessionStorage.getItem('role') == 'MENTOR' || sessionStorage.getItem('role') == 'MASTER') {
-        this.applyButtonText = "Profile: " + sessionStorage.getItem('fullName')
+        this.applyButtonText = "Profile";
       } else {
         this.applyButtonText = "Apply as Mentor"
       }

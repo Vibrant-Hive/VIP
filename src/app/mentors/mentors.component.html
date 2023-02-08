@@ -6,7 +6,10 @@
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()">
       <mat-grid-tile *ngFor="let mentor of availableMentors">
-        <mat-grid-tile-header><span style="color: deeppink;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span style="color: lightslategray;font-weight: bold; font-size: small">{{mentor["skills"]}}</span></mat-grid-tile-header>
+        <mat-grid-tile-header><span
+          style="color: deeppink;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
+          style="color: lightslategray;font-weight: bold; font-size: small">{{mentor["skills"]}}</span>
+        </mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
             <div class="mentor-image">
@@ -16,7 +19,10 @@
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">Book</button>
+          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">
+            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">school</mat-icon>
+            Learn
+          </button>
           <span class="rate"> ₹{{mentor.rate}} <span
             style="font-size: small">/ Session </span>
             <br>
