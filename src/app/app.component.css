@@ -5,7 +5,7 @@ main{
 @media (min-width: 300px) {
   main{
     background-size: contain;
-    min-height: 63%;
+    min-height: 100%;
   }
 }
 
