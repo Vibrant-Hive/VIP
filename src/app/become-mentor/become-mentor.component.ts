@@ -170,10 +170,14 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   downloadResume() {
-    const byteArray = new Uint8Array(atob(this.resumeDL).split('').map(char => char.charCodeAt(0)));
-    let blob: any = new Blob([byteArray], {type: this.resumeFileType});
-    window.URL.createObjectURL(blob);
-    saveAs(blob, this.resumeFileName);
+    if (this._authClient.isLoggedIn()) {
+      const byteArray = new Uint8Array(atob(this.resumeDL).split('').map(char => char.charCodeAt(0)));
+      let blob: any = new Blob([byteArray], {type: this.resumeFileType});
+      window.URL.createObjectURL(blob);
+      saveAs(blob, this.resumeFileName);
+    } else {
+      this._router.navigate(['/login']).then();
+    }
   }
 
   rowHeight() {
