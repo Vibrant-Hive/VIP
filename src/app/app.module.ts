@@ -35,7 +35,7 @@ import {ToastModule} from "primeng/toast";
 import {BecomeMentorComponent} from './become-mentor/become-mentor.component';
 import {UserService} from "./service/user/user.service";
 import {MatMenuModule} from "@angular/material/menu";
-import { LearnerComponent } from './learner/learner.component';
+import {LearnerComponent} from './learner/learner.component';
 
 @NgModule({
   declarations: [
@@ -81,4 +81,5 @@ import { LearnerComponent } from './learner/learner.component';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

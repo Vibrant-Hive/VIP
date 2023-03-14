@@ -4,6 +4,8 @@ import {MentorsService} from "../service/mentors/mentors.service";
 import {UserService} from "../service/user/user.service";
 import {User} from "../model/User";
 import {saveAs} from "file-saver";
+import {Router} from "@angular/router";
+import {LoginService} from "../service/login/login.service";
 
 interface Option {
   value: string;
@@ -70,7 +72,7 @@ export class BecomeMentorComponent implements OnInit {
   email?: string;
   showProfileDetails?: boolean;
 
-  constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService) {
+  constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
   }
 
   ngOnInit(): void {
@@ -90,7 +92,7 @@ export class BecomeMentorComponent implements OnInit {
       this.mobileNo = user.mobileNo;
       this.email = user.email;
 
-      if(user.mentorFiles) {
+      if (user.mentorFiles) {
         this.resume = user.mentorFiles.resume;
         this.resumeDL = this.resume;
         this.photo = user.mentorFiles.photo;
@@ -169,7 +171,7 @@ export class BecomeMentorComponent implements OnInit {
 
   downloadResume() {
     const byteArray = new Uint8Array(atob(this.resumeDL).split('').map(char => char.charCodeAt(0)));
-    let blob: any = new Blob([byteArray], {type: this.resumeFileType });
+    let blob: any = new Blob([byteArray], {type: this.resumeFileType});
     window.URL.createObjectURL(blob);
     saveAs(blob, this.resumeFileName);
   }
@@ -183,6 +185,22 @@ export class BecomeMentorComponent implements OnInit {
       } else {
         return "3:2";
       }
+    }
+  }
+
+  whatsAppRedirect() {
+    if (this._authClient.isLoggedIn()) {
+      window.open("https://wa.me/91" + this.mobileNo + "?text=Hi,%20I%20need%20your%20support%2E%20", "_blank");
+    } else {
+      this._router.navigate(['/login']).then();
+    }
+  }
+
+  zoomRedirect() {
+    if (this._authClient.isLoggedIn()) {
+      window.open(this.zoomLink, "_blank");
+    } else {
+      this._router.navigate(['/login']).then();
     }
   }
 }

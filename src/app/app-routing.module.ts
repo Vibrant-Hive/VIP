@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
-import {AuthGuard} from "./auth.guard";
 import {MentorsComponent} from "./mentors/mentors.component";
 import {CreateAccountComponent} from "./create-account/create-account.component";
 import {BecomeMentorComponent} from "./become-mentor/become-mentor.component";
@@ -14,7 +13,7 @@ const routes: Routes = [
   {path: 'createAccount', component: CreateAccountComponent},
   {path: 'mentors', component: MentorsComponent},
   {path: 'learner/:userId', component: LearnerComponent},
-  {path: 'profile', component: BecomeMentorComponent, canActivate: [ AuthGuard ]},
+  {path: 'profile', component: BecomeMentorComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

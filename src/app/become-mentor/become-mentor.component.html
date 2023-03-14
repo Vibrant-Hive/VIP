@@ -15,7 +15,7 @@
                 <input type="file" class="file-input" #photoUpload
                        (change)="onPhotoSelected($event)">
 
-                {{photoName?'':"Upload Photo"}}
+                {{photoName ? '' : "Upload Photo"}}
 
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="photoUpload.click()">
@@ -104,7 +104,7 @@
                 {{fileName || "Upload Resume"}}
                 <button mat-mini-fab color="primary" class="upload-btn"
                         (click)="fileUpload.click()">
-                  <mat-icon style="font-family: 'Material Icons',serif !important;" >attach_file</mat-icon>
+                  <mat-icon style="font-family: 'Material Icons',serif !important;">attach_file</mat-icon>
                 </button>
               </div>
             </mat-card-content>
@@ -119,11 +119,11 @@
 
                 <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold;">{{skills}}</mat-list-item>
                 <mat-list-item *ngIf="!editing && languages" role="list-item"><span style="color: slategray">Speaks&nbsp; </span>
-                  {{languages?languages.toString().replace(',', ', '):''}}
+                  {{languages ? languages.toString().replace(',', ', ') : ''}}
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && availability" role="list-item"><span
                   style="color: slategray">Teaches at&nbsp;  </span>
-                  {{availability?availability.toString().replace(',', ', '):''}}
+                  {{availability ? availability.toString().replace(',', ', ') : ''}}
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && experience" role="list-item"><span
                   style="color: slategray">Experience of&nbsp; </span>
@@ -131,7 +131,8 @@
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && designation" role="list-item">{{designation}}</mat-list-item>
                 <mat-list-item>
-                  <button mat-raised-button style="margin:5%" color="secondary" *ngIf="resumeFileName" (click)="downloadResume()">
+                  <button mat-raised-button style="margin:5%" color="secondary" *ngIf="resumeFileName"
+                          (click)="downloadResume()">
                     Download Resume
                   </button>
                 </mat-list-item>
@@ -151,13 +152,10 @@
     </button>
 
     <div *ngIf="!editing">
-      <a aria-label="Chat on WhatsApp" target="_blank"
-         href="https://wa.me/91{{mobileNo}}?text=Hi,%20I%20need%20your%20support%2E%20"
-         style="margin-right: 1%">
+      <a aria-label="Chat on WhatsApp" target="_blank" (click)="whatsAppRedirect()" style="margin-right: 1%; cursor:pointer">
         <img alt="Chat on WhatsApp" src="../../assets/images/WhatsAppButtonGreenSmall.svg"/>
       </a>
-      <a aria-label="Connect on Zoom" target="_blank"
-         href="{{zoomLink}}">
+      <a aria-label="Connect on Zoom" target="_blank" (click)="zoomRedirect()" style="cursor:pointer">
         <img alt="Connect on Zoom" src="../../assets/images/connectOnZoom.svg" style="width: 160px"/>
       </a>
     </div>
