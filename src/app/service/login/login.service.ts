@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
 
@@ -13,10 +13,14 @@ export class LoginService {
   }
   signInWithCredentials( userName: string, password : string) {
     const params = new HttpParams().set('userName', userName).set('password', password);
-    return this._httpClient.get<User>(this.loginUrl, {params, responseType: "json"});
+    return this._httpClient.get<User>(this.loginUrl, {params, responseType: "json", headers: this.httpHeaders});
   }
 
   isLoggedIn(){
     return sessionStorage.getItem("email") !== null;
   }
+
+  private httpHeaders = new HttpHeaders({
+    'Authorization': 'Basic ' + btoa(environment.username + ':' + environment.password)
+  });
 }

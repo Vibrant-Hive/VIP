@@ -170,14 +170,14 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   downloadResume() {
-    // if (this._authClient.isLoggedIn()) {
+    if (this._authClient.isLoggedIn()) {
       const byteArray = new Uint8Array(atob(this.resumeDL).split('').map(char => char.charCodeAt(0)));
       let blob: any = new Blob([byteArray], {type: this.resumeFileType});
       window.URL.createObjectURL(blob);
       saveAs(blob, this.resumeFileName);
-    // } else {
-    //   this._router.navigate(['/login']).then();
-    // }
+    } else {
+      this._router.navigate(['/login']).then();
+    }
   }
 
   rowHeight() {
@@ -193,18 +193,18 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   whatsAppRedirect() {
-    // if (this._authClient.isLoggedIn()) {
+    if (this._authClient.isLoggedIn()) {
       window.open("https://wa.me/91" + this.mobileNo + "?text=Hi,%20I%20need%20your%20support%2E%20", "_blank");
-    // } else {
-    //   this._router.navigate(['/login']).then();
-    // }
+    } else {
+      this._router.navigate(['/login']).then();
+    }
   }
 
   zoomRedirect() {
-    // if (this._authClient.isLoggedIn()) {
+    if (this._authClient.isLoggedIn()) {
       window.open(this.zoomLink, "_blank");
-    // } else {
-    //   this._router.navigate(['/login']).then();
-    // }
+    } else {
+      this._router.navigate(['/login']).then();
+    }
   }
 }

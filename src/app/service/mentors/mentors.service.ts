@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
 
@@ -33,15 +33,15 @@ export class MentorsService {
       fileData.append("resume", resume, resume.name);
     if (photo instanceof File)
       fileData.append("photo", photo, photo.name);
-    return this._httpClient.post<boolean>(this.updateProfileUrl, fileData, {params});
+    return this._httpClient.post<boolean>(this.updateProfileUrl, fileData, {params: params, headers: this.httpHeaders});
   }
 
   availableMentors() {
-    return this._httpClient.get<User[]>(this.availableMentorsUrl);
+    return this._httpClient.get<User[]>(this.availableMentorsUrl, {headers: this.httpHeaders});
   }
 
   appliedMentors() {
-    return this._httpClient.get<User[]>(this.appliedMentorsUrl);
+    return this._httpClient.get<User[]>(this.appliedMentorsUrl, {headers: this.httpHeaders});
   }
 
   // @ts-ignore
@@ -59,4 +59,8 @@ export class MentorsService {
       .set('rate', rate);
     return this._httpClient.get<boolean[]>(this.approveMentorUrl, {params});
   }
+
+  private httpHeaders = new HttpHeaders({
+    'Authorization': 'Basic ' + btoa(environment.username + ':' + environment.password)
+  });
 }

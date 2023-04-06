@@ -6,6 +6,7 @@ import {MentorsComponent} from "./mentors/mentors.component";
 import {CreateAccountComponent} from "./create-account/create-account.component";
 import {BecomeMentorComponent} from "./become-mentor/become-mentor.component";
 import {LearnerComponent} from "./learner/learner.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: 'createAccount', component: CreateAccountComponent},
   {path: 'mentors', component: MentorsComponent},
   {path: 'learner/:userId', component: LearnerComponent},
-  {path: 'profile', component: BecomeMentorComponent},
+  {path: 'profile', component: BecomeMentorComponent, canActivate:[AuthGuard]},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
