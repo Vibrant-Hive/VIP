@@ -24,6 +24,13 @@ mat-grid-tile-header{
   font-size:large;
 }
 
+.mentor-details {
+  text-align: center;
+  width: 75%;
+  margin: auto!important;
+  background-color: rgba(0,0,0,0.9)!important;
+}
+
 .mentor-card{
   display: flex;
   flex-direction: column;
