@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../dialog/dialog.component";
 
 @Component({
   selector: 'app-knowledge',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KnowledgeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +28,9 @@ export class KnowledgeComponent implements OnInit {
     } else {
       return "3:2";
     }
+  }
+
+  openDialog(): void {
+    this.dialog.open(DialogComponent);
   }
 }

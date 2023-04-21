@@ -41,6 +41,7 @@ import { VideoComponent } from './video/video.component';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import {NgChartsModule} from "ng2-charts";
 import {NgxSpinnerModule} from "ngx-spinner";
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {NgxSpinnerModule} from "ngx-spinner";
     WelcomeKitComponent,
     BarChartComponent,
     VideoComponent,
-    KnowledgeComponent
+    KnowledgeComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
