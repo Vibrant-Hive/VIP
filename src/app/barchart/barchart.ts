@@ -13,7 +13,7 @@ export class BarChartComponent {
   public barChartPlugins = [];
 
   public systemData: ChartConfiguration<'bar'>['data'] = {
-    labels: [ 'Self Learning', 'On Time Completion', 'Consistency', 'Collaboration'],
+    labels: [ 'Self Learning', 'On Time', 'Consistency', 'Collaboration'],
     datasets: [
       { data: [ 65, 59, 80, 81 ], label: 'System Calculated' },
     ]
