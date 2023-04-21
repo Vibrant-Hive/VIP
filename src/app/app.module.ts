@@ -21,7 +21,6 @@ import {MatInputModule} from "@angular/material/input";
 import {MentorsComponent} from './mentors/mentors.component';
 import {CreateAccountComponent} from './create-account/create-account.component';
 import {MatSelectModule} from "@angular/material/select";
-import {NgxSpinnerModule} from "ngx-spinner";
 import {CustomHttpInterceptor} from "./providers/http-interceptor";
 import {MatIconModule} from "@angular/material/icon";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -36,6 +35,12 @@ import {BecomeMentorComponent} from './become-mentor/become-mentor.component';
 import {UserService} from "./service/user/user.service";
 import {MatMenuModule} from "@angular/material/menu";
 import {LearnerComponent} from './learner/learner.component';
+import { WelcomeKitComponent } from './welcome-kit/welcome-kit.component';
+import {BarChartComponent} from "./barchart/barchart";
+import { VideoComponent } from './video/video.component';
+import { KnowledgeComponent } from './knowledge/knowledge.component';
+import {NgChartsModule} from "ng2-charts";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import {LearnerComponent} from './learner/learner.component';
     MentorsComponent,
     CreateAccountComponent,
     BecomeMentorComponent,
-    LearnerComponent
+    LearnerComponent,
+    WelcomeKitComponent,
+    BarChartComponent,
+    VideoComponent,
+    KnowledgeComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +81,8 @@ import {LearnerComponent} from './learner/learner.component';
     MatDialogModule,
     MatListModule,
     ToastModule,
-    MatMenuModule
+    MatMenuModule,
+    NgChartsModule
   ],
   providers: [AuthService, LoginService, MentorsService, UserService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

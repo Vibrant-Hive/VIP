@@ -1,0 +1,65 @@
+.mentor-details {
+  text-align: center;
+  width: 95% !important;
+  margin: auto !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.mentor-header {
+  color: forestgreen;
+  border: 2px dashed darkslategray;
+  font-weight: bold;
+  font-size: x-large;
+  /*font-family: Agency FB, serif!important;*/
+}
+
+
+.available-mentors {
+  margin: 0 2%;
+  text-align: center;
+}
+
+.mentor-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mentor-details {
+  width: 95%;
+}
+
+@media (min-width: 300px) {
+
+  .mentor-header {
+    font-size: medium;
+  }
+
+  .text-knowledge {
+    font-size: small;
+  }
+
+  .book-button {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .mentor-header {
+    font-size: x-large;
+  }
+
+  .text-knowledge {
+    font-size: medium;
+  }
+
+  .book-button {
+    width: 40%;
+  }
+}
+
+.text-knowledge {
+  text-align: left;
+  width: 90%;
+  padding: 0 16px;
+}

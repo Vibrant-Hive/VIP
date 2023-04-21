@@ -1,0 +1,19 @@
+<div>
+  <div class="bar-chart">
+    <canvas baseChart
+            [data]="systemData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'"></canvas>
+  </div>
+
+  <div class="bar-chart">
+    <canvas baseChart
+            [data]="mentorData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [type]="'bar'"></canvas>
+  </div>
+</div>

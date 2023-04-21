@@ -1,3 +1,36 @@
-<mat-card class="available-mentors">
-  <mat-card-title><span class="mentor-header">&nbsp;REPORT IS BEING PREPARED&nbsp;</span></mat-card-title>
+<mat-card class="mentor-details">
+  <mat-card-title><span class="mentor-header">&nbsp;LEARNER REPORT&nbsp;</span></mat-card-title>
+  <mat-card-content>
+    <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
+      <mat-grid-tile>
+        <mat-grid-tile-header><span
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate</span>
+        </mat-grid-tile-header>
+        <img width="90%" src="../../assets/images/certificate.png" alt="">
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-grid-tile-header><span
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Charts</span>
+        </mat-grid-tile-header>
+        <barchart></barchart>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-grid-tile-header><span
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories</span>
+        </mat-grid-tile-header>
+        <mat-list>
+          <mat-list-item *ngFor="let story of userStories;" style="height:100px">
+            <span matListItemTitle style="padding-right: 10px">{{userStories.indexOf(story) + 1}}</span>
+            <span matListItemIcon style="padding-right: 10px"><img src="../../assets/images/github.gif" alt=""></span>
+            <div matListItemLine style="padding-right: 10px">
+              <div style="text-align: left" class="story-name">{{story.userStoryName}}</div>
+              <div style="text-align: left; font-size: small; color: grey">{{story.points}} Story Points</div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
 </mat-card>

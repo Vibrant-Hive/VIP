@@ -1,6 +1,6 @@
 .mentor-details {
   text-align: center;
-  width: 95%;
+  width: 95% !important;
   margin: auto!important;
   background-color: rgba(0,0,0,0.9)!important;
 }
@@ -10,22 +10,33 @@
   border: 2px dashed darkslategray;
   font-weight: bold;
   font-size: x-large;
-  width:100%
   /*font-family: Agency FB, serif!important;*/
 }
+
+
+.available-mentors{
+  margin: 0 2%;
+  text-align: center;
+}
+
+.mentor-card{
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 300px) {
   .mentor-image{
     padding: 15% 25% 15% 25%;
     max-height:250px;
   }
+  .mentor-details {
+    width: 95%;
+  }
+  mat-list-item{
+    height:38px!important;
+  }
   .mentor-header {
     font-size: medium;
-  }
-  .story-name {
-    font-size: small;
-  }
-  .story-item {
-    height: 120px;
   }
 }
 
@@ -34,22 +45,17 @@
     padding: 5% 25% 5% 25%;
     max-height:350px;
   }
+  .mentor-details {
+    width: 100%;
+  }
+  mat-list-item{
+    height:48px!important;
+  }
   .mentor-header {
     font-size: x-large;
   }
-  .story-name {
-    font-size: medium;
-  }
-  .story-item {
-    height: 120px;
-  }
-}
-.story-card {
-  max-width: 400px;
-  background-color: rgba(0,0,0,0.9)!important;
-  margin: auto;
 }
 
-.story-item {
-  height: 120px;
+.book-button{
+  width: 30%;
 }

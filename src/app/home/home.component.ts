@@ -12,6 +12,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._router.navigateByUrl('/mentors').then();
+    this._router.navigateByUrl('/welcome').then();
   }
 }
