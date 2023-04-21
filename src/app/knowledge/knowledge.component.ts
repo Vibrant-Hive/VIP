@@ -33,4 +33,8 @@ export class KnowledgeComponent implements OnInit {
   openDialog(): void {
     this.dialog.open(DialogComponent);
   }
+
+  isMobile() {
+    return sessionStorage.getItem('device') === 'mobile';
+  }
 }

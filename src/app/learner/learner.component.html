@@ -4,24 +4,24 @@
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate</span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate <span style="color:dimgrey">(QR Enabled)</span></span>
         </mat-grid-tile-header>
         <img width="90%" src="../../assets/images/certificate.png" alt="">
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Charts</span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Charts <span style="color:dimgrey">(Calculated vs Remarks)</span></span>
         </mat-grid-tile-header>
         <barchart></barchart>
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories</span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories <span style="color:dimgrey">(Click to view)</span></span>
         </mat-grid-tile-header>
         <mat-list>
-          <mat-list-item *ngFor="let story of userStories;" style="height:100px">
+          <mat-list-item *ngFor="let story of userStories;" style="height:100px; cursor:pointer" (click)="githubBoard(story)">
             <span matListItemTitle style="padding-right: 10px">{{userStories.indexOf(story) + 1}}</span>
             <span matListItemIcon style="padding-right: 10px"><img src="../../assets/images/github.gif" alt=""></span>
             <div matListItemLine style="padding-right: 10px">

@@ -56,4 +56,8 @@ export class LearnerComponent implements OnInit {
       return "2:3";
     }
   }
+
+  githubBoard(story: any) {
+    window.open(story.userStoryLink, "_blank");
+  }
 }

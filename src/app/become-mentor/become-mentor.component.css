@@ -48,6 +48,9 @@ mat-grid-tile-header{
   mat-list-item{
     height:38px!important;
   }
+  .mentor-header {
+    font-size: medium;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -61,6 +64,9 @@ mat-grid-tile-header{
   mat-list-item{
     height:48px!important;
   }
+  .mentor-header {
+    font-size: x-large;
+  }
 }
 
 .mentor-section{
@@ -73,7 +79,6 @@ mat-grid-tile-header{
   color: forestgreen;
   border: 2px dashed darkslategray;
   font-weight: bold;
-  font-size: x-large;
   /*font-family: Agency FB, serif!important;*/
 }
 
