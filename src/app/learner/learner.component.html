@@ -1,5 +1,5 @@
 <mat-card class="mentor-details">
-  <mat-card-title><span class="mentor-header">&nbsp;LEARNER REPORT&nbsp;</span></mat-card-title>
+  <mat-card-title><span class="mentor-header">&nbsp;CERTIFICATE & REPORT&nbsp;</span></mat-card-title>
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
       <mat-grid-tile>
@@ -11,14 +11,14 @@
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Charts <span style="color:dimgrey">(Calculated vs Remarks)</span></span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Values Held <span style="color:dimgrey">(Calculated vs Remarks)</span></span>
         </mat-grid-tile-header>
         <barchart></barchart>
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories <span style="color:dimgrey">(Click to view)</span></span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories Done <span style="color:dimgrey">(Click to view)</span></span>
         </mat-grid-tile-header>
         <mat-list>
           <mat-list-item *ngFor="let story of userStories;" style="height:100px; cursor:pointer" (click)="githubBoard(story)">
