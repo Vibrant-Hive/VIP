@@ -4,21 +4,21 @@
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate <span style="color:dimgrey">(QR Enabled)</span></span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate <br><span style="color:dimgrey">(QR Enabled)</span></span>
         </mat-grid-tile-header>
         <img width="90%" src="../../assets/images/certificate.png" alt="">
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Values Held <span style="color:dimgrey">(Calculated vs Remarks)</span></span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">Values Held <br><span style="color:dimgrey">(Calculated vs Remarks)</span></span>
         </mat-grid-tile-header>
         <barchart></barchart>
       </mat-grid-tile>
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories Done <span style="color:dimgrey">(Click to view)</span></span>
+          style="color: deeppink;font-weight: bold; text-align:center;font-size: large; width:100%">User Stories Done <br><span style="color:dimgrey">(Click to view)</span></span>
         </mat-grid-tile-header>
         <mat-list>
           <mat-list-item *ngFor="let story of userStories;" style="height:100px; cursor:pointer" (click)="githubBoard(story)">
