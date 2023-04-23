@@ -1,3 +1,6 @@
+<button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px">
+  <mat-icon>x</mat-icon>
+</button>
 <h1 mat-dialog-title style="font-weight: bold">{{title}}</h1>
 <div mat-dialog-content class="dialog">
   <p *ngFor="let line of contentArr" [innerHTML]="line"></p>

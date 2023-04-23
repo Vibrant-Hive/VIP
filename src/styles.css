@@ -5,7 +5,7 @@ html, body {
 }
 
 @media (min-width: 300px) {
-  body{
+  body {
     margin: 0;
     background-image: url('assets/images/tent.jpg');
     background-size: contain;
@@ -21,8 +21,8 @@ html, body {
 }
 
 
-.mat-toolbar{
-  background-color: rgba(0,0,0,0.7)!important;
+.mat-toolbar {
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 * {
@@ -30,14 +30,14 @@ html, body {
 }
 
 .mat-dialog-container {
-  background-color: rgba(0,0,0,0.9)!important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
   border: 5px dashed darkslategray;
 }
 
 @media (min-width: 300px) {
   .p-toast {
-    width: 75%!important;
-    opacity:1.0;
+    width: 75% !important;
+    opacity: 1.0;
   }
 
   .mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
@@ -52,9 +52,10 @@ html, body {
   }
 
   .p-toast {
-    width: 25%!important;
-    opacity:1.0;
+    width: 25% !important;
+    opacity: 1.0;
   }
+
   .mentor-details .mat-list-base .mat-list-item .mat-list-item-content {
     justify-content: start;
   }
@@ -62,7 +63,7 @@ html, body {
 }
 
 .mat-menu-panel {
-  background-color: rgba(0,0,0, 0.9)!important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .mat-menu-item {
@@ -75,24 +76,28 @@ html, body {
 
 .mat-menu-panel {
   border-radius: 2px !important;
-  min-height: 0!important;
+  min-height: 0 !important;
 }
 
 .mat-menu-content:not(:empty) {
-   padding-top: 2px !important;
-   padding-bottom: 2px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
 }
 
-.mat-raised-button{
+.mat-raised-button {
   color: lightgray !important;
-  font-weight: normal!important;
+  font-weight: normal !important;
 }
 
 .material-icons {
-  font-size : 21px!important;
+  font-size: 21px !important;
 }
 
 .mat-menu-item .mat-icon {
-   margin-right: 4px !important;
+  margin-right: 4px !important;
   vertical-align: middle;
+}
+
+a {
+  color: white;
 }
