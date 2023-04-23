@@ -31,7 +31,7 @@ html, body {
 
 .mat-dialog-container {
   background-color: rgba(0, 0, 0, 0.9) !important;
-  border: 5px dashed darkslategray;
+  border: 3px dashed darkslategray;
 }
 
 @media (min-width: 300px) {

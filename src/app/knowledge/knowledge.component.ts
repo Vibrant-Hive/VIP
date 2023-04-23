@@ -76,7 +76,7 @@ export class KnowledgeComponent implements OnInit {
         this.contentArr.push('Book a mentor at this point to guide you further');
         break;
       case 'Try it on':
-        this.contentArr.push('Create your own projects by with the acquired knowledge' );
+        this.contentArr.push('Create your own projects with the acquired knowledge' );
         this.contentArr.push('<a href="https://start.spring.io/" target="_blank">Spring Initializer</a>' );
         this.contentArr.push('<a href="https://angular.io/start" target="_blank">Angular Documentation</a>');
         this.contentArr.push('<a href="https://www.djangoproject.com/start/" target="_blank">Django Documentation</a>');
