@@ -1,9 +1,7 @@
-<h1 mat-dialog-title>Try on Google</h1>
+<h1 mat-dialog-title style="font-weight: bold">{{title}}</h1>
 <div mat-dialog-content class="dialog">
-  <p>Google knows everything, </p>
-  <p>Learn how to find answers by yourself</p>
-  <p>Seek a Mentor's help when you need assistance</p>
+  <p *ngFor="let line of contentArr" [innerHTML]="line"></p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button cdkFocusInitial (click)="onOkClick()">Ok</button>
+  <button mat-button cdkFocusInitial (click)="onOkClick()">I understand</button>
 </div>

@@ -30,7 +30,8 @@ html, body {
 }
 
 .mat-dialog-container {
-  background-color: rgba(120, 120, 120, 0.9) !important;
+  background-color: rgba(0,0,0,0.9)!important;
+  border: 5px dashed darkslategray;
 }
 
 @media (min-width: 300px) {
