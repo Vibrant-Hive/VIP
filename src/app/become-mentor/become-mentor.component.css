@@ -76,8 +76,8 @@ mat-grid-tile-header{
 }
 
 .mentor-header {
-  color: forestgreen;
-  border: 2px dashed darkslategray;
+  color: #E34922;
+
   font-weight: bold;
   /*font-family: Agency FB, serif!important;*/
 }

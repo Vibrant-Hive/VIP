@@ -1,1 +1,56 @@
+.mentor-details {
+  text-align: center;
+  width: 95% !important;
+  margin: auto!important;
+  background-color: rgba(0,0,0,0.9)!important;
+}
+
+.mentor-header {
+  color: #ECC925;
+
+  font-weight: bold;
+  font-size: x-large;
+  /*font-family: Agency FB, serif!important;*/
+}
+
+
+.available-mentors{
+  margin: 0 2%;
+  text-align: center;
+}
+
+.mentor-card{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 300px) {
+  .mentor-image{
+    padding: 15% 25% 15% 25%;
+    max-height:250px;
+  }
+  .mentor-details {
+    width: 95%;
+  }
+  mat-list-item{
+    height:38px!important;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mentor-image{
+    padding: 5% 25% 5% 25%;
+    max-height:350px;
+  }
+  .mentor-details {
+    width: 100%;
+  }
+  mat-list-item{
+    height:48px!important;
+  }
+}
+
+.book-button{
+  width: 30%;
+}
 

@@ -1,11 +1,11 @@
 <mat-card class="mentor-details">
-  <mat-card-title><span class="mentor-header">&nbsp;MENTORING ROADMAP&nbsp;</span></mat-card-title>
+  <mat-card-title><span class="mentor-header">&nbsp;ROADMAP&nbsp;</span></mat-card-title>
   <br>
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
       <mat-grid-tile class="learn-tile">
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Computer Basics</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Computer Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce computer basics with a help of smartphone <br> <br>
@@ -15,22 +15,21 @@
                 • Server
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Computer Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Computer Basics')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
       <br *ngIf="isMobile()">
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Database | SQL Basics</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Database | SQL Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Create a database and start with SQL basics up to select query on conditions <br><br>
@@ -41,23 +40,22 @@
                 • SELECT
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Database | SQL Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Database | SQL Basics')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Frontend | HTML Basics</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Frontend | HTML Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce HTML using an online web page<br><br>
@@ -66,16 +64,15 @@
                 • Styling<br>
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Frontend | HTML Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Frontend | HTML Basics')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
 
@@ -83,7 +80,7 @@
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Backend | Java/Python Basics</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Backend | Java/Python Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce core concepts using a small program <br><br>
@@ -92,64 +89,63 @@
                 • Data Structure: List, Set, Map<br>
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Backend | Java/Python Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Backend | Java/Python Basics')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Frameworks</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Frameworks</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Show how data flows from database to frontend and vice versa <br><br>
-                • Frontend - Angular<br>
-                • Backend - Spring Boot / Django<br>
+                • Frontend - Angular / React <br>
+                • Backend - Spring Boot / Django <br>
+                • Testing - Selenium / Cypress / TestNG / Cucumber<br>
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Frameworks')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Frameworks')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; text-align:center;font-size: medium">Try it on</span>
+          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%; width: 100%">Your First App</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
-                • Create a spring boot / Django service and connect to database<br><br>
-                • Create an endpoint and call it from browser<br><br>
-                • Create an Angular app and show it in browser<br>
+                • Create a backend service and connect to database<br>
+                • Create an endpoint and call it from browser<br>
+                • Create a frontend app and view it in browser<br>
+                • Create a test suite and test an app<br>
             </span>
         <mat-grid-tile-footer>
-          <button mat-raised-button color="primary" class="book-button" (click)="openDialog('Try it on')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">self_improvement
+          <div style="width: 100%; cursor: pointer" (click)="openDialog('Your First App')">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">self_improvement
             </mat-icon>
-            Self-Learn
-          </button>
-          &nbsp;
-          <button mat-raised-button color="secondary" class="book-button" routerLink="/mentors">
-            <mat-icon color="secondary" style="font-family: 'Material Icons',serif !important;">diversity_2</mat-icon>
-            Mentors
-          </button>
+            <div>
+              <a style="color:white; font-size: small">
+                Self-Learn
+              </a>
+            </div>
+          </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>
 

@@ -1,13 +1,13 @@
 <p-toast></p-toast>
 
 <mat-card class="available-mentors">
-  <mat-card-title><span class="mentor-header">&nbsp;ACTIVE MENTORS&nbsp;</span></mat-card-title>
+  <mat-card-title><span class="mentor-header">&nbsp;MENTORS&nbsp;</span></mat-card-title>
 
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()">
       <mat-grid-tile *ngFor="let mentor of availableMentors">
         <mat-grid-tile-header><span
-          style="color: deeppink;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
+          style="color: #ECC925;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
           style="color: lightslategray;font-weight: bold; font-size: small">{{mentor["skills"]}}</span>
         </mat-grid-tile-header>
         <mat-card>
@@ -19,11 +19,14 @@
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
-          <div style="width: 100%">
-          <button mat-raised-button color="primary" class="book-button" (click)="viewMentor(mentor)">
-            <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">school</mat-icon>
-            Learn
-          </button>
+          <div style="width: 100%; cursor: pointer" (click)="viewMentor(mentor)">
+            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">school
+            </mat-icon>
+            <div>
+              <a style="color:white; font-size: small">
+                Learn
+              </a>
+            </div>
           </div>
         </mat-grid-tile-footer>
       </mat-grid-tile>

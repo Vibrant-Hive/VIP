@@ -29,7 +29,7 @@ export class KnowledgeComponent implements OnInit {
     if (sessionStorage.getItem('device') === 'mobile') {
       return "4:5";
     } else {
-      return "3:2";
+      return "5:4";
     }
   }
 
@@ -63,7 +63,7 @@ export class KnowledgeComponent implements OnInit {
         this.contentArr.push('Select Inspect to see the HTML behind');
         break;
       case 'Backend | Java/Python Basics':
-        this.contentArr.push('A programming language has so many concepts, don\'t worry.');
+        this.contentArr.push('A programming language has so many concepts, don\'t get puzzled.');
         this.contentArr.push('As of now, try to understand just the basics like class, method, for, if, etc .');
         this.contentArr.push('Refer: <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a href="https://www.javatpoint.com/" target="_blank">JavaTpoint</a>, <a href="https://www.tutorialspoint.com/" target="_blank">Tutorials Point</a>');
         this.contentArr.push('<a></a>')
@@ -73,13 +73,14 @@ export class KnowledgeComponent implements OnInit {
       case 'Frameworks':
         this.contentArr.push('Frameworks can be better explained only when you are ready with programming.');
         this.contentArr.push('Inside the frameworks, we will apply all the language skills for the backend processes.');
-        this.contentArr.push('Book a mentor at this point to guide you further');
+        this.contentArr.push('Book a mentor at this point to guide you better.');
         break;
-      case 'Try it on':
+      case 'Your First App':
         this.contentArr.push('Create your own projects with the acquired knowledge' );
         this.contentArr.push('<a href="https://start.spring.io/" target="_blank">Spring Initializer</a>' );
         this.contentArr.push('<a href="https://angular.io/start" target="_blank">Angular Documentation</a>');
         this.contentArr.push('<a href="https://www.djangoproject.com/start/" target="_blank">Django Documentation</a>');
+        this.contentArr.push('<a href="https://www.selenium.dev/documentation/webdriver/getting_started/first_script/" target="_blank">Selenium Documentation</a>');
         break;
     }
   }

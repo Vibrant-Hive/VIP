@@ -6,8 +6,8 @@
 }
 
 .mentor-header {
-  color: forestgreen;
-  border: 2px dashed darkslategray;
+  color: #E34922;
+
   font-weight: bold;
   font-size: x-large;
   /*font-family: Agency FB, serif!important;*/
@@ -39,7 +39,7 @@
   }
 
   .book-button {
-    width: 50%;
+    width: 60%;
   }
 }
 
@@ -54,7 +54,7 @@
   }
 
   .book-button {
-    width: 40%;
+    width: 30%;
   }
 }
 
