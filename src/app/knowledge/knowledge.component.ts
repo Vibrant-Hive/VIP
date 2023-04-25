@@ -29,7 +29,7 @@ export class KnowledgeComponent implements OnInit {
     if (sessionStorage.getItem('device') === 'mobile') {
       return "4:5";
     } else {
-      return "5:4";
+      return "1:1";
     }
   }
 
