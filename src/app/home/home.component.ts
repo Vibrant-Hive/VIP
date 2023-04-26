@@ -8,9 +8,21 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _router: Router) {
-  }
+    public isAuthenticated = false; 
+   private _destroySub$ = new Subject<void>(); 
+  
+   constructor( 
+     private _authService: AuthService, 
+     private _router: Router) { 
+   } 
+  
+   ngOnInit(): void { 
+     this._authService.isAuthenticated$.pipe( 
+       takeUntil(this._destroySub$) 
+     ).subscribe((isAuthenticated: boolean) => { 
+       this.isAuthenticated = isAuthenticated;
+});
+}
 
-  ngOnInit(): void {
-  }
+
 }
