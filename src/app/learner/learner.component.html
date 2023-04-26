@@ -27,7 +27,7 @@
           <mat-list-item *ngFor="let story of userStories;" style="height:100px; cursor:pointer"
                          (click)="githubBoard(story)">
             <span matListItemTitle style="padding-right: 10px">{{userStories.indexOf(story) + 1}}</span>
-            <span matListItemIcon style="padding-right: 10px"><img style="height:50px"
+            <span matListItemIcon style="padding-right: 10px"><img style="height:30px"
                                                                    src="../../assets/images/github.svg" alt=""></span>
             <div matListItemLine style="padding-right: 10px">
               <div style="text-align: left" class="story-name">{{story.userStoryName}}</div>
