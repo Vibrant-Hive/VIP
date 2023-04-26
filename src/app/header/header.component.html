@@ -3,7 +3,11 @@
 
 
   <div class="example-button-row" *ngIf="!isMobile()">
-    <button mat-raised-button color="secondary" (click)="showProfile()" *ngIf="showApply()">
+    <button mat-raised-button style="background: #E94B24" routerLink="/home" *ngIf="showHome()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;">home</mat-icon>
+      Home
+    </button>
+    <button mat-raised-button style="background: #E94B24" (click)="showProfile()" *ngIf="showApply()">
       <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;" color="secondary">account_circle</mat-icon>
       <mat-icon *ngIf="applyButtonText!=='Profile'" style="font-family: 'Material Icons',serif !important;" color="secondary">work</mat-icon>
       {{applyButtonText}}</button>
@@ -11,13 +15,9 @@
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
       Mentors
     </button>
-    <button mat-raised-button color="secondary" routerLink="/login" *ngIf="showLogin()">
+    <button mat-raised-button style="background: #E94B24" routerLink="/login" *ngIf="showLogin()">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>
       Login
-    </button>
-    <button mat-raised-button color="secondary" routerLink="/home" *ngIf="showHome()">
-      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">home</mat-icon>
-      Home
     </button>
     <button mat-raised-button color="secondary" (click)="logout()" *ngIf="isAuthenticated">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">logout</mat-icon>
