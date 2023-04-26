@@ -5,7 +5,7 @@
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
       <mat-grid-tile class="learn-tile">
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Computer Basics</span>
+          class="topic">Computer Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce computer basics with a help of smartphone <br> <br>
@@ -16,14 +16,14 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Computer Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important;color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-    <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+
+                <a class="learn">
+                  Self-Learn
+                </a>
+
             </div>
           </div>
         </mat-grid-tile-footer>
@@ -31,7 +31,7 @@
       <br *ngIf="isMobile()">
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Database | SQL Basics</span>
+          class="topic">Database | SQL Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Create a database and start with SQL basics up to select query on conditions <br><br>
@@ -43,14 +43,14 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Database | SQL Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-              <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+
+                <a class="learn">
+                  Self-Learn
+                </a>
+
             </div>
           </div>
         </mat-grid-tile-footer>
@@ -59,7 +59,7 @@
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Frontend | HTML Basics</span>
+          class="topic">Frontend | HTML Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce HTML using an online web page<br><br>
@@ -69,14 +69,14 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Frontend | HTML Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-           <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+
+                <a class="learn">
+                  Self-Learn
+                </a>
+
             </div>
           </div>
         </mat-grid-tile-footer>
@@ -86,7 +86,7 @@
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Backend | Java/Python Basics</span>
+          class="topic">Backend | Java/Python Basics</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Introduce core concepts using a small program <br><br>
@@ -96,14 +96,14 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Backend | Java/Python Basics')">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-              <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+
+                <a class="learn">
+                  Self-Learn
+                </a>
+
             </div>
           </div>
         </mat-grid-tile-footer>
@@ -111,8 +111,7 @@
       <br *ngIf="isMobile()">
 
       <mat-grid-tile>
-        <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%">Frameworks</span>
+        <mat-grid-tile-header><span class="topic">Frameworks</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
           Show how data flows from database to frontend and vice versa <br><br>
@@ -122,14 +121,14 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Frameworks')">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-              <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+
+                <a class="learn">
+                  Self-Learn
+                </a>
+
             </div>
           </div>
         </mat-grid-tile-footer>
@@ -138,7 +137,7 @@
 
       <mat-grid-tile>
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; text-align:center;font-size: medium; width: 100%; width: 100%">Your First App</span>
+          style="color: #E77922;font-weight: bold; text-align:center;font-size: medium; width: 100%; width: 100%">Your First App</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
                 • Create a backend service and connect to database<br>
@@ -148,14 +147,12 @@
             </span>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="openDialog('Your First App')">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color: #ECC925">self_improvement
+            <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
-              <u>          
-<a style="color: #ECC925; font-size: small">
-                Self-Learn
-              </a>
- </u>
+                <a class="learn">
+                  Self-Learn
+                </a>
             </div>
           </div>
         </mat-grid-tile-footer>

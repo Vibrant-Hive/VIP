@@ -59,9 +59,9 @@ table {
 
 
 .mentor-header {
-  color: #E34922;
-
+  font-family: "Courier", serif !important;
   font-weight: bold;
+  color:lightslategray;
   /*font-family: Agency FB, serif!important;*/
 }
 
@@ -74,4 +74,13 @@ table {
   .mentor-header {
     font-size: x-large;
   }
+}
+
+.learn {
+  font-size: small;
+  font-family: 'Cambria', serif;
+}
+.icon-meditate {
+  font-family: 'Material Icons', serif!important;
+  color:indianred;
 }

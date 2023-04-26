@@ -7,23 +7,23 @@
     <mat-grid-list [cols]="gridCols()">
       <mat-grid-tile *ngFor="let mentor of availableMentors">
         <mat-grid-tile-header><span
-          style="color: #ECC925;font-weight: bold; font-size: large">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
-          style="color: lightslategray;font-weight: bold; font-size: small">{{mentor["skills"]}}</span>
+          style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
+          style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor["skills"]}}</span>
         </mat-grid-tile-header>
         <mat-card>
           <mat-card-content class="mentor-card">
             <div class="mentor-image">
               <img [src]="mentor['displayPic']" alt="">
             </div>
-            <span style="margin-top: 5%">{{mentor["experience"]}} years Industry Exp.</span>
+            <span style="margin-top: 5%;">{{mentor["experience"]}} years Industry Exp.</span>
           </mat-card-content>
         </mat-card>
         <mat-grid-tile-footer>
           <div style="width: 100%; cursor: pointer" (click)="viewMentor(mentor)">
-            <mat-icon style="font-family: 'Material Icons',serif !important; color:white">school
+            <mat-icon class="icon-meditate">school
             </mat-icon>
             <div>
-              <a style="color:white; font-size: small">
+              <a class="learn">
                 Learn
               </a>
             </div>

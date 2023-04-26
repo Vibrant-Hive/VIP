@@ -6,10 +6,10 @@
 }
 
 .mentor-header {
-  color: #ECC925;
-
+  font-family: "Courier", serif !important;
   font-weight: bold;
   font-size: x-large;
+  color:lightslategray;
   /*font-family: Agency FB, serif!important;*/
 }
 
@@ -35,7 +35,7 @@
   }
 
   .text-knowledge {
-    font-size: medium;
+    font-size: small;
   }
 
   .book-button {
@@ -62,5 +62,22 @@
   text-align: left;
   width: 90%;
   padding: 0 16px;
+  font-family: 'Cambria', serif;
+}
+
+.learn {
   font-size: small;
+}
+
+.topic {
+  color: #E77922;
+  font-weight: bold!important;
+  text-align: center;
+  font-size: large!important;
+  width: 100%;
+}
+
+.icon-meditate {
+  font-family: 'Material Icons', serif!important;
+  color:forestgreen;
 }
