@@ -5,8 +5,8 @@
 
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()">
-      <div *ngFor="let mentor of availableMentors" style="width: 100%; cursor: pointer" (click)="viewMentor(mentor)" >
-        <mat-grid-tile style="border-top: 1px solid darkslategray;">
+      <div *ngFor="let mentor of availableMentors">
+        <mat-grid-tile style="border-top: 1px solid darkslategray; cursor: pointer" (click)="viewMentor(mentor)">
           <mat-grid-tile-header><span
             style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
             style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor["skills"]}}</span>
@@ -22,7 +22,7 @@
           <span style="margin-top: 5%;">{{mentor["experience"]}}
             + years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
           <mat-grid-tile-footer>
-            <div>
+            <div style="width:100%">
               <mat-icon class="icon-meditate">school
               </mat-icon>
               <div>
