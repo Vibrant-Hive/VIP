@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showHome() {
-    return this._router.url.includes('login') || this._router.url.includes('learner');
+    return !this._router.url.includes('home');
   }
 
   isMobile(){
