@@ -90,4 +90,8 @@ export class MentorsComponent implements OnInit {
       return "1:1";
     }
   }
+
+  isMobile() {
+    return sessionStorage.getItem('device') === 'mobile';
+  }
 }

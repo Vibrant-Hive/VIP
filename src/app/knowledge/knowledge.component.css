@@ -81,3 +81,7 @@
   font-family: 'Material Icons', serif!important;
   color:forestgreen;
 }
+
+.learn-tile {
+  border-top: 1px dashed darkslategray;
+}
