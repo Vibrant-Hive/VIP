@@ -85,7 +85,7 @@ export class MentorsComponent implements OnInit {
 
   rowHeight() {
     if (sessionStorage.getItem('device') === 'mobile') {
-      return "5:4";
+      return "1:1";
     } else {
       return "1:1";
     }
