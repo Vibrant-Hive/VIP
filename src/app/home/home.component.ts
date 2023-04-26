@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {Subject, takeUntil} from "rxjs"; 
+ import {AuthService} from "../service/auth/auth-service.service";
 
 @Component({
   selector: 'app-home',
