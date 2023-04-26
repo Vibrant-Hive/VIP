@@ -5,32 +5,36 @@
 
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()">
-      <mat-grid-tile *ngFor="let mentor of availableMentors" style="border-bottom: 1px dashed darkslategray;">
-        <mat-grid-tile-header><span
-          style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
-          style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor["skills"]}}</span>
-        </mat-grid-tile-header>
-        <mat-card>
-          <mat-card-content class="mentor-card">
-            <div class="mentor-image">
-              <img [src]="mentor['displayPic']" alt="">
-            </div>
+      <div *ngFor="let mentor of availableMentors">
+        <mat-grid-tile>
+          <mat-grid-tile-header><span
+            style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
+            style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor["skills"]}}</span>
+          </mat-grid-tile-header>
+          <mat-card>
+            <mat-card-content class="mentor-card">
+              <div class="mentor-image">
+                <img [src]="mentor['displayPic']" alt="">
+              </div>
 
-          </mat-card-content>
-        </mat-card>
-        <span style="margin-top: 5%;">{{mentor["experience"]}}+ years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
-        <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="viewMentor(mentor)">
-            <mat-icon class="icon-meditate">school
-            </mat-icon>
-            <div>
-              <a class="learn">
-                Learn
-              </a>
+            </mat-card-content>
+          </mat-card>
+          <span style="margin-top: 5%;">{{mentor["experience"]}}
+            + years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
+          <mat-grid-tile-footer>
+            <div style="width: 100%; cursor: pointer" (click)="viewMentor(mentor)">
+              <mat-icon class="icon-meditate">school
+              </mat-icon>
+              <div>
+                <a class="learn">
+                  Learn
+                </a>
+              </div>
             </div>
-          </div>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+        <br>
+      </div>
     </mat-grid-list>
   </mat-card-content>
 </mat-card>
