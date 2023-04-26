@@ -40,7 +40,7 @@ mat-grid-tile-header{
 @media (min-width: 300px) {
   .mentor-image{
     padding: 15% 25% 15% 25%;
-    max-height:250px;
+    max-height:150px;
   }
   .mentor-details {
     width: 95%;
@@ -56,7 +56,7 @@ mat-grid-tile-header{
 @media (min-width: 1000px) {
   .mentor-image{
     padding: 5% 25% 5% 25%;
-    max-height:350px;
+    max-height:250px;
   }
   .mentor-details {
     width: 80%;
@@ -76,9 +76,10 @@ mat-grid-tile-header{
 }
 
 .mentor-header {
-  color: #E34922;
-
+  font-family: "Courier", serif !important;
   font-weight: bold;
+  font-size: x-large;
+  color:lightslategray;
   /*font-family: Agency FB, serif!important;*/
 }
 

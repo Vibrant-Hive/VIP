@@ -82,4 +82,12 @@ export class MentorsComponent implements OnInit {
     sessionStorage.setItem('action', 'book');
     this._router.navigateByUrl('/profile').then();
   }
+
+  rowHeight() {
+    if (sessionStorage.getItem('device') === 'mobile') {
+      return "1:1";
+    } else {
+      return "4:5";
+    }
+  }
 }
