@@ -3,7 +3,7 @@
   <br>
   <mat-card-content>
     <mat-grid-list [cols]="gridCols()" [rowHeight]="rowHeight()">
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Computer Basics')">
         <mat-grid-tile-header><span
           class="topic">Computer Basics</span>
         </mat-grid-tile-header>
@@ -15,7 +15,7 @@
                 • Server
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Computer Basics')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
@@ -29,7 +29,7 @@
         </mat-grid-tile-footer>
       </mat-grid-tile>
       <br *ngIf="isMobile()">
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Database | SQL Basics')">
         <mat-grid-tile-header><span
           class="topic">Database | SQL Basics</span>
         </mat-grid-tile-header>
@@ -42,7 +42,7 @@
                 • SELECT
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Database | SQL Basics')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
@@ -57,7 +57,7 @@
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Frontend | HTML Basics')">
         <mat-grid-tile-header><span
           class="topic">Frontend | HTML Basics</span>
         </mat-grid-tile-header>
@@ -68,7 +68,7 @@
                 • Styling<br>
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Frontend | HTML Basics')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
@@ -84,7 +84,7 @@
 
       <br>
 
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Backend | Java/Python Basics')">
         <mat-grid-tile-header><span
           class="topic">Backend | Java/Python Basics</span>
         </mat-grid-tile-header>
@@ -95,7 +95,7 @@
                 • Data Structure: List, Set, Map<br>
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Backend | Java/Python Basics')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
@@ -110,7 +110,7 @@
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Frameworks')">
         <mat-grid-tile-header><span class="topic">Frameworks</span>
         </mat-grid-tile-header>
         <span class="text-knowledge">
@@ -120,7 +120,7 @@
                 • Testing - Selenium / Cypress / TestNG / Cucumber<br>
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Frameworks')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
@@ -135,7 +135,7 @@
       </mat-grid-tile>
       <br *ngIf="isMobile()">
 
-      <mat-grid-tile class="learn-tile">
+      <mat-grid-tile class="learn-tile" style="cursor: pointer" (click)="openDialog('Your First App')">
         <mat-grid-tile-header><span
           style="color: #E77922;font-weight: bold; text-align:center;font-size: medium; width: 100%; width: 100%">Your First App</span>
         </mat-grid-tile-header>
@@ -146,7 +146,7 @@
                 • Create a test suite and test an app<br>
             </span>
         <mat-grid-tile-footer>
-          <div style="width: 100%; cursor: pointer" (click)="openDialog('Your First App')">
+          <div style="width: 100%;">
             <mat-icon class="icon-meditate">self_improvement
             </mat-icon>
             <div>
