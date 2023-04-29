@@ -1,26 +1,29 @@
 <mat-card>
-  <mat-card-content>
-    <form #loginForm="ngForm">
-      <h2>Login</h2>
+  <form #loginForm="ngForm">
+    <mat-card-content>
+      <h2 style="color:#E77922">Login</h2>
       <mat-error *ngIf="!loginValid">
         The credentials were not recognized
       </mat-error>
       <mat-form-field>
-        <input matInput placeholder="Email or Mobile Number" [(ngModel)]="userName" name="userName" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}|[789][0-9]{9}" required>
+        <input matInput placeholder="Email or Mobile Number" [(ngModel)]="userName" name="userName"
+               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}|[789][0-9]{9}" required>
         <mat-error>
           Please provide a valid email address or mobile number
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password" name="password" required>
-        <mat-icon style="font-family: 'Material Icons',serif !important;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password"
+               name="password" required>
+        <mat-icon style="font-family: 'Material Icons',serif !important;" matSuffix
+                  (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error>
           Please provide a valid password
         </mat-error>
       </mat-form-field>
       <button mat-raised-button style="background: rgba(34,139,34, 0.7)" (click)="onSubmit()">Login</button>
       <button mat-button style="background: lightslategray; float: right;" routerLink="/createAccount">Register</button>
-    </form>
-  </mat-card-content>
+    </mat-card-content>
+  </form>
 </mat-card>
 
