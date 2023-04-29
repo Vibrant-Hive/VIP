@@ -67,7 +67,7 @@ export class KnowledgeComponent implements OnInit {
         this.contentArr.push('Select Inspect to see the HTML behind');
         this.pdfName = 'youDownloadedThisDocumentClickingOnAnHTMLButton';
         break;
-      case 'Backend | Java/Python Basics':
+      case 'Backend | Programming Basics':
         this.contentArr.push('A programming language has so many concepts, don\'t get puzzled.');
         this.contentArr.push('As of now, try to understand just the basics like class, method, for, if, etc .');
         this.contentArr.push('Refer: <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a href="https://www.javatpoint.com/" target="_blank">JavaTpoint</a>, <a href="https://www.tutorialspoint.com/" target="_blank">Tutorials Point</a>');
