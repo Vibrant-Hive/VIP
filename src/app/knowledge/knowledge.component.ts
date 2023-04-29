@@ -10,6 +10,7 @@ import {DialogComponent} from "../dialog/dialog.component";
 export class KnowledgeComponent implements OnInit {
 
   contentArr: string[] = [];
+  private pdfName: string = '';
 
   constructor(public dialog: MatDialog) {
   }
@@ -34,20 +35,22 @@ export class KnowledgeComponent implements OnInit {
   }
 
   openDialog(topic: string): void {
-    this.content(topic);
-    this.dialog.open(DialogComponent, {data: {title: topic, content: this.contentArr}});
+    this.dialogData(topic);
+    this.dialog.open(DialogComponent, {data: {title: topic, content: this.contentArr, pdfName: this.pdfName}});
   }
 
   isMobile() {
     return sessionStorage.getItem('device') === 'mobile';
   }
 
-  content(topic: string) {
+  dialogData(topic: string) {
     this.contentArr = [];
+    this.pdfName = '';
     switch (topic) {
       case 'Computer Basics':
         this.contentArr.push('If you know how to use a smartphone,');
         this.contentArr.push('then you already know the basics of the computer.');
+        this.pdfName = 'yourSmartphoneIsAComputerAlready';
         break;
       case 'Database | SQL Basics':
         this.contentArr.push('If you have seen an Excel sheet,');
@@ -56,11 +59,13 @@ export class KnowledgeComponent implements OnInit {
         this.contentArr.push('<a></a>')
         this.contentArr.push('Install MySQL Community Server in your PC to experiment');
         this.contentArr.push('<a href="https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.33.0.msi" target="_blank">Download MySQL Installer</a>');
+        this.pdfName = 'classAttendanceRegister';
         break;
       case 'Frontend | HTML Basics':
-        this.contentArr.push('Open <a href="https://www.amazon.in" target="_blank">Amazon</a> website with Chrome desktop,');
+        this.contentArr.push('Open any website with Chrome PC,');
         this.contentArr.push('Right click on any button on the webpage,');
         this.contentArr.push('Select Inspect to see the HTML behind');
+        this.pdfName = 'youDownloadedThisDocumentClickingOnAnHTMLButton';
         break;
       case 'Backend | Java/Python Basics':
         this.contentArr.push('A programming language has so many concepts, don\'t get puzzled.');
@@ -69,15 +74,17 @@ export class KnowledgeComponent implements OnInit {
         this.contentArr.push('<a></a>')
         this.contentArr.push('Install IntelliJ Community Edition in your PC to experiment');
         this.contentArr.push('<a href="https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC" target="_blank">Download IntelliJ Installer</a>');
+        this.pdfName = 'moonIsLoopingOnA28DayCycle';
         break;
       case 'Frameworks':
         this.contentArr.push('Frameworks can be better explained only when you are ready with programming.');
-        this.contentArr.push('Inside the frameworks, we will apply all the language skills for the backend processes.');
+        this.contentArr.push('Inside the frameworks, we will apply all the language skills for various operations.');
         this.contentArr.push('Book a mentor at this point to guide you better.');
+        this.pdfName = 'fullStackAutomobiles';
         break;
       case 'Your First App':
-        this.contentArr.push('Create your own projects with the acquired knowledge' );
-        this.contentArr.push('<a href="https://start.spring.io/" target="_blank">Spring Initializer</a>' );
+        this.contentArr.push('Create your own projects with the acquired knowledge');
+        this.contentArr.push('<a href="https://start.spring.io/" target="_blank">Spring Initializer</a>');
         this.contentArr.push('<a href="https://angular.io/start" target="_blank">Angular Documentation</a>');
         this.contentArr.push('<a href="https://www.djangoproject.com/start/" target="_blank">Django Documentation</a>');
         this.contentArr.push('<a href="https://www.selenium.dev/documentation/webdriver/getting_started/first_script/" target="_blank">Selenium Documentation</a>');

@@ -1,10 +1,10 @@
 <button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px">
   <mat-icon>x</mat-icon>
 </button>
-<h1 mat-dialog-title style="font-weight: bold">{{title}}</h1>
+<h1 mat-dialog-title style="font-weight: bold;color:#E77922">{{title}}</h1>
 <div mat-dialog-content class="dialog">
-  <p *ngFor="let line of contentArr" [innerHTML]="line"></p>
+  <p *ngFor="let line of contentArr" cdkFocusInitial [innerHTML]="line"></p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button cdkFocusInitial (click)="onOkClick()">I understand</button>
+<div mat-dialog-actions *ngIf="pdfName">
+  <button mat-button style="background: rgba(34,139,34, 0.7);"><a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" style="text-decoration:none;">Download PDF</a></button>
 </div>

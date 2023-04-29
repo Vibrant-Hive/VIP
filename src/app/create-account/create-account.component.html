@@ -1,6 +1,6 @@
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
+      <mat-card-title style="color:#E77922">Register</mat-card-title>
     </mat-card-header>
     <form #registerForm="ngForm" class="example-form" (ngSubmit)="register()">
       <mat-card-content>
@@ -39,7 +39,7 @@
           </mat-error>
         </mat-form-field>
       </mat-card-content>
-      <button mat-raised-button style="background: #E94B24" [disabled]="!registerForm.form.valid">Register</button>
+      <button mat-raised-button style="background: rgba(34,139,34, 0.7)" [disabled]="!registerForm.form.valid">Register</button>
       <button mat-button style="background: lightslategray; float: right;" routerLink="/login">Login</button>
     </form>
   </mat-card>
