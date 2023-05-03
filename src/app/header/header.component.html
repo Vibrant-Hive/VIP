@@ -11,10 +11,10 @@
       <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;" color="secondary">account_circle</mat-icon>
       <mat-icon *ngIf="applyButtonText!=='Profile'" style="font-family: 'Material Icons',serif !important;" color="secondary">work</mat-icon>
       {{applyButtonText}}</button>
-    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">
-      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
-      Mentors
-    </button>
+<!--    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">-->
+<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>-->
+<!--      Mentors-->
+<!--    </button>-->
     <button mat-raised-button style="background: rgba(233, 75, 36, 0.7)" routerLink="/login" *ngIf="showLogin()">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>
       Login
@@ -33,10 +33,10 @@
       <button mat-menu-item (click)="showProfile()" *ngIf="showApply()">
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">account_circle</mat-icon>
         {{applyButtonText}}</button>
-      <button mat-menu-item routerLink="/mentors" *ngIf="showMentors()">
-        <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
-        Mentors
-      </button>
+<!--      <button mat-menu-item routerLink="/mentors" *ngIf="showMentors()">-->
+<!--        <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>-->
+<!--        Mentors-->
+<!--      </button>-->
       <button mat-menu-item routerLink="/login" *ngIf="showLogin()">
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>
         Login

@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'createAccount', component: CreateAccountComponent},
-  {path: 'mentors', component: MentorsComponent},
+  // {path: 'mentors', component: MentorsComponent},
   {path: 'learner/:userId', component: LearnerComponent},
   {path: 'profile', component: BecomeMentorComponent, canActivate:[AuthGuard]},
   {path: 'welcome', component: WelcomeKitComponent},
