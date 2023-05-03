@@ -58,19 +58,21 @@ export class BecomeMentorComponent implements OnInit {
   editing?: boolean;
   mobileNo: any;
   skillOptions: Option[] = [
-    {value: 'FULL STACK', viewValue: 'FULL STACK'},
-    {value: 'SQL', viewValue: 'SQL'},
-    {value: 'JAVA', viewValue: 'JAVA'},
-    {value: 'PYTHON', viewValue: 'PYTHON'},
-    {value: 'ANGULAR', viewValue: 'ANGULAR'},
-    {value: 'SELENIUM', viewValue: 'SELENIUM'},
-    {value: 'TESTING', viewValue: 'TESTING'},
-    {value: 'ANDROID', viewValue: 'ANDROID'},
-    {value: 'GRAPHICS DESIGN', viewValue: 'GRAPHICS DESIGN'},
-    {value: 'ARCH. DESIGN', viewValue: 'ARCH. DESIGN'}
+    {value: '1', viewValue: 'FULL STACK'},
+    {value: '7', viewValue: 'SQL'},
+    {value: '6', viewValue: 'JAVA'},
+    {value: '8', viewValue: 'PYTHON'},
+    {value: '2', viewValue: 'ANGULAR'},
+    {value: '5', viewValue: 'SELENIUM'},
+    {value: '4', viewValue: 'TESTING'},
+    {value: '3', viewValue: 'ANDROID'},
+    // {value: 'GRAPHICS DESIGN', viewValue: 'GRAPHICS DESIGN'},
+    // {value: 'ARCH. DESIGN', viewValue: 'ARCH. DESIGN'}
   ];
   email?: string;
   showProfileDetails?: boolean;
+  skillSetId: any;
+  relatedTechnologies: any;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
   }
@@ -83,7 +85,9 @@ export class BecomeMentorComponent implements OnInit {
       this.fullName = user.fullName;
       this.availability = user.availability ? user.availability.split(',') : '';
       this.zoomLink = user.zoomLink;
-      this.skills = user.skills;
+      this.skillSetId = user.skillSet.id.toString();
+      this.skills = user.skillSet.skillSetName;
+      this.relatedTechnologies = user.skillSet.relatedTechnologies;
       this.designation = user.designation;
       this.experience = user.experience;
       this.languages = user.languages ? user.languages.split(',') : '';
@@ -158,7 +162,7 @@ export class BecomeMentorComponent implements OnInit {
 
   updateProfile() {
     let userId = sessionStorage.getItem('userId');
-    this._mentorsService.updateProfile(this.fullName, this.skills, this.role, this.active, this.experience, this.designation, this.languages, userId, this.zoomLink, this.availability, this.resume, this.photo).subscribe((isSuccess: any) => {
+    this._mentorsService.updateProfile(this.fullName, this.skillSetId, this.role, this.active, this.experience, this.designation, this.languages, userId, this.zoomLink, this.availability, this.resume, this.photo).subscribe((isSuccess: any) => {
       if (isSuccess) {
         this.messageService.add({
           severity: 'success',

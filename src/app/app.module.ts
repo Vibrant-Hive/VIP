@@ -35,13 +35,14 @@ import {BecomeMentorComponent} from './become-mentor/become-mentor.component';
 import {UserService} from "./service/user/user.service";
 import {MatMenuModule} from "@angular/material/menu";
 import {LearnerComponent} from './learner/learner.component';
-import { WelcomeKitComponent } from './welcome-kit/welcome-kit.component';
+import {WelcomeKitComponent} from './welcome-kit/welcome-kit.component';
 import {BarChartComponent} from "./barchart/barchart";
-import { VideoComponent } from './video/video.component';
-import { KnowledgeComponent } from './knowledge/knowledge.component';
+import {VideoComponent} from './video/video.component';
+import {KnowledgeComponent} from './knowledge/knowledge.component';
 import {NgChartsModule} from "ng2-charts";
 import {NgxSpinnerModule} from "ngx-spinner";
-import { DialogComponent } from './dialog/dialog.component';
+import {DialogComponent} from './dialog/dialog.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { DialogComponent } from './dialog/dialog.component';
     MatListModule,
     ToastModule,
     MatMenuModule,
-    NgChartsModule
+    NgChartsModule,
+    MatTooltipModule
   ],
   providers: [AuthService, LoginService, MentorsService, UserService, HttpClient, {
     provide: HTTP_INTERCEPTORS,

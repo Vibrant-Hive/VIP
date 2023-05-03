@@ -53,11 +53,11 @@ export class MentorsComponent implements OnInit {
 
   private static preparePhoto(mentors: User[]) {
     mentors.forEach(mentor => {
-      if (mentor.skills?.includes("FULL STACK") || mentor.skills?.includes("TESTING") || mentor.skills?.includes("SQL")
-          || mentor.skills?.includes("ANDROID") || mentor.skills?.includes("PYTHON")) {
-        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".png"
+      if (mentor.skillSet.skillSetName?.includes("FULL STACK") || mentor.skillSet.skillSetName?.includes("TESTING") || mentor.skillSet.skillSetName?.includes("SQL")
+          || mentor.skillSet.skillSetName?.includes("ANDROID") || mentor.skillSet.skillSetName?.includes("PYTHON")) {
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skillSet.skillSetName.toLowerCase().replace(' ', '') +".png"
       } else {
-        mentor.displayPic = "../../assets/images/skills/"+ mentor.skills.toLowerCase().replace(' ', '') +".svg"
+        mentor.displayPic = "../../assets/images/skills/"+ mentor.skillSet.skillSetName.toLowerCase().replace(' ', '') +".svg"
       }
     });
   }

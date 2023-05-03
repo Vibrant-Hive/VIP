@@ -4,7 +4,7 @@ export interface User {
   mobileNo: string;
   role: string;
   fullName: string;
-  skills: string;
+  skillSet: SkillSet;
   experience:number;
   active: boolean;
   availability: string;
@@ -23,4 +23,11 @@ export interface MentorFiles{
   resumeFileName: string;
   photoFileName: string;
   photoFileType: string;
+}
+
+export interface SkillSet {
+  id: any;
+  skillSetName: string;
+  relatedTechnologies: string;
+  active: boolean;
 }

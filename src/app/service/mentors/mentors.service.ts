@@ -17,9 +17,9 @@ export class MentorsService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  updateProfile(fullName: any, skills: any, role: any, active: any, experience: any, designation: any, languages: any, userId: any, zoomLink: any, availability: any, resume: any, photo: any) {
+  updateProfile(fullName: any, skillSetId: any, role: any, active: any, experience: any, designation: any, languages: any, userId: any, zoomLink: any, availability: any, resume: any, photo: any) {
     const params = new HttpParams().set('fullName', fullName)
-      .set('skills', skills)
+      .set('skillSetId', skillSetId)
       .set('role', role)
       .set('active', active)
       .set('experience', experience)

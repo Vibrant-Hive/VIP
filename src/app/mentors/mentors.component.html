@@ -9,7 +9,7 @@
         <mat-grid-tile style="border-top: 1px solid darkslategray; cursor: pointer" (click)="viewMentor(mentor)">
           <mat-grid-tile-header><span
             style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
-            style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor["skills"]}}</span>
+            style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor.skillSet.skillSetName}}</span>
           </mat-grid-tile-header>
           <mat-card>
             <mat-card-content class="mentor-card">
