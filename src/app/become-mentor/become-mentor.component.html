@@ -122,7 +122,10 @@
                             matTooltip="{{relatedTechnologies}}"
                             matTooltipPosition="above"
                             positionAtOrigin="true"
-                            matTooltipTouchGestures="on">info
+                            matTooltipTouchGestures="auto"
+                            [matTooltipDisabled]="true"
+                            #myTooltip="matTooltip"
+                            (click)="displayTooltip()">info
                   </mat-icon>
                 </mat-list-item>
                 <mat-list-item *ngIf=" !editing && languages

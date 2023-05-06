@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MessageService} from "primeng/api";
 import {MentorsService, SupportRequest} from "../service/mentors/mentors.service";
 import {UserService} from "../service/user/user.service";
@@ -74,6 +74,7 @@ export class BecomeMentorComponent implements OnInit {
   skillSetId: any;
   relatedTechnologies: any;
   supportRequestStatus: any;
+  @ViewChild("myTooltip") myTooltip: any;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
     if (!this._authClient.isLoggedIn()) {
@@ -227,5 +228,13 @@ export class BecomeMentorComponent implements OnInit {
       .subscribe((sr: SupportRequest) => {
 
       });
+  }
+
+  public displayTooltip(){
+    this.myTooltip.disabled = false;
+    this.myTooltip.show()
+    setTimeout(() => {
+      this.myTooltip.disabled = true;
+    }, 10000);
   }
 }
