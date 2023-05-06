@@ -78,7 +78,7 @@ export class MentorsComponent implements OnInit {
   }
 
   viewMentor(user: User) {
-    sessionStorage.setItem('currentUserId', String(user.id));
+    sessionStorage.setItem('selectedUserId', String(user.id));
     sessionStorage.setItem('action', 'book');
     this._router.navigateByUrl('/profile').then();
   }

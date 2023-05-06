@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showProfile() {
-    sessionStorage.setItem('currentUserId', String(sessionStorage.getItem('userId')));
+    sessionStorage.setItem('selectedUserId', String(sessionStorage.getItem('userId')));
     sessionStorage.setItem('action', 'edit');
     this._router.navigateByUrl('/profile').then();
   }

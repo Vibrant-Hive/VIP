@@ -117,10 +117,10 @@
                 <mat-list-item *ngIf="!editing" role="list-item"
                                style="font-size: large; font-weight: bold">{{fullName}}</mat-list-item>
 
-                <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold;"
-                               matTooltip="{{relatedTechnologies}}"
-                               matTooltipPosition="right">{{skills}}
-                  <mat-icon style="font-family: 'Material Icons',serif !important;">info
+                <mat-list-item *ngIf="!editing" role="list-item" style="font-weight: bold;">{{skills}}
+                  <mat-icon style="font-family: 'Material Icons',serif !important; cursor:pointer"
+                            matTooltip="{{relatedTechnologies}}"
+                            matTooltipPosition="above">info
                   </mat-icon>
                 </mat-list-item>
                 <mat-list-item *ngIf=" !editing && languages
@@ -136,12 +136,6 @@
                   {{experience}} years
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && designation" role="list-item">{{designation}}</mat-list-item>
-                <mat-list-item>
-                  <button mat-raised-button style="margin:5%" color="secondary" *ngIf="resumeFileName"
-                          (click)="downloadResume()">
-                    Download Resume
-                  </button>
-                </mat-list-item>
               </mat-list>
             </mat-card-content>
           </mat-card>
@@ -152,12 +146,12 @@
 
   </mat-card-content>
   <mat-card-footer>
-    <button *ngIf="editing" mat-raised-button color="secondary" class="apply-button" (click)="updateProfile()"
+    <button *ngIf="editing" mat-raised-button style="background: rgba(233, 75, 36, 0.7)" class="apply-button" (click)="updateProfile()"
             [disabled]="!mentorForm.form.valid">
       {{applyButtonText}}
     </button>
 
-    <div *ngIf="!editing">
+    <div *ngIf="!editing && supportRequestStatus === 'VERIFIED'">
       <a aria-label="Chat on WhatsApp" target="_blank" (click)="whatsAppRedirect()"
          style="margin-right: 1%; cursor:pointer">
         <img alt="Chat on WhatsApp" src="../../assets/images/WhatsAppButtonGreenSmall.svg"/>
@@ -166,5 +160,18 @@
         <img alt="Connect on Zoom" src="../../assets/images/connectOnZoom.svg" style="width: 160px"/>
       </a>
     </div>
+
+    <div *ngIf="!editing && supportRequestStatus === 'NOT REQUESTED'">
+      <button mat-raised-button style="background: rgba(34,139,34, 0.7)" class="apply-button" (click)="requestForSupport()">
+        Request Support
+      </button>
+    </div>
+
+    <div *ngIf="!editing && supportRequestStatus === 'PENDING'">
+      <button mat-raised-button color="secondary" class="apply-button" disabled>
+        Request Pending
+      </button>
+    </div>
+
   </mat-card-footer>
 </mat-card>

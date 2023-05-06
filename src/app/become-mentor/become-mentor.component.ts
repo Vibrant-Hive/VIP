@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "primeng/api";
-import {MentorsService} from "../service/mentors/mentors.service";
+import {MentorsService, SupportRequest} from "../service/mentors/mentors.service";
 import {UserService} from "../service/user/user.service";
 import {User} from "../model/User";
 import {saveAs} from "file-saver";
@@ -73,6 +73,7 @@ export class BecomeMentorComponent implements OnInit {
   showProfileDetails?: boolean;
   skillSetId: any;
   relatedTechnologies: any;
+  supportRequestStatus: any;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
   }
@@ -81,7 +82,7 @@ export class BecomeMentorComponent implements OnInit {
     if (sessionStorage.getItem('action') === 'edit') {
       this.editing = true;
     }
-    this._userService.getUser(sessionStorage.getItem('currentUserId')).subscribe((user: User) => {
+    this._userService.getUser(sessionStorage.getItem('selectedUserId')).subscribe((user: User) => {
       this.fullName = user.fullName;
       this.availability = user.availability ? user.availability.split(',') : '';
       this.zoomLink = user.zoomLink;
@@ -121,7 +122,20 @@ export class BecomeMentorComponent implements OnInit {
         this.yourProfileShow = true;
       }
       this.showProfileDetails = true;
+
+      this._mentorsService.getSupportRequest(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
+        .subscribe((sr: SupportRequest) => {
+          if (sr) {
+            if(sr.verified)
+              this.supportRequestStatus = 'VERIFIED';
+            else
+              this.supportRequestStatus = 'PENDING';
+          } else {
+            this.supportRequestStatus = 'NOT REQUESTED';
+          }
+        });
     });
+
   }
 
   gridCols(): number {
@@ -210,5 +224,12 @@ export class BecomeMentorComponent implements OnInit {
     } else {
       this._router.navigate(['/login']).then();
     }
+  }
+
+  requestForSupport() {
+    this._mentorsService.requestForSupport(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
+      .subscribe((sr: SupportRequest) => {
+
+      });
   }
 }

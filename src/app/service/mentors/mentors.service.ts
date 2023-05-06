@@ -3,6 +3,13 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
 
+export interface SupportRequest {
+  id: number;
+  learnerId: number;
+  mentorId: number;
+  verified: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +20,8 @@ export class MentorsService {
   private appliedMentorsUrl = environment.baseUrl + '/appliedMentors';
   private downloadResumeUrl = environment.baseUrl + '/downloadResume';
   private approveMentorUrl = environment.baseUrl + '/approveMentor';
+  private getSupportRequestUrl = environment.baseUrl + '/getSupportRequest';
+  private requestForSupportUrl = environment.baseUrl + '/requestForSupport';
 
   constructor(private _httpClient: HttpClient) {
   }
@@ -44,23 +53,35 @@ export class MentorsService {
     return this._httpClient.get<User[]>(this.appliedMentorsUrl, {headers: this.httpHeaders});
   }
 
-  // @ts-ignore
-  downloadResume(userId) {
+  downloadResume(userId: any) {
     const params = new HttpParams()
       .set('userId', userId);
     // @ts-ignore
-    return this._httpClient.get<any[]>(this.downloadResumeUrl, {params, responseType: 'blob'});
+    return this._httpClient.get<any[]>(this.downloadResumeUrl, {params, responseType: 'blob', headers: this.httpHeaders});
   }
 
-  // @ts-ignore
-  approveMentor(userId, rate) {
+  approveMentor(userId: any, rate: any) {
     const params = new HttpParams()
       .set('userId', userId)
       .set('rate', rate);
-    return this._httpClient.get<boolean[]>(this.approveMentorUrl, {params});
+    return this._httpClient.get<boolean>(this.approveMentorUrl, {params, headers: this.httpHeaders});
+  }
+
+  getSupportRequest(learnerId: any, mentorId: any){
+    const params = new HttpParams()
+      .set('learnerId', learnerId)
+      .set('mentorId', mentorId);
+    return this._httpClient.get<SupportRequest>(this.getSupportRequestUrl, {params, headers: this.httpHeaders});
   }
 
   private httpHeaders = new HttpHeaders({
     'Authorization': 'Basic ' + btoa(environment.username + ':' + environment.password)
   });
+
+  requestForSupport(learnerId: any, mentorId: any) {
+    const params = new HttpParams()
+      .set('learnerId', learnerId)
+      .set('mentorId', mentorId);
+    return this._httpClient.get<SupportRequest>(this.requestForSupportUrl, {params, headers: this.httpHeaders});
+  }
 }
