@@ -226,7 +226,11 @@ export class BecomeMentorComponent implements OnInit {
   requestForSupport() {
     this._mentorsService.requestForSupport(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
       .subscribe((sr: SupportRequest) => {
-
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Request submitted',
+        })
+        location.reload();
       });
   }
 
