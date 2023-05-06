@@ -1,56 +1,74 @@
 .mentor-details {
   text-align: center;
   width: 95% !important;
-  margin: auto!important;
-  background-color: rgba(0,0,0,0.9)!important;
-}
-
-.mentor-header {
-  color: #E77922;
-
-  font-weight: bold;
-  font-size: x-large;
-  /*font-family: Agency FB, serif!important;*/
+  margin: auto !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 
-.available-mentors{
+.available-mentors {
   margin: 0 2%;
   text-align: center;
 }
 
-.mentor-card{
+.mentor-card {
   display: flex;
   flex-direction: column;
 }
 
 @media (min-width: 300px) {
-  .mentor-image{
+  .mentor-image {
     padding: 15% 25% 15% 25%;
-    max-height:250px;
+    max-height: 250px;
   }
+
   .mentor-details {
     width: 95%;
   }
-  mat-list-item{
-    height:38px!important;
+
+  mat-list-item {
+    height: 38px !important;
+  }
+
+  .mentor-header {
+    font-size: large;
   }
 }
 
 @media (min-width: 1000px) {
-  .mentor-image{
+  .mentor-image {
     padding: 5% 25% 5% 25%;
-    max-height:350px;
+    max-height: 350px;
   }
+
   .mentor-details {
     width: 100%;
   }
-  mat-list-item{
-    height:48px!important;
+
+  mat-list-item {
+    height: 48px !important;
+  }
+
+  .mentor-header {
+    font-size: x-large;
   }
 }
 
-.book-button{
+.book-button {
   width: 30%;
+}
+
+mat-card {
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  margin: auto;
+}
+
+.mentor-header {
+  font-family: "Courier", serif !important;
+  font-weight: bold;
+  color: lightslategray;
+  width:100%
+  /*font-family: Agency FB, serif!important;*/
 }
 

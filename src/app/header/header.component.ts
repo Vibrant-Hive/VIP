@@ -56,7 +56,11 @@ export class HeaderComponent implements OnInit {
   }
 
   showMentors() {
-    return this.isAuthenticated && !this._router.url.includes('mentors');
+    return !this._router.url.includes('mentors');
+  }
+
+  showRoadmap() {
+    return !this._router.url.includes('roadmap');
   }
 
   showApply() {
@@ -67,6 +71,10 @@ export class HeaderComponent implements OnInit {
     return !this._router.url.includes('home');
   }
 
+  showMenu() {
+    return this.isMobile() && !this._router.url.includes('home');
+  }
+
   isMobile(){
     return sessionStorage.getItem('device') === 'mobile';
   }
@@ -75,5 +83,9 @@ export class HeaderComponent implements OnInit {
     sessionStorage.setItem('selectedUserId', String(sessionStorage.getItem('userId')));
     sessionStorage.setItem('action', 'edit');
     this._router.navigateByUrl('/profile').then();
+  }
+
+  showCertificate() {
+    return !this._router.url.includes('learner');
   }
 }

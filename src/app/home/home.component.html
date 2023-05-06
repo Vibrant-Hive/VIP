@@ -1,13 +1,30 @@
-<app-create-account *ngIf="!isAuthenticated"></app-create-account>
+<mat-card class="box" *ngIf="isMobile()">
+  <mat-card-title style="text-align: center"><span class="mentor-header">&nbsp;WELCOME SAGO&nbsp;</span></mat-card-title>
+  <mat-card-content>
+    <button mat-menu-item (click)="showProfile()" *ngIf="showApply()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">account_circle</mat-icon>
+      {{applyButtonText}}</button>
+    <button mat-menu-item routerLink="/roadmap" *ngIf="showRoadmap()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>
+      Roadmap
+    </button>
+    <button mat-menu-item routerLink="/mentors" *ngIf="showMentors()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
+      Mentors
+    </button>
+    <button mat-menu-item routerLink="/learner/23" *ngIf="showCertificate()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">workspace_premium</mat-icon>
+      Certificate
+    </button>
+    <button mat-menu-item routerLink="/login" *ngIf="showLogin()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>
+      Login
+    </button>
+    <button mat-menu-item (click)="logout()" *ngIf="isAuthenticated">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">logout</mat-icon>
+      Logout
+    </button>
+  </mat-card-content>
+</mat-card>
 
-<br>
-<br>
-<br>
-
-<app-learner></app-learner>
-
-<br>
-<br>
-<br>
-
-<app-knowledge></app-knowledge>
+<app-mentors *ngIf="!isMobile()"></app-mentors>
