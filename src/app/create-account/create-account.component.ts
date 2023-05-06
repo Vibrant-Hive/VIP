@@ -34,7 +34,10 @@ export class CreateAccountComponent implements OnInit {
           take(1)
         ).subscribe({
           next: _ => {
-            this._router.navigateByUrl('/home').then();
+            if (sessionStorage.getItem('redirectUrl'))
+              this._router.navigate([sessionStorage.getItem('redirectUrl')])
+            else
+              this._router.navigate(['/home'])
           }
         });
       }, error => {

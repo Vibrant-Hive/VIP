@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
     this._authService.isAuthenticated$.pipe(
       filter((isAuthenticated: boolean) => isAuthenticated),
       takeUntil(this._destroySub$)
-    ).subscribe( _ => this._router.navigate(['/home']));
+    ).subscribe(_ => {
+      if (sessionStorage.getItem('redirectUrl'))
+        this._router.navigate([sessionStorage.getItem('redirectUrl')])
+      else
+        this._router.navigate(['/home'])
+    });
   }
 
   public ngOnDestroy(): void {
@@ -42,9 +47,12 @@ export class LoginComponent implements OnInit {
       take(1)
     ).subscribe({
       next: (user) => {
-        if(user.id) {
+        if (user.id) {
           this.loginValid = true;
-          this._router.navigateByUrl('/home').then();
+          if (sessionStorage.getItem('redirectUrl'))
+            this._router.navigate([sessionStorage.getItem('redirectUrl')])
+          else
+            this._router.navigate(['/home'])
         } else {
           this.loginValid = false;
         }

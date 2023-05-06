@@ -76,6 +76,10 @@ export class BecomeMentorComponent implements OnInit {
   supportRequestStatus: any;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
+    if (!this._authClient.isLoggedIn()) {
+      sessionStorage.setItem('redirectUrl', '/profile');
+      this._router.navigate(['/login']).then();
+    }
   }
 
   ngOnInit(): void {
@@ -126,7 +130,7 @@ export class BecomeMentorComponent implements OnInit {
       this._mentorsService.getSupportRequest(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
         .subscribe((sr: SupportRequest) => {
           if (sr) {
-            if(sr.verified)
+            if (sr.verified)
               this.supportRequestStatus = 'VERIFIED';
             else
               this.supportRequestStatus = 'PENDING';
@@ -211,19 +215,11 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   whatsAppRedirect() {
-    if (this._authClient.isLoggedIn()) {
-      window.open("https://wa.me/91" + this.mobileNo + "?text=Hi,%20I%20need%20your%20support%2E%20", "_blank");
-    } else {
-      this._router.navigate(['/login']).then();
-    }
+    window.open("https://wa.me/91" + this.mobileNo + "?text=Hi,%20I%20need%20your%20support%2E%20", "_blank");
   }
 
   zoomRedirect() {
-    if (this._authClient.isLoggedIn()) {
-      window.open(this.zoomLink, "_blank");
-    } else {
-      this._router.navigate(['/login']).then();
-    }
+    window.open(this.zoomLink, "_blank");
   }
 
   requestForSupport() {
