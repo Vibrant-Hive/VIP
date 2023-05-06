@@ -49,9 +49,11 @@ export class LoginComponent implements OnInit {
       next: (user) => {
         if (user.id) {
           this.loginValid = true;
-          if (sessionStorage.getItem('redirectUrl'))
-            this._router.navigate([sessionStorage.getItem('redirectUrl')])
-          else
+          if (sessionStorage.getItem('redirectUrl')) {
+            let redirect = sessionStorage.getItem('redirectUrl');
+            sessionStorage.removeItem('redirectUrl');
+            this._router.navigate([redirect]);
+          } else
             this._router.navigate(['/home'])
         } else {
           this.loginValid = false;
