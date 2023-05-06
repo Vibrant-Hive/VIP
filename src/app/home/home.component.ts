@@ -12,19 +12,6 @@ export class HomeComponent implements OnInit {
 
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
-  applyButtonText: any;
-  imageObject: Array<object> = [{
-    image: '../../assets/images/home/firstOfItskind.png',
-  },
-    {
-      image: '../../assets/images/home/1to1.png',
-
-    },
-    {
-      image: '../../assets/images/home/liveMentors.png',
-
-    }
-  ];
 
   constructor(
     private _authService: AuthService,
@@ -36,11 +23,6 @@ export class HomeComponent implements OnInit {
       takeUntil(this._destroySub$)
     ).subscribe((isAuthenticated: boolean) => {
       this.isAuthenticated = isAuthenticated;
-      if (sessionStorage.getItem('role') == 'MENTOR' || sessionStorage.getItem('role') == 'MASTER') {
-        this.applyButtonText = "Profile";
-      } else {
-        this.applyButtonText = "Apply as Mentor"
-      }
       HomeComponent.setDevice();
       window.onresize = () => {
         HomeComponent.setDevice();
@@ -65,7 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   showLogin() {
-    return !this.isAuthenticated && !this._router.url.includes('login');
+    return !this.isAuthenticated;
   }
 
   showMentors() {
@@ -77,8 +59,9 @@ export class HomeComponent implements OnInit {
   }
 
   showApply() {
-    return this.isAuthenticated && !this._router.url.includes('profile');
+    return this.isAuthenticated && sessionStorage.getItem('role') != 'MENTOR' && sessionStorage.getItem('role') != 'MASTER';
   }
+
 
   showHome() {
     return !this._router.url.includes('home');

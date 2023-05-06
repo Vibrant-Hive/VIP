@@ -91,9 +91,6 @@ export class BecomeMentorComponent implements OnInit {
       this.fullName = user.fullName;
       this.availability = user.availability ? user.availability.split(',') : '';
       this.zoomLink = user.zoomLink;
-      this.skillSetId = user.skillSet.id.toString();
-      this.skills = user.skillSet.skillSetName;
-      this.relatedTechnologies = user.skillSet.relatedTechnologies;
       this.designation = user.designation;
       this.experience = user.experience;
       this.languages = user.languages ? user.languages.split(',') : '';
@@ -125,6 +122,11 @@ export class BecomeMentorComponent implements OnInit {
         }
         this.applyButtonText = "Save Profile"
         this.yourProfileShow = true;
+      }
+      if(user.skillSet){
+        this.skillSetId = user.skillSet.id.toString();
+        this.skills = user.skillSet.skillSetName;
+        this.relatedTechnologies = user.skillSet.relatedTechnologies;
       }
       this.showProfileDetails = true;
 

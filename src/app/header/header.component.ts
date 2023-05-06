@@ -75,11 +75,16 @@ export class HeaderComponent implements OnInit {
     return this.isMobile() && !this._router.url.includes('home');
   }
 
-  isMobile(){
+  showAccount() {
+    return this.isMobile() && this._router.url.includes('home')
+      && (sessionStorage.getItem('role') == 'MENTOR' || sessionStorage.getItem('role') == 'MASTER');
+  }
+
+  isMobile() {
     return sessionStorage.getItem('device') === 'mobile';
   }
 
-  showProfile() {
+  goToProfile() {
     sessionStorage.setItem('selectedUserId', String(sessionStorage.getItem('userId')));
     sessionStorage.setItem('action', 'edit');
     this._router.navigateByUrl('/profile').then();

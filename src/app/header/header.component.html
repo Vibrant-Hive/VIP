@@ -7,7 +7,7 @@
       <mat-icon style="font-family: 'Material Icons',serif !important;">home</mat-icon>
       Home
     </button>
-    <button mat-raised-button style="background: rgba(233, 75, 36, 0.7)" (click)="showProfile()" *ngIf="showApply()">
+    <button mat-raised-button (click)="goToProfile()" *ngIf="showApply()">
       <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;"
                 color="secondary">account_circle
       </mat-icon>
@@ -46,8 +46,13 @@
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">home</mat-icon>
         Home
       </button>
-      <button mat-menu-item (click)="showProfile()" *ngIf="showApply()">
-        <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">account_circle</mat-icon>
+      <button mat-menu-item (click)="goToProfile()" *ngIf="showApply()">
+        <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;"
+                  color="secondary">account_circle
+        </mat-icon>
+        <mat-icon *ngIf="applyButtonText!=='Profile'" style="font-family: 'Material Icons',serif !important;"
+                  color="secondary">work
+        </mat-icon>
         {{applyButtonText}}</button>
       <button mat-menu-item routerLink="/roadmap" *ngIf="showRoadmap()">
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>
@@ -71,4 +76,10 @@
       </button>
     </mat-menu>
   </div>
+
+  <button mat-icon-button aria-label="Account" (click)="goToProfile()" *ngIf="showAccount()">
+    <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">
+      account_circle
+    </mat-icon>
+  </button>
 </mat-toolbar>
