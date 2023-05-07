@@ -3,7 +3,7 @@
 </button>
 <div style="font-weight: bold;color:#E77922; font-family: 'Courier New',serif !important; text-align: center; font-size: small">{{title}}</div>
 <div class="dialog">
-  <p *ngFor="let line of contentArr" cdkFocusInitial [innerHTML]="line" [style]="title.startsWith('Anyone') ? 'text-align:center' : ''"></p>
+  <p *ngFor="let line of contentArr" cdkFocusInitial [innerHTML]="line"></p>
 </div>
 <div mat-dialog-actions *ngIf="pdfName">
   <button mat-button style="background: rgba(34,139,34, 0.7);"><a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" style="text-decoration:none;">Download PDF</a></button>
