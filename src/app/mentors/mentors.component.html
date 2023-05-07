@@ -4,17 +4,18 @@
   <mat-card-title><span class="mentor-header">&nbsp;MENTORS&nbsp;</span></mat-card-title>
 
   <mat-card-content>
-    <mat-grid-list [cols]="gridCols()">
+    <mat-grid-list [cols]="gridCols()" rowHeight="250px">
       <div *ngFor="let mentor of availableMentors">
         <mat-grid-tile style="border-top: 1px solid darkslategray; cursor: pointer" (click)="viewMentor(mentor)">
           <mat-grid-tile-header><span
-            style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span> &nbsp; | &nbsp; <span
-            style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor.skillSet.skillSetName}}</span>
+            style="color: #E77922;font-weight: bold; font-size: large;">{{mentor.fullName}}</span>
           </mat-grid-tile-header>
           <mat-card>
             <mat-card-content class="mentor-card">
+              <span
+                style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor.skillSet.skillSetName}}</span>
               <div class="mentor-image">
-                <img [src]="mentor['displayPic']" alt="">
+                <img [src]="mentor['displayPic']" alt="" height="77px">
               </div>
 
             </mat-card-content>

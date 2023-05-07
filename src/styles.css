@@ -72,6 +72,8 @@ html, body {
   font-weight: normal;
   color: lightgray;
   padding: 0 8px !important;
+  height: 48px;
+  line-height: 48px;
 }
 
 .mat-menu-panel {

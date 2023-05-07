@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private static setDevice() {
-    if (window.innerWidth <= 500)
+    if (window.innerWidth <= 777)
       sessionStorage.setItem('device', 'mobile');
     else
       sessionStorage.setItem('device', 'desktop');

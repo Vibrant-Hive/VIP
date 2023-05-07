@@ -10,6 +10,7 @@ mat-toolbar{
   background-image: url("../../assets/images/VibrantHive.png");
   background-size: contain;
   background-repeat: no-repeat;
+  min-height: 44px;
 }
 
 @media (min-width: 300px) {
@@ -20,7 +21,7 @@ mat-toolbar{
 
 @media (min-width: 1000px) {
   mat-toolbar{
-    height:24%!important;
+    height:21%!important;
   }
 }
 

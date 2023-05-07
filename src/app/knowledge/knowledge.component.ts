@@ -27,11 +27,11 @@ export class KnowledgeComponent implements OnInit {
   }
 
   rowHeight() {
-    if (sessionStorage.getItem('device') === 'mobile') {
-      return "1:1";
-    } else {
-      return "5:4";
-    }
+    // if (sessionStorage.getItem('device') === 'mobile') {
+      return "250px";
+    // } else {
+    //   return "5:4";
+    // }
   }
 
   openDialog(topic: string): void {
