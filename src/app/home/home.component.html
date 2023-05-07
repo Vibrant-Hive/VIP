@@ -1,6 +1,6 @@
-<mat-card class="box" *ngIf="isMobile()">
+<mat-card>
   <mat-card-title style="text-align: center"><span class="mentor-header">"Code that works well is a dopamine booster"</span></mat-card-title>
-  <mat-card-content>
+  <mat-card-content *ngIf="isMobile()">
     <div mat-menu-item routerLink="/roadmap" *ngIf="showRoadmap()" style="color: #E77922">
       <mat-icon style="font-family: 'Material Icons',serif !important; color: #E77922" color="secondary">route</mat-icon>
       Roadmap
@@ -25,6 +25,7 @@
       Logout
     </div>
   </mat-card-content>
+  <mat-card-content *ngIf="!isMobile()" style="text-align:center">
+    <img src="../../assets/images/letsVibe.png">
+  </mat-card-content>
 </mat-card>
-
-<app-mentors *ngIf="!isMobile()"></app-mentors>

@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showMentors() {
-    return !this._router.url.includes('mentors') && !this._router.url.includes('home');
+    return !this._router.url.includes('mentors');
   }
 
   showRoadmap() {
@@ -103,7 +103,7 @@ export class HeaderComponent implements OnInit {
 
   openDialog(): void {
     this.dialogData();
-    this.dialog.open(DialogComponent, {data: {title: "Anyone can learn any skill and every skill can be mentored by someone", content: this.contentArr}});
+    this.dialog.open(DialogComponent, {data: {title: "Anyone can learn any skill and every skill can be mentored by someone : Vision", content: this.contentArr}});
   }
 
 

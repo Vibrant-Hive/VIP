@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {AuthService} from "../service/auth/auth-service.service";
 import {Router} from "@angular/router";
+import {HeaderComponent} from "../header/header.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-home',
@@ -12,10 +14,12 @@ export class HomeComponent implements OnInit {
 
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
+  headerComponent: HeaderComponent = new HeaderComponent(this._authService, this._router, this.dialog);
 
   constructor(
     private _authService: AuthService,
-    private _router: Router) {
+    private _router: Router,
+    public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
