@@ -1,7 +1,7 @@
 <mat-card>
   <form #loginForm="ngForm">
     <mat-card-content>
-      <h2 style="color:#E77922">Login</h2>
+      <h2 style="color:rgba(255,153,51, 0.7)">Login</h2>
       <mat-error *ngIf="!loginValid">
         The credentials were not recognized
       </mat-error>
@@ -21,7 +21,7 @@
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button style="background: rgba(34,139,34, 0.7)" (click)="onSubmit()">Login</button>
+      <button mat-raised-button style="background: rgba(19,136,8, 0.7)" (click)="onSubmit()">Login</button>
       <button mat-button style="background: lightslategray; float: right;" routerLink="/createAccount">Register</button>
     </mat-card-content>
   </form>
