@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   private static setDevice() {
-    if (window.innerWidth <= 500)
+    if (window.innerWidth <= 1000)
       sessionStorage.setItem('device', 'mobile');
     else
       sessionStorage.setItem('device', 'desktop');
