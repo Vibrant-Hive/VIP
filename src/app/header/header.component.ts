@@ -93,4 +93,8 @@ export class HeaderComponent implements OnInit {
   showCertificate() {
     return !this._router.url.includes('learner');
   }
+
+  showLetsVibe() {
+    return this.isMobile() && this._router.url.includes('home') && !this.showAccount();
+  }
 }
