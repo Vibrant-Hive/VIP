@@ -20,7 +20,7 @@ mat-toolbar{
 
 @media (min-width: 1000px) {
   mat-toolbar{
-    height:18%!important;
+    height:24%!important;
   }
 }
 
