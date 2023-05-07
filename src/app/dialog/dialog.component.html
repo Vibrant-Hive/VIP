@@ -1,9 +1,9 @@
 <button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px">
   <mat-icon>x</mat-icon>
 </button>
-<div style="font-weight: bold;color:#E77922; font-family: 'Courier New',serif !important; text-align: left; font-size: small">{{title}}</div>
+<div style="font-weight: bold;color:#E77922; font-size: small">{{title}}</div>
 <div class="dialog">
-  <p *ngFor="let line of contentArr" cdkFocusInitial [innerHTML]="line" [style]="title.startsWith('Anyone') ? 'text-align:center': ''"></p>
+  <p *ngFor="let line of contentArr" cdkFocusInitial [innerHTML]="line"></p>
 </div>
 <div mat-dialog-actions *ngIf="pdfName">
   <button mat-button style="background: rgba(34,139,34, 0.7);"><a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" style="text-decoration:none;">Download PDF</a></button>
