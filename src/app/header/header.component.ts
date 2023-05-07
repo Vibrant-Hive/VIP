@@ -103,16 +103,14 @@ export class HeaderComponent implements OnInit {
 
   openDialog(): void {
     this.dialogData();
-    this.dialog.open(DialogComponent, {data: {title: "Vision: Anyone can learn any skill and every skill can be mentored by someone", content: this.contentArr}});
+    this.dialog.open(DialogComponent, {data: {title: "Anyone can learn any skill and every skill can be mentored by someone", content: this.contentArr}});
   }
 
 
   dialogData() {
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
-    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/vibe/tentColor.jpg" alt="" height="210px">');
+    this.contentArr.push('<img src="../../assets/images/vibe/firstOfItsKind.png" alt="" height="210px">');
+    this.contentArr.push('<img src="../../assets/images/vibe/1to1.png" alt="" height="210px">');
+    this.contentArr.push('<img src="../../assets/images/vibe/liveMentors.png" alt="" height="210px">');
   }
 }
