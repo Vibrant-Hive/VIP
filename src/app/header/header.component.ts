@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showMentors() {
-    return !this._router.url.includes('mentors');
+    return !this._router.url.includes('mentors') && !this._router.url.includes('home');
   }
 
   showRoadmap() {
