@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {AuthService} from "../service/auth/auth-service.service";
 import {Router} from "@angular/router";
+import {DialogComponent} from "../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-header',
@@ -12,10 +14,11 @@ export class HeaderComponent implements OnInit {
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
   applyButtonText: any;
+  private contentArr: any = [];
 
   constructor(
     private _authService: AuthService,
-    private _router: Router) {
+    private _router: Router, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -96,5 +99,20 @@ export class HeaderComponent implements OnInit {
 
   showLetsVibe() {
     return this.isMobile() && this._router.url.includes('home') && !this.showAccount();
+  }
+
+  openDialog(): void {
+    this.dialogData();
+    this.dialog.open(DialogComponent, {data: {title: "Vision: Anyone can learn any skill and every skill can be mentored by someone", content: this.contentArr}});
+  }
+
+
+  dialogData() {
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
+    this.contentArr.push('<img src="../../assets/images/tent.jpg" alt="" height="111px">');
   }
 }
