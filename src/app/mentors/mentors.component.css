@@ -82,7 +82,7 @@ table {
 }
 .icon-meditate {
   font-family: 'Material Icons', serif!important;
-  color:indianred;
+  color: rgba(19,136,8, 0.7);
 }
 .mentor-image{
   height:50px;
