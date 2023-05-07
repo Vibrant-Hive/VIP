@@ -7,7 +7,8 @@
           style="color: #E77922;font-weight: bold; text-align:center;font-size: large; width:100%">Certificate <br><span
           style="color:lightslategray; font-size: small">QR Enabled</span></span>
         </mat-grid-tile-header>
-        <img width="90%" src="../../assets/images/certificate.png" alt="">
+        <img *ngIf="userId == 23" width="90%" src="../../assets/images/certificate23.png" alt="">
+        <img *ngIf="userId == 0" width="90%" src="../../assets/images/certificate0.png" alt="">
       </mat-grid-tile>
 
       <mat-grid-tile>
@@ -27,11 +28,13 @@
           <mat-list-item *ngFor="let story of userStories;" style="height:100px; cursor:pointer"
                          (click)="githubBoard(story)">
             <span matListItemTitle style="padding-right: 10px">{{userStories.indexOf(story) + 1}}</span>
-            <span matListItemIcon style="padding-right: 10px"><img style="height:30px"
-                                                                   src="../../assets/images/github.svg" alt=""></span>
+            <span matListItemIcon style="padding-right: 10px"><img style="height:30px" src="../../assets/images/github.svg" alt=""></span>
             <div matListItemLine style="padding-right: 10px">
               <div style="text-align: left" class="story-name">{{story.userStoryName}}</div>
-              <div style="text-align: left; font-size: small; color: grey;font-family: 'Cambria', serif;">{{story.points}} Story Points</div>
+              <div
+                style="text-align: left; font-size: small; color: grey;font-family: 'Cambria', serif;">{{story.points}}
+                Story Points
+              </div>
             </div>
           </mat-list-item>
         </mat-list>

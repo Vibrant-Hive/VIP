@@ -3,6 +3,10 @@
 
 
   <div class="example-button-row" *ngIf="!isMobile()">
+    <button mat-raised-button routerLink="/home" *ngIf="showHome()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;">home</mat-icon>
+      Home
+    </button>
     <button mat-raised-button (click)="goToProfile()" *ngIf="showApply()">
       <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;"
                 color="secondary">account_circle
@@ -19,7 +23,7 @@
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
       Mentors
     </button>
-    <button mat-raised-button color="secondary" routerLink="/learner/23" *ngIf="showCertificate()">
+    <button mat-raised-button color="secondary" routerLink="/learner/0" *ngIf="showCertificate()">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">workspace_premium</mat-icon>
       Certificate
     </button>
@@ -58,7 +62,7 @@
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
         Mentors
       </button>
-      <button mat-menu-item routerLink="/learner/23" *ngIf="showCertificate()">
+      <button mat-menu-item routerLink="/learner/0" *ngIf="showCertificate()">
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">workspace_premium</mat-icon>
         Certificate
       </button>
