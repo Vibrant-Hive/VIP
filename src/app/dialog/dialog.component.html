@@ -1,6 +1,6 @@
 <div *ngIf="origin !== 'K'"
   style="font-weight: bold; font-size:small;color:rgba(255,153,51, 0.7);text-align:center; font-family: 'Courier', serif !important;">{{title}}</div>
-<br>
+<br *ngIf="origin !== 'K'">
 <div class="dialog" [innerHTML]="content" cdkFocusInitial
      [style]="origin !== 'K' ? 'text-align:center; border: 7px solid #AA964D': ''">
 </div>
