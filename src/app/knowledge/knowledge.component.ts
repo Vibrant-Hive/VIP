@@ -52,7 +52,7 @@ export class KnowledgeComponent implements OnInit {
         this.content = this.content + '<p>then you already know the basics of the computer.</p>'
         this.pdfName = 'yourSmartphoneIsAComputerAlready';
         break;
-      case 'Database | SQL Basics':
+      case 'Database | SQL':
         this.content = this.content + '<p>If you have seen an Excel sheet,</p>'
         this.content = this.content + '<p>then you already know the basics of a database.</p>'
         this.content = this.content + '<p>Refer: <a href="https://www.w3schools.com/sql/sql_intro.asp" target="_blank">W3Schools</a> <br></p>'
@@ -61,13 +61,13 @@ export class KnowledgeComponent implements OnInit {
         this.content = this.content + '<p><a href="https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.33.0.msi" target="_blank">Download MySQL Installer</a></p>'
         this.pdfName = 'classAttendanceRegister';
         break;
-      case 'Frontend | HTML Basics':
+      case 'Frontend | HTML':
         this.content = this.content + '<p>Open any website with Chrome PC,</p>'
         this.content = this.content + '<p>Right click on any button on the webpage,</p>'
         this.content = this.content + '<p>Select Inspect to see the HTML behind</p>'
         this.pdfName = 'youDownloadedThisDocumentClickingOnAnHTMLButton';
         break;
-      case 'Backend | Programming Basics':
+      case 'Backend | Programming':
         this.content = this.content + '<p>A programming language has so many concepts, don\'t get puzzled.</p>'
         this.content = this.content + '<p>As of now, try to understand just the basics like class, method, for, if, etc .</p>'
         this.content = this.content + '<p>Refer: <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>, <a href="https://www.javatpoint.com/" target="_blank">JavaTpoint</a>, <a href="https://www.tutorialspoint.com/" target="_blank">Tutorials Point</a></p>'
