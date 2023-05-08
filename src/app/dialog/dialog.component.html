@@ -5,9 +5,13 @@
      [style]="origin !== 'K' ? 'text-align:center; border: 7px solid #AA964D': ''">
 </div>
 <div mat-dialog-actions>
-  <button mat-button *ngIf="pdfName" style="background: rgba(19, 136, 8, 0.7);">
+  <button mat-button *ngIf="pdfName" style="background: rgba(19, 136, 8, 0.7); font-size:small">
+
     <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" (click)="onOkClick()"
-       style="text-decoration:none;">{{title}} PDF</a></button>
+       style="text-decoration:none;"><mat-icon style="font-family: 'Material Icons',serif !important; font-size:smaller!important;width:auto"
+                                               color="secondary">download
+    </mat-icon>
+      {{title}} PDF</a></button>
 
   <button mat-button class="dialog-button"
           (click)="onOkClick()" *ngIf="origin !== 'K'">
