@@ -27,18 +27,7 @@ export class HomeComponent implements OnInit {
       takeUntil(this._destroySub$)
     ).subscribe((isAuthenticated: boolean) => {
       this.isAuthenticated = isAuthenticated;
-      HomeComponent.setDevice();
-      window.onresize = () => {
-        HomeComponent.setDevice();
-      }
     });
-  }
-
-  private static setDevice() {
-    if (window.innerWidth <= 1000)
-      sessionStorage.setItem('device', 'mobile');
-    else
-      sessionStorage.setItem('device', 'desktop');
   }
 
   public ngOnDestroy(): void {
