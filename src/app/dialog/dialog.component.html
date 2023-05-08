@@ -1,19 +1,15 @@
-<div *ngIf="origin === 'K'">
-  <button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px;">
-    <mat-icon style="font-size:small!important;">x</mat-icon>
-  </button>
-</div>
-<div
+<div *ngIf="origin !== 'K'"
   style="font-weight: bold; font-size:small;color:rgba(255,153,51, 0.7);text-align:center; font-family: 'Courier', serif !important;">{{title}}</div>
+<br>
 <div class="dialog" [innerHTML]="content" cdkFocusInitial
-     [style]="origin !== 'K' ? 'text-align:center': ''">
+     [style]="origin !== 'K' ? 'text-align:center; border: 7px solid #AA964D': ''">
 </div>
 <div mat-dialog-actions>
-  <button mat-button style="background: rgba(19,136,8, 0.7);" *ngIf="pdfName">
-    <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf"
-       style="text-decoration:none;">Download PDF</a></button>
+  <button mat-button *ngIf="pdfName" style="background: rgba(19, 136, 8, 0.7);">
+    <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" (click)="onOkClick()"
+       style="text-decoration:none;">{{title}} PDF</a></button>
 
-  <button mat-button style="background: rgba(19,136,8, 0.7);display: block; margin-left: auto; margin-right: auto;"
+  <button mat-button class="dialog-button"
           (click)="onOkClick()" *ngIf="origin !== 'K'">
     Got it
   </button>

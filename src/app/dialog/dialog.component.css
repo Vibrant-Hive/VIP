@@ -9,3 +9,10 @@
     font-size: medium;
   }
 }
+
+.dialog-button {
+  background: rgba(19, 136, 8, 0.7);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
