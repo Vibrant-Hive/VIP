@@ -103,7 +103,7 @@ export class HeaderComponent implements OnInit {
 
   openDialog(): void {
     this.dialogData();
-    this.dialog.open(DialogComponent, {data: {title: "\"Anyone can master any skill, when there is a right mentor\"", content: this.content}});
+    this.dialog.open(DialogComponent, {data: {title: "\"One can master any skill, when there is a right mentor to guide\"", content: this.content}});
   }
 
 
