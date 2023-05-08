@@ -109,6 +109,6 @@ export class HeaderComponent implements OnInit {
 
   dialogData() {
     this.content = "";
-    this.content = '<img src="../../assets/images/vibe/truth.jpg" alt="" height="420px">';
+    this.content = '<img src="../../assets/images/vibe/truth.jpg" alt="" height="420px" width="230px">';
   }
 }
