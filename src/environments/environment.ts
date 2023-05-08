@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://vibranthiveservice.de',
+  baseUrl: 'http://localhost:8080',
   username: 'guest@vip.com',
   password: 'hackIT'
 };
