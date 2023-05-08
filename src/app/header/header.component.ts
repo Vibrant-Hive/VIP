@@ -109,9 +109,10 @@ export class HeaderComponent implements OnInit {
 
   dialogData() {
     this.contentArr = [];
-    this.contentArr.push('<img src="../../assets/images/vibe/tentColor.jpg" alt="" height="210px">');
-    this.contentArr.push('<img src="../../assets/images/vibe/firstOfItsKind.png" alt="" height="210px">');
-    this.contentArr.push('<img src="../../assets/images/vibe/1to1.png" alt="" height="210px">');
-    this.contentArr.push('<img src="../../assets/images/vibe/liveMentors.png" alt="" height="210px">');
+    // this.contentArr.push('<img src="../../assets/images/vibe/tentColor.jpg" alt="" height="210px">');
+    // this.contentArr.push('<img src="../../assets/images/vibe/firstOfItsKind.png" alt="" height="210px">');
+    // this.contentArr.push('<img src="../../assets/images/vibe/1to1.png" alt="" height="210px">');
+    // this.contentArr.push('<img src="../../assets/images/vibe/liveMentors.png" alt="" height="210px">');
+    this.contentArr.push('<p><img src="../../assets/images/vibe/truth.jpg" alt="" height="420px"></p>');
   }
 }

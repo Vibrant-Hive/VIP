@@ -8,17 +8,17 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class DialogComponent implements OnInit {
   title: any;
-  contentArr: any[] = [];
+  content: any;
   pdfName: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
-    pdfName: string; title: string, content: string[]
+    pdfName: string; title: string, content: string
   }, private dialogRef: MatDialogRef<DialogComponent>) {
   }
 
   ngOnInit(): void {
     this.title = this.data.title;
-    this.contentArr = this.data.content;
+    this.content = this.data.content;
     this.pdfName = this.data.pdfName;
   }
 
