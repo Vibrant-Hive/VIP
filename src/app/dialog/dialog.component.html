@@ -1,9 +1,20 @@
-<button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px">
-  <mat-icon style="font-size:small!important;">x</mat-icon>
-</button>
-<div style="font-weight: bold;color:rgba(255,153,51, 0.7); font-size: small">{{title}}</div>
-<div class="dialog" [innerHTML]="content" cdkFocusInitial  [style]="title.startsWith('Anyone') ? 'text-align:center': ''">
+<div *ngIf="origin === 'K'">
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close style="float:right; top: -24px; right : -24px;">
+    <mat-icon style="font-size:small!important;">x</mat-icon>
+  </button>
 </div>
-<div mat-dialog-actions *ngIf="pdfName">
-  <button mat-button style="background: rgba(19,136,8, 0.7);"><a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" style="text-decoration:none;">Download PDF</a></button>
+<div
+  style="font-weight: bold; font-size:small;color:rgba(255,153,51, 0.7);text-align:center; font-family: 'Courier', serif !important;">{{title}}</div>
+<div class="dialog" [innerHTML]="content" cdkFocusInitial
+     [style]="origin !== 'K' ? 'text-align:center': ''">
+</div>
+<div mat-dialog-actions>
+  <button mat-button style="background: rgba(19,136,8, 0.7);" *ngIf="pdfName">
+    <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf"
+       style="text-decoration:none;">Download PDF</a></button>
+
+  <button mat-button style="background: rgba(19,136,8, 0.7);display: block; margin-left: auto; margin-right: auto;"
+          (click)="onOkClick()" *ngIf="origin !== 'K'">
+    Got it
+  </button>
 </div>

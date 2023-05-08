@@ -9,8 +9,3 @@
     font-size: medium;
   }
 }
-
-.dialog{
-  overflow:auto;
-  max-height:65vh;
-}

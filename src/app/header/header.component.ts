@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
   applyButtonText: any;
-  private contentArr: any = [];
+  private content: any = [];
 
   constructor(
     private _authService: AuthService,
@@ -103,16 +103,12 @@ export class HeaderComponent implements OnInit {
 
   openDialog(): void {
     this.dialogData();
-    this.dialog.open(DialogComponent, {data: {title: "Anyone can learn any skill and every skill can be mentored by someone : Vision", content: this.contentArr}});
+    this.dialog.open(DialogComponent, {data: {title: "\"Anyone can master any skill, when there is a right mentor\"", content: this.content}});
   }
 
 
   dialogData() {
-    this.contentArr = [];
-    // this.contentArr.push('<img src="../../assets/images/vibe/tentColor.jpg" alt="" height="210px">');
-    // this.contentArr.push('<img src="../../assets/images/vibe/firstOfItsKind.png" alt="" height="210px">');
-    // this.contentArr.push('<img src="../../assets/images/vibe/1to1.png" alt="" height="210px">');
-    // this.contentArr.push('<img src="../../assets/images/vibe/liveMentors.png" alt="" height="210px">');
-    this.contentArr.push('<p><img src="../../assets/images/vibe/truth.jpg" alt="" height="420px"></p>');
+    this.content = "";
+    this.content = '<p><img src="../../assets/images/vibe/truth.jpg" alt="" height="420px"></p>';
   }
 }

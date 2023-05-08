@@ -36,7 +36,7 @@ export class KnowledgeComponent implements OnInit {
 
   openDialog(topic: string): void {
     this.dialogData(topic);
-    this.dialog.open(DialogComponent, {data: {title: topic, content: this.content, pdfName: this.pdfName}});
+    this.dialog.open(DialogComponent, {data: {title: topic, content: this.content, pdfName: this.pdfName, origin: 'K'}});
   }
 
   isMobile() {
