@@ -44,22 +44,22 @@ export class LearnerComponent implements OnInit {
       this.userStories = [
         {
           userStoryName: "Project: User Story 1",
-          userStoryLink: "https://github.com/orgs/Vibrant-Hive",
+          userStoryLink: "https://github.com/Vibrant-Hive",
           points: 2
         },
         {
           userStoryName: "Project: User Story 2",
-          userStoryLink: "https://github.com/orgs/Vibrant-Hive",
+          userStoryLink: "https://github.com/Vibrant-Hive",
           points: 3
         },
         {
           userStoryName: "Project: User Story 3",
-          userStoryLink: "https://github.com/orgs/Vibrant-Hive",
+          userStoryLink: "https://github.com/Vibrant-Hive",
           points: 4
         },
         {
           userStoryName: "Project: User Story 4",
-          userStoryLink: "https://github.com/orgs/Vibrant-Hive",
+          userStoryLink: "https://github.com/Vibrant-Hive",
           points: 5
         }
       ];
