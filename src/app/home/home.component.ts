@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
-  headerComponent: HeaderComponent = new HeaderComponent(this._authService, this._router, this.dialog);
+  // headerComponent: HeaderComponent = new HeaderComponent(this._authService, this._router, this.dialog);
 
   constructor(
     private _authService: AuthService,

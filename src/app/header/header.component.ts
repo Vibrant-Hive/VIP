@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {AuthService} from "../service/auth/auth-service.service";
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 import {DialogComponent} from "../dialog/dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {GoogleTagManagerService} from "angular-google-tag-manager";
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private _authService: AuthService,
-    private _router: Router, public dialog: MatDialog) {
+    private _router: Router,
+    public dialog: MatDialog,
+    public _gtmService: GoogleTagManagerService) {
   }
 
   ngOnInit(): void {
@@ -35,6 +38,16 @@ export class HeaderComponent implements OnInit {
       window.onresize = () => {
         HeaderComponent.setDevice();
       }
+      this._router.events.forEach(item => {
+        if (item instanceof NavigationEnd) {
+          const gtmTag = {
+            event: 'page',
+            pageName: item.url
+          };
+          this._gtmService.pushTag(gtmTag);
+        }
+      });
+
     })
   }
 

@@ -43,6 +43,7 @@ import {DialogComponent} from './dialog/dialog.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {NgChartsModule} from "ng2-charts";
 import {NgxSpinnerModule} from "ngx-spinner";
+import {GoogleTagManagerModule} from "angular-google-tag-manager";
 
 @NgModule({
   declarations: [
@@ -86,7 +87,10 @@ import {NgxSpinnerModule} from "ngx-spinner";
     ToastModule,
     MatMenuModule,
     NgChartsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    GoogleTagManagerModule.forRoot({
+      id: 'G-VSHNE6NQB6',
+    })
   ],
   providers: [AuthService, LoginService, MentorsService, UserService, HttpClient, {
     provide: HTTP_INTERCEPTORS,
