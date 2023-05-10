@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-dialog',
@@ -15,7 +16,8 @@ export class DialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     origin: string;
     pdfName: string; title: string, content: string
-  }, private dialogRef: MatDialogRef<DialogComponent>) {
+  }, private dialogRef: MatDialogRef<DialogComponent>,
+              public _userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +31,9 @@ export class DialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onDownloadClick(): void {
+  onDownloadClick(pdfName: any): void {
+    this._userService.registerUserEvent('pdf download : ' + pdfName).subscribe();
 
+    this.dialogRef.close();
   }
 }

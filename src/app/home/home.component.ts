@@ -4,6 +4,7 @@ import {AuthService} from "../service/auth/auth-service.service";
 import {Router} from "@angular/router";
 import {HeaderComponent} from "../header/header.component";
 import {MatDialog} from "@angular/material/dialog";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,13 @@ export class HomeComponent implements OnInit {
 
   public isAuthenticated = false;
   private _destroySub$ = new Subject<void>();
-  // headerComponent: HeaderComponent = new HeaderComponent(this._authService, this._router, this.dialog);
+  headerComponent: HeaderComponent = new HeaderComponent(this._authService, this._router, this.dialog, this._userService);
 
   constructor(
     private _authService: AuthService,
     private _router: Router,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    public _userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -35,8 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.clear();
-    this._authService.logout('/login')
+    this.headerComponent.logout()
   }
 
   showLogin() {

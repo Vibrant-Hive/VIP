@@ -226,6 +226,7 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   requestForSupport() {
+    this.requestSupportEvent()
     this._mentorsService.requestForSupport(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
       .subscribe((sr: SupportRequest) => {
         this.messageService.add({
@@ -242,5 +243,9 @@ export class BecomeMentorComponent implements OnInit {
     setTimeout(() => {
       this.myTooltip.disabled = true;
     }, 10000);
+  }
+
+  public requestSupportEvent(){
+    this._userService.registerUserEvent('request mentor support : ' + sessionStorage.getItem('selectedUserId') + ' ' + this.fullName).subscribe();
   }
 }

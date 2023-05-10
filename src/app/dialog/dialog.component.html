@@ -7,7 +7,7 @@
 <div mat-dialog-actions>
   <button mat-button *ngIf="pdfName" style="background: rgba(19, 136, 8, 0.7); font-size:small">
 
-    <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" (click)="onOkClick()"
+    <a download="{{pdfName}}.pdf" href="../../assets/docs/{{pdfName}}.pdf" (click)="onDownloadClick(pdfName)"
        style="text-decoration:none;"><mat-icon style="font-family: 'Material Icons',serif !important; font-size:smaller!important;width:auto"
                                                color="secondary">download
     </mat-icon>

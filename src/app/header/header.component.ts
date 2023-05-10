@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Subject, takeUntil} from "rxjs";
 import {AuthService} from "../service/auth/auth-service.service";
-import {NavigationEnd, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {DialogComponent} from "../dialog/dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {GoogleTagManagerService} from "angular-google-tag-manager";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     private _authService: AuthService,
     private _router: Router,
     public dialog: MatDialog,
-    public _gtmService: GoogleTagManagerService) {
+    public _userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -38,16 +38,6 @@ export class HeaderComponent implements OnInit {
       window.onresize = () => {
         HeaderComponent.setDevice();
       }
-      this._router.events.forEach(item => {
-        if (item instanceof NavigationEnd) {
-          const gtmTag = {
-            event: 'page',
-            pageName: item.url
-          };
-          this._gtmService.pushTag(gtmTag);
-        }
-      });
-
     })
   }
 
@@ -63,8 +53,13 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.clear();
-    this._authService.logout('/login')
+    this._userService.registerUserEvent('logout : ' + sessionStorage.getItem('userId')).subscribe();
+
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('mobileNo');
+    sessionStorage.removeItem('role');
+    this._authService.logout('/home')
   }
 
   showLogin() {
@@ -115,8 +110,15 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialog(): void {
+    this._userService.registerUserEvent('lets Vibe').subscribe();
+
     this.dialogData();
-    this.dialog.open(DialogComponent, {data: {title: "\"One can master any skill, when there is a truly guiding mentor.\"", content: this.content}});
+    this.dialog.open(DialogComponent, {
+      data: {
+        title: "\"One can master any skill, when there is a truly guiding mentor.\"",
+        content: this.content
+      }
+    });
   }
 
 

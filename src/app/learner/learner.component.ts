@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-learner',
@@ -11,13 +12,13 @@ export class LearnerComponent implements OnInit {
   userId: any
   userStories: any;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private _userService: UserService) {
   }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('userId')
     console.log(this.userId);
-    if(this.userId == 23) {
+    if (this.userId == 23) {
       this.userStories = [
         {
           userStoryName: "VIP-Django: Setup a new Project with Mentors App",
@@ -40,7 +41,7 @@ export class LearnerComponent implements OnInit {
           points: 5
         }
       ];
-    } else if(this.userId == 0) {
+    } else if (this.userId == 0) {
       this.userStories = [
         {
           userStoryName: "Project: User Story 1",
@@ -84,6 +85,11 @@ export class LearnerComponent implements OnInit {
   }
 
   githubBoard(story: any) {
+    this.githubStoryEvent(story.userStoryLink);
     window.open(story.userStoryLink, "_blank");
+  }
+
+  public githubStoryEvent(storyLink: any) {
+    this._userService.registerUserEvent('github story click : ' + storyLink).subscribe();
   }
 }

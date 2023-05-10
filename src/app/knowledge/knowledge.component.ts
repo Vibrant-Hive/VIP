@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {DialogComponent} from "../dialog/dialog.component";
+import {GoogleTagManagerService} from "angular-google-tag-manager";
+import {UserService} from "../service/user/user.service";
 
 @Component({
   selector: 'app-knowledge',
@@ -12,7 +14,9 @@ export class KnowledgeComponent implements OnInit {
   content: string = '';
   private pdfName: string = '';
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              public _gtmService: GoogleTagManagerService,
+              public _userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -28,15 +32,23 @@ export class KnowledgeComponent implements OnInit {
 
   rowHeight() {
     // if (sessionStorage.getItem('device') === 'mobile') {
-      return "250px";
+    return "250px";
     // } else {
     //   return "5:4";
     // }
   }
 
   openDialog(topic: string): void {
+    this.roadmapEvent(topic);
     this.dialogData(topic);
-    this.dialog.open(DialogComponent, {data: {title: topic, content: this.content, pdfName: this.pdfName, origin: 'K'}});
+    this.dialog.open(DialogComponent, {
+      data: {
+        title: topic,
+        content: this.content,
+        pdfName: this.pdfName,
+        origin: 'K'
+      }
+    });
   }
 
   isMobile() {
@@ -90,5 +102,16 @@ export class KnowledgeComponent implements OnInit {
         this.content = this.content + '<p><a href="https://www.selenium.dev/documentation/webdriver/getting_started/first_script/" target="_blank">Selenium Documentation</a></p>'
         break;
     }
+  }
+
+  roadmapEvent(topic: string) {
+    // push GTM data layer with a custom event
+    const gtmTag = {
+      event: topic + '-click',
+      data: 'roadmap-item-click-event',
+    };
+    this._gtmService.pushTag(gtmTag);
+
+    this._userService.registerUserEvent('roadmap topic tap : ' + topic).subscribe();
   }
 }
