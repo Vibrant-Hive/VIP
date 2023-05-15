@@ -9,7 +9,7 @@
     </mat-card-title>
     <!--    <br><p style="padding:13px">Everything is on the internet. All you need is a roadmap to learn any technology.</p>-->
     <div mat-menu-item cdkFocusInitial routerLink="/roadmap" *ngIf="showRoadmap()"
-         style="color: rgba(255,153,51, 0.7); ">
+         style="color: rgba(255,153,51, 0.7); text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important; color: rgba(255,153,51, 0.7); font-weight:bold"
                 color="secondary">route
       </mat-icon>
@@ -24,7 +24,7 @@
     <br>> Push ahead to reach your goals 💪🏼
     </span>
     </mat-card-title>
-    <div mat-menu-item routerLink="/mentors" *ngIf="showMentors()">
+    <div mat-menu-item routerLink="/mentors" *ngIf="showMentors()" style=" text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important; font-weight:bold" color="secondary">diversity_2
       </mat-icon>
       Mentors
@@ -36,7 +36,7 @@
       <br>> Your accomplishments
     </span>
     </mat-card-title>
-    <div mat-menu-item routerLink="/learner/0" *ngIf="showCertificate()">
+    <div mat-menu-item routerLink="/learner/0" *ngIf="showCertificate()" style=" text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important ; font-weight:bold" color="secondary">
         workspace_premium
       </mat-icon>
@@ -50,17 +50,17 @@
       <br>> Become multi-professional for the new AI world
     </span>
     </mat-card-title>
-    <div mat-menu-item (click)="showProfile()" *ngIf="showApply()">
+    <div mat-menu-item (click)="showProfile()" *ngIf="showApply()" style=" text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important; font-weight:bold">work</mat-icon>
       Apply as Mentor
     </div>
-    <div mat-menu-item routerLink="/login" *ngIf="showLogin()" style="color: rgba(19,136,8, 0.7);">
+    <div mat-menu-item routerLink="/login" *ngIf="showLogin()" style="color: rgba(19,136,8, 0.7); text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7); font-weight:bold"
                 color="secondary">login
       </mat-icon>
       Login
     </div>
-    <div mat-menu-item (click)="logout()" *ngIf="isAuthenticated" style="color: rgba(19,136,8, 0.7);">
+    <div mat-menu-item (click)="logout()" *ngIf="isAuthenticated" style="color: rgba(19,136,8, 0.7); text-align: center">
       <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7);font-weight:bold"
                 color="secondary">logout
       </mat-icon>
