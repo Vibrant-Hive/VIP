@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title style="text-align: center; font-weight: bold"><span class="mentor-header"
-                                                                      style="font-size: large!important;">Hello, world</span>
+                                                                      style="font-size: large!important;">Hello, World</span>
   </mat-card-title>
   <mat-card-content *ngIf="isMobile()">
 
@@ -36,28 +36,36 @@
       <br>> Your accomplishments
     </span>
     </mat-card-title>
-      <div mat-menu-item routerLink="/learner/0" *ngIf="showCertificate()">
-        <mat-icon style="font-family: 'Material Icons',serif !important ; font-weight:bold" color="secondary">
-          workspace_premium
-        </mat-icon>
-        Certificate
-      </div>
-      <div mat-menu-item (click)="showProfile()" *ngIf="showApply()">
-        <mat-icon style="font-family: 'Material Icons',serif !important; font-weight:bold">work</mat-icon>
-        Apply as Mentor
-      </div>
-      <div mat-menu-item routerLink="/login" *ngIf="showLogin()" style="color: rgba(19,136,8, 0.7);">
-        <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7); font-weight:bold"
-                  color="secondary">login
-        </mat-icon>
-        Login
-      </div>
-      <div mat-menu-item (click)="logout()" *ngIf="isAuthenticated" style="color: rgba(19,136,8, 0.7);">
-        <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7);font-weight:bold"
-                  color="secondary">logout
-        </mat-icon>
-        Logout
-      </div>
+    <div mat-menu-item routerLink="/learner/0" *ngIf="showCertificate()">
+      <mat-icon style="font-family: 'Material Icons',serif !important ; font-weight:bold" color="secondary">
+        workspace_premium
+      </mat-icon>
+      Certificate
+    </div>
+
+    <mat-card-title><span class="mentor-header"><br>Are you a skilled person and passionate about mentoring others? <br><br>By loggin in, you can:
+      <br><br>> Create a profile for you
+    <br>> Apply as a mentor for any life skill
+    <br>> Connect with the other mentors
+      <br>> Become multi-professional for the new AI world
+    </span>
+    </mat-card-title>
+    <div mat-menu-item (click)="showProfile()" *ngIf="showApply()">
+      <mat-icon style="font-family: 'Material Icons',serif !important; font-weight:bold">work</mat-icon>
+      Apply as Mentor
+    </div>
+    <div mat-menu-item routerLink="/login" *ngIf="showLogin()" style="color: rgba(19,136,8, 0.7);">
+      <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7); font-weight:bold"
+                color="secondary">login
+      </mat-icon>
+      Login
+    </div>
+    <div mat-menu-item (click)="logout()" *ngIf="isAuthenticated" style="color: rgba(19,136,8, 0.7);">
+      <mat-icon style="font-family: 'Material Icons',serif !important;color: rgba(19,136,8, 0.7);font-weight:bold"
+                color="secondary">logout
+      </mat-icon>
+      Logout
+    </div>
   </mat-card-content>
   <mat-card-content *ngIf="!isMobile()" style="text-align:center">
     <img src="../../assets/images/letsVibe.png">
