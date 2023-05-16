@@ -16,11 +16,7 @@ import {UserService} from "../service/user/user.service";
 
 export class MentorsComponent implements OnInit {
 
-  appliedMentorsShow: boolean = false;
-  appliedMentors: User[] = [];
-  displayedColumns: string[] = ['fullName', 'experience', 'skills', 'resume', 'rate', 'approve'];
   availableMentors: User[] = [];
-
 
   constructor(private _mentorsService: MentorsService,
               private _router: Router,
@@ -35,16 +31,6 @@ export class MentorsComponent implements OnInit {
       if (availableMentors) {
         MentorsComponent.preparePhoto(availableMentors);
         this.availableMentors = availableMentors;
-      }
-
-      if (sessionStorage.getItem("role") === 'MASTER') {
-        this._mentorsService.appliedMentors().subscribe((appliedMentors: User[]) => {
-          if (appliedMentors.length > 0) {
-            this.appliedMentorsShow = true;
-            MentorsComponent.preparePhoto(appliedMentors);
-            this.appliedMentors = appliedMentors;
-          }
-        });
       }
     });
   }

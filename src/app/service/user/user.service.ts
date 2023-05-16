@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../model/User";
+import {Observable} from "rxjs";
 
 export interface UserEvent {
   userId: number;
@@ -14,6 +15,7 @@ export interface UserEvent {
   providedIn: 'root'
 })
 export class UserService {
+  ignoreIps = '115.99.59.197'
 
   private getUserUrl: string = environment.baseUrl + '/getUser';
   private registerUserEventUrl: string = environment.baseUrl + '/registerUserEvent';
@@ -34,7 +36,10 @@ export class UserService {
       city: sessionStorage.getItem('city') + '',
       eventName: event,
     }
-    return this._httpClient.post<User>(this.registerUserEventUrl, userEvent, {headers: this.httpHeaders});
+    if(this.ignoreIps.indexOf(userEvent.ipAddress) === -1)
+      return this._httpClient.post<User>(this.registerUserEventUrl, userEvent, {headers: this.httpHeaders});
+    else
+      return new Observable<User>();
   }
 
   private httpHeaders = new HttpHeaders({

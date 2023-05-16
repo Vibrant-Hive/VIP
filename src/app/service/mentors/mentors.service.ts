@@ -17,7 +17,6 @@ export class MentorsService {
 
   private updateProfileUrl = environment.baseUrl + '/updateProfile';
   private availableMentorsUrl = environment.baseUrl + '/availableMentors';
-  private appliedMentorsUrl = environment.baseUrl + '/appliedMentors';
   private downloadResumeUrl = environment.baseUrl + '/downloadResume';
   private approveMentorUrl = environment.baseUrl + '/approveMentor';
   private getSupportRequestUrl = environment.baseUrl + '/getSupportRequest';
@@ -47,10 +46,6 @@ export class MentorsService {
 
   availableMentors() {
     return this._httpClient.get<User[]>(this.availableMentorsUrl, {headers: this.httpHeaders});
-  }
-
-  appliedMentors() {
-    return this._httpClient.get<User[]>(this.appliedMentorsUrl, {headers: this.httpHeaders});
   }
 
   downloadResume(userId: any) {
