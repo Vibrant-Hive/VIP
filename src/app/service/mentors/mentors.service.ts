@@ -18,7 +18,6 @@ export class MentorsService {
   private updateProfileUrl = environment.baseUrl + '/updateProfile';
   private availableMentorsUrl = environment.baseUrl + '/availableMentors';
   private downloadResumeUrl = environment.baseUrl + '/downloadResume';
-  private approveMentorUrl = environment.baseUrl + '/approveMentor';
   private getSupportRequestUrl = environment.baseUrl + '/getSupportRequest';
   private requestForSupportUrl = environment.baseUrl + '/requestForSupport';
 
@@ -53,13 +52,6 @@ export class MentorsService {
       .set('userId', userId);
     // @ts-ignore
     return this._httpClient.get<any[]>(this.downloadResumeUrl, {params, responseType: 'blob', headers: this.httpHeaders});
-  }
-
-  approveMentor(userId: any, rate: any) {
-    const params = new HttpParams()
-      .set('userId', userId)
-      .set('rate', rate);
-    return this._httpClient.get<boolean>(this.approveMentorUrl, {params, headers: this.httpHeaders});
   }
 
   getSupportRequest(learnerId: any, mentorId: any){

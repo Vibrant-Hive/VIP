@@ -54,21 +54,6 @@ export class MentorsComponent implements OnInit {
     });
   }
 
-
-  // @ts-ignore
-  approveMentor(userId, rate) {
-    this._mentorsService.approveMentor(userId, rate).subscribe((isSuccess: any) => {
-      if (isSuccess) {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Mentor Approved Successfully!',
-          life: 3000,
-        });
-        this.ngOnInit();
-      }
-    })
-  }
-
   viewMentor(user: User) {
     this.mentorEvent(user);
     sessionStorage.setItem('selectedUserId', String(user.id));

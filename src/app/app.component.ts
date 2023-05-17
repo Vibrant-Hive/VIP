@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     this._http.get<any>('https://geolocation-db.com/json/')
       .subscribe(response => {
         sessionStorage.setItem('ip', response.IPv4);
-        sessionStorage.setItem('city', response.city);
+        sessionStorage.setItem('city', response.country_name + ' : ' + response.state + ' : ' + response.city);
 
         this._userService.registerUserEvent('new session').subscribe();
 
