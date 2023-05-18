@@ -1,11 +1,15 @@
 <mat-card>
   <mat-card-title style="text-align: center; font-weight: bold"><span class="mentor-header"
-                                                                      style="font-size: large!important;">Hello, World!</span>
+                                                                      style="font-size: large!important;">Hello, AI World!</span>
   </mat-card-title>
   <mat-card-content *ngIf="isMobile()">
 
-    <mat-card-title><span class="mentor-header">Everything is on the internet today. <br><br>To learn a new technology, all you need is a roadmap and a mentor to connect the dots in your mind.
-      <br><br> For an example, you can look at our Software Development roadmap: </span>
+    <mat-card-title><span class="mentor-header">Everything is on the internet today. With the AI chatbots like ChatGPT | Bard, learning a software technology is a matter of just <b
+      style="font-size: medium;font-family: 'Courier', serif !important;">A FEW DAYS.</b> <br><br><span
+      class="mentor-header-center">"All you need is a <b
+      style="font-size: medium;font-family: 'Courier', serif !important;">ROADMAP</b> and a
+      <b style="font-size: medium;font-family: 'Courier', serif !important;">MENTOR</b> to connect the dots in your mind."</span>
+      </span>
     </mat-card-title>
     <!--    <br><p style="padding:13px">Everything is on the internet. All you need is a roadmap to learn any technology.</p>-->
     <button mat-button cdkFocusInitial routerLink="/roadmap" *ngIf="showRoadmap()"
@@ -18,12 +22,13 @@
       Roadmap
     </button>
 
-    <mat-card-title><span class="mentor-header"><br><br>Our 1:1 mentors are dedicated industry professionals who will:
+    <mat-card-title><span class="mentor-header"><br><br>Our 1:1 mentors are skillful and<b
+      style="font-size: medium;font-family: 'Courier', serif !important;"> QUALIFIED PROFESSIONALS</b> who will:
 
-    <br><br>> Fill the gaps in your mind,
-    <br>> Guide when you are stuck,
-    <br>> Help in your tasks on the go and
-    <br>> Push ahead to reach your goals 💪🏼
+    <br><br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">P</b>repare you for the real time tasks
+    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">U</b>nderstand where you can improve
+    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">S</b>hape you up for the future
+    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">H</b>elp you in reaching your goals
     </span>
     </mat-card-title>
     <button mat-button routerLink="/mentors" *ngIf="showMentors()"
@@ -36,10 +41,13 @@
       Mentors
     </button>
 
-    <mat-card-title><span class="mentor-header"><br><br>Have you heard of talking certificate? <br><br>Our Course Completion certificate is QR code enabled which tells more about you like:
-      <br><br>> Your capabilities
-    <br>> Your values
-      <br>> Your accomplishments
+    <mat-card-title><span class="mentor-header"><br><br> Our Course Completion certificate is <b style="font-size: medium;font-family: 'Courier', serif !important;">QR ENABLED</b> which tells more about you like your:
+      <br><br>✅ Skill-set
+      <br>✅ Capabilities
+      <br>✅ Core values
+      <br>✅ Working style
+      <br>✅ Real time tasks
+      <br>✅ Hands-on technologies
     </span>
     </mat-card-title>
     <button mat-button routerLink="/learner/0" *ngIf="showCertificate()"
@@ -53,20 +61,21 @@
       Certificate
     </button>
 
-    <mat-card-title><span class="mentor-header"><br><br>Are you a skilled person and passionate about mentoring others? <br><br>By loggin in, you can:
-      <br><br>> Create a profile for you
-    <br>> Apply as a mentor for any life skill
-    <br>> Connect with the other mentors
-      <br>> Become multi-professional for the new AI world
+    <mat-card-title><span class="mentor-header"><br><br>Become <b
+      style="font-size: medium;font-family: 'Courier', serif !important;">MULTI-PROFESSIONAL</b> and prepare for the new AI world. By loggin in, you can:
+    <br><br>🫱🏽‍🫲🏽 Connect with our mentors
+      <br>🫱🏽‍🫲🏽 Create a profile for you
+    <br>🫱🏽‍🫲🏽 Apply as a mentor for any life skill
     </span>
     </mat-card-title>
-    <div mat-icon-button (click)="showProfile()" *ngIf="showApply()"
+    <button mat-button (click)="showProfile()" *ngIf="showApply()"
          style=" text-align: center;background: rgba(19,136,8, 0.7);margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important; ">work</mat-icon>
       Apply as Mentor
-    </div>
+    </button>
+    <br *ngIf="showApply()">
     <button mat-button routerLink="/login" *ngIf="showLogin()"
             style="background: rgba(19,136,8, 0.7); text-align: center;margin-left: auto;
     margin-right: auto;
@@ -87,6 +96,6 @@
     </button>
   </mat-card-content>
   <mat-card-content *ngIf="!isMobile()" style="text-align:center">
-    <img src="../../assets/images/letsVibe.png">
+    <img src="../../assets/images/letsVibe.png" style="cursor: pointer" (click)="openDialog()">
   </mat-card-content>
 </mat-card>

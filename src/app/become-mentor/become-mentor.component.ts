@@ -77,10 +77,10 @@ export class BecomeMentorComponent implements OnInit {
   @ViewChild("myTooltip") myTooltip: any;
 
   constructor(private _mentorsService: MentorsService, private messageService: MessageService, private _userService: UserService, private _authClient: LoginService, private _router: Router) {
-    if (!this._authClient.isLoggedIn()) {
-      sessionStorage.setItem('redirectUrl', '/profile');
-      this._router.navigate(['/login']).then();
-    }
+  }
+
+  isLoggedIn() {
+    return this._authClient.isLoggedIn();
   }
 
   ngOnInit(): void {
@@ -123,24 +123,26 @@ export class BecomeMentorComponent implements OnInit {
         this.applyButtonText = "Save Profile"
         this.yourProfileShow = true;
       }
-      if(user.skillSet){
+      if (user.skillSet) {
         this.skillSetId = user.skillSet.id.toString();
         this.skills = user.skillSet.skillSetName;
         this.relatedTechnologies = user.skillSet.relatedTechnologies;
       }
       this.showProfileDetails = true;
 
-      this._mentorsService.getSupportRequest(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
-        .subscribe((sr: SupportRequest) => {
-          if (sr) {
-            if (sr.verified)
-              this.supportRequestStatus = 'VERIFIED';
-            else
-              this.supportRequestStatus = 'PENDING';
-          } else {
-            this.supportRequestStatus = 'NOT REQUESTED';
-          }
-        });
+      if (this.isLoggedIn()) {
+        this._mentorsService.getSupportRequest(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
+          .subscribe((sr: SupportRequest) => {
+            if (sr) {
+              if (sr.verified)
+                this.supportRequestStatus = 'VERIFIED';
+              else
+                this.supportRequestStatus = 'PENDING';
+            } else {
+              this.supportRequestStatus = 'NOT REQUESTED';
+            }
+          });
+      }
     });
 
   }
@@ -187,7 +189,7 @@ export class BecomeMentorComponent implements OnInit {
       if (isSuccess) {
         this.messageService.add({
           severity: 'success',
-          summary: 'Updated Successfully!',
+          summary: 'Updated',
         });
         this.ngOnInit();
       }
@@ -226,18 +228,23 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   requestForSupport() {
-    this.requestSupportEvent()
-    this._mentorsService.requestForSupport(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
-      .subscribe((sr: SupportRequest) => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Request submitted',
-        })
-        location.reload();
-      });
+    if (!this._authClient.isLoggedIn()) {
+      sessionStorage.setItem('redirectUrl', '/profile');
+      this._router.navigate(['/login']).then();
+    } else {
+      this.requestSupportEvent();
+      this._mentorsService.requestForSupport(sessionStorage.getItem('userId'), sessionStorage.getItem('selectedUserId'))
+        .subscribe((sr: SupportRequest) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Requested',
+          })
+          location.reload();
+        });
+    }
   }
 
-  public displayTooltip(){
+  public displayTooltip() {
     this.myTooltip.disabled = false;
     this.myTooltip.show()
     setTimeout(() => {
@@ -245,7 +252,7 @@ export class BecomeMentorComponent implements OnInit {
     }, 10000);
   }
 
-  public requestSupportEvent(){
+  public requestSupportEvent() {
     this._userService.registerUserEvent('request mentor support : ' + sessionStorage.getItem('selectedUserId') + ' ' + this.fullName).subscribe();
   }
 }

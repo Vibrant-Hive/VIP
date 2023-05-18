@@ -17,7 +17,7 @@ export class LoginService {
   }
 
   isLoggedIn(){
-    return sessionStorage.getItem("email") !== null;
+    return sessionStorage.getItem("userId") !== null;
   }
 
   private httpHeaders = new HttpHeaders({

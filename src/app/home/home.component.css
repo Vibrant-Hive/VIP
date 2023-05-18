@@ -74,3 +74,14 @@ mat-card {
   /*font-family: Agency FB, serif!important;*/
 }
 
+.mentor-header-center {
+  font-family: "Courier", serif !important;
+  font-weight: bold !important;
+  color: lightslategray;
+  width:100%;
+  font-size: medium;
+  text-align:center;
+  display: block;
+  /*font-family: Agency FB, serif!important;*/
+}
+

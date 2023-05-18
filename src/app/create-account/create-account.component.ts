@@ -10,7 +10,6 @@ import {AuthService} from "../service/auth/auth-service.service";
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-  Roles: any = ['Mentor', 'Learner'];
   email: any;
   password: any;
   confirmPassword: any;
@@ -28,9 +27,9 @@ export class CreateAccountComponent implements OnInit {
   register() {
     this.mobileNoAlreadyExist = false;
     this.emailAlreadyExist = false;
-    this._registerService.register({email: this.email, mobileNo: this.mobileNo, password: this.password})
+    this._registerService.register({mobileNo: this.mobileNo, password: this.password})
       .subscribe(user => {
-        this._authService.login(this.email, this.password).pipe(
+        this._authService.login(this.mobileNo, this.password).pipe(
           take(1)
         ).subscribe({
           next: _ => {

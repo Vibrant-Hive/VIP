@@ -6,10 +6,10 @@
         The credentials were not recognized
       </mat-error>
       <mat-form-field>
-        <input matInput placeholder="Email or Mobile Number" [(ngModel)]="userName" name="userName"
-               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}|[789][0-9]{9}" required>
+        <input matInput placeholder="Mobile Number" [(ngModel)]="userName" name="userName"
+               pattern="[789][0-9]{9}" required>
         <mat-error>
-          Please provide a valid email address or mobile number
+          Please provide a valid mobile number
         </mat-error>
       </mat-form-field>
       <mat-form-field>

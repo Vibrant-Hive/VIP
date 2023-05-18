@@ -90,4 +90,8 @@ export class HomeComponent implements OnInit {
       return "540";
     }
   }
+
+  openDialog() {
+    this.headerComponent.openDialog();
+  }
 }

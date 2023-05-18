@@ -129,16 +129,15 @@
                   </mat-icon>
                 </mat-list-item>
                 <mat-list-item *ngIf=" !editing && languages
-                  " role="list-item"><span style="color: slategray">Speaks&nbsp; </span>
-                  {{languages ? languages.toString().replace(',', ', ') : ''}}
+                  " role="list-item"><span style="color: slategray">Speaks {{languages ? languages.toString().replaceAll(',', ' | ') : ''}}</span>
+
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && availability" role="list-item"><span
-                  style="color: slategray">Teaches at&nbsp;  </span>
-                  {{availability ? availability.toString().replace(',', ', ') : ''}}
+                  style="color: slategray">Available at {{availability ? availability.toString().replaceAll(',', ' | ') : ''}}</span>
+
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && experience" role="list-item"><span
-                  style="color: slategray">Experience of&nbsp; </span>
-                  {{experience}} years
+                  style="color: slategray">Experience of {{experience}} years</span>
                 </mat-list-item>
                 <mat-list-item *ngIf="!editing && designation" role="list-item">{{designation}}</mat-list-item>
               </mat-list>
@@ -166,15 +165,15 @@
       </a>
     </div>
 
-    <div *ngIf="!editing && supportRequestStatus === 'NOT REQUESTED'">
+    <div *ngIf="!editing && supportRequestStatus === 'NOT REQUESTED' || !isLoggedIn()">
       <button mat-raised-button style="background: rgba(19,136,8, 0.7)" class="apply-button" (click)="requestForSupport()">
-        Request Support
+        1-Click Connect
       </button>
     </div>
 
     <div *ngIf="!editing && supportRequestStatus === 'PENDING'">
       <button mat-raised-button color="secondary" class="apply-button" disabled>
-        Verification Pending
+        Awaiting Response
       </button>
     </div>
 

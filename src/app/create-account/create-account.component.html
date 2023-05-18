@@ -13,16 +13,6 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" [(ngModel)]="email" name="email" (input)="emailAlreadyExist = false"
-               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
-        <span *ngIf="emailAlreadyExist && email" class="error">
-            Email Already Exists. Please try Login.
-          </span>
-        <mat-error>
-          Please provide a valid email address
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
         <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [(ngModel)]="password"
                name="password" required>
         <mat-icon style="font-family: 'Material Icons',serif !important;" matSuffix
