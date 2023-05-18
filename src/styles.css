@@ -2,6 +2,7 @@
 
 html, body {
   height: 92%;
+  background-color: #FFD700;
 }
 
 @media (min-width: 300px) {
