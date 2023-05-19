@@ -9,7 +9,7 @@ html, body {
     margin: 0;
     
   background-image: url('assets/images/sky.jpeg');
-  background-size: cover;
+  background-size: 100% auto;
   }
 }
 
