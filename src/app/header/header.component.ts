@@ -83,7 +83,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showMenu() {
-    return this.isMobile() && !this._router.url.includes('home');
+    return !this._router.url.includes('home');
   }
 
   showAccount() {
@@ -106,7 +106,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showLetsVibe() {
-    return this.isMobile() && this._router.url.includes('home') && !this.showAccount();
+    return this._router.url.includes('home') && !this.showAccount();
   }
 
   openDialog(): void {

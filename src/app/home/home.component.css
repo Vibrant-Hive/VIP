@@ -31,7 +31,7 @@
   }
 
   .mentor-header {
-    /*font-size: large;*/
+    font-size: small;
   }
 }
 
@@ -50,7 +50,7 @@
   }
 
   .mentor-header {
-    /*font-size: x-large;*/
+    font-size: large;
   }
 }
 
@@ -59,7 +59,7 @@
 }
 
 mat-card {
-  max-width: 400px;
+  max-width: 700px;
   background-color: rgba(0, 0, 0, 0.7) !important;
   margin: auto;
 }
@@ -69,7 +69,6 @@ mat-card {
   font-weight: bold !important;
   color: white;
   width:100%;
-  font-size: small;
 
   /*font-family: Agency FB, serif!important;*/
 }
@@ -79,9 +78,9 @@ mat-card {
   font-weight: bold !important;
   color: white;
   width:100%;
-  font-size: medium;
   text-align:center;
   display: block;
+  line-height: 21pt;
   /*font-family: Agency FB, serif!important;*/
 }
 

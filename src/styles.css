@@ -7,7 +7,7 @@ html, body {
 @media (min-width: 300px) {
   body {
     margin: 0;
-    
+
   background-image: url('assets/images/sky.jpeg');
   background-size: cover;
   }
@@ -16,7 +16,7 @@ html, body {
 @media (min-width: 1000px) {
   body {
     margin: 0;
-    
+
   background-image: url('assets/images/sky.jpeg');
   background-size: cover;
   }
