@@ -2,40 +2,40 @@
   <span class="example-spacer"></span>
 
 
-<!--  <div class="example-button-row" *ngIf="!isMobile()">-->
-<!--    <button mat-raised-button routerLink="/home" *ngIf="showHome()">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;">home</mat-icon>-->
-<!--      Home-->
-<!--    </button>-->
-<!--    <button mat-raised-button (click)="goToProfile()" *ngIf="showApply()">-->
-<!--      <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;"-->
-<!--                color="secondary">account_circle-->
-<!--      </mat-icon>-->
-<!--      <mat-icon *ngIf="applyButtonText!=='Profile'" style="font-family: 'Material Icons',serif !important;"-->
-<!--                color="secondary">work-->
-<!--      </mat-icon>-->
-<!--      {{applyButtonText}}</button>-->
-<!--    <button mat-raised-button color="secondary" routerLink="/roadmap" *ngIf="showRoadmap()">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>-->
-<!--      Roadmap-->
-<!--    </button>-->
-<!--    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>-->
-<!--      Mentors-->
-<!--    </button>-->
-<!--    <button mat-raised-button color="secondary" routerLink="/learner/0" *ngIf="showCertificate()">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">workspace_premium</mat-icon>-->
-<!--      Certificate-->
-<!--    </button>-->
-<!--    <button mat-raised-button style="background: rgba(233, 75, 36, 0.7)" routerLink="/login" *ngIf="showLogin()">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>-->
-<!--      Login-->
-<!--    </button>-->
-<!--    <button mat-raised-button color="secondary" (click)="logout()" *ngIf="isAuthenticated">-->
-<!--      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">logout</mat-icon>-->
-<!--      Logout-->
-<!--    </button>-->
-<!--  </div>-->
+  <div class="example-button-row" *ngIf="showButtons()">
+    <button mat-raised-button routerLink="/home" *ngIf="showHome()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;">home</mat-icon>
+      Home
+    </button>
+    <button mat-raised-button (click)="goToProfile()" *ngIf="showApply()">
+      <mat-icon *ngIf="applyButtonText==='Profile'" style="font-family: 'Material Icons',serif !important;"
+                color="secondary">account_circle
+      </mat-icon>
+      <mat-icon *ngIf="applyButtonText!=='Profile'" style="font-family: 'Material Icons',serif !important;"
+                color="secondary">work
+      </mat-icon>
+      {{applyButtonText}}</button>
+    <button mat-raised-button color="secondary" routerLink="/roadmap" *ngIf="showRoadmap()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>
+      Roadmap
+    </button>
+    <button mat-raised-button color="secondary" routerLink="/mentors" *ngIf="showMentors()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">diversity_2</mat-icon>
+      Mentors
+    </button>
+    <button mat-raised-button color="secondary" routerLink="/learner/0" *ngIf="showCertificate()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">workspace_premium</mat-icon>
+      Certificate
+    </button>
+    <button mat-raised-button style="background: rgba(233, 75, 36, 0.7)" routerLink="/login" *ngIf="showLogin()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">login</mat-icon>
+      Login
+    </button>
+    <button mat-raised-button color="secondary" (click)="logout()" *ngIf="isAuthenticated">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">logout</mat-icon>
+      Logout
+    </button>
+  </div>
 
   <div *ngIf="showMenu()">
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Account">
