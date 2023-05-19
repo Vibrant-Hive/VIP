@@ -10,7 +10,8 @@
       style="font-size: medium;font-family: 'Courier', serif !important;">ROADMAP</b> and a
       <b style="font-size: medium;font-family: 'Courier', serif !important;">MENTOR</b><br> to connect the dots"</span>
       </span>
-    </mat-card-title> <br>
+    </mat-card-title>
+    <br>
     <!--    <br><p style="padding:13px">Everything is on the internet. All you need is a roadmap to learn any technology.</p>-->
     <button mat-button cdkFocusInitial routerLink="/roadmap" *ngIf="showRoadmap()"
             style="background: rgba(255,153,51, 0.9);color: black;text-align: center; margin-left: auto;
@@ -30,7 +31,8 @@
     <br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">S</b>hape you up for the future
     <br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">H</b>elp you in reaching your goals
     </span>
-    </mat-card-title><br>
+    </mat-card-title>
+    <br>
     <button mat-button routerLink="/mentors" *ngIf="showMentors()"
             style=" text-align: center; background: rgba(255,255,255, 0.9); color:#000080;margin-left: auto;
     margin-right: auto;
@@ -41,7 +43,8 @@
       Mentors
     </button>
 
-    <mat-card-title><span class="mentor-header"><br><br> Our Course Completion certificate is <b style="font-size: medium;font-family: 'Courier', serif !important;">QR ENABLED</b> which tells more about you like your:
+    <mat-card-title><span class="mentor-header"><br><br> Our Course Completion certificate is <b
+      style="font-size: medium;font-family: 'Courier', serif !important;">QR ENABLED</b> which tells more about you like your:
       <br><br>✅ Skill-set
       <br>✅ Capabilities
       <br>✅ Core values
@@ -49,7 +52,8 @@
       <br>✅ Real time tasks
       <br>✅ Hands-on technologies
     </span>
-    </mat-card-title><br>
+    </mat-card-title>
+    <br>
     <button mat-button routerLink="/learner/0" *ngIf="showCertificate()"
             style=" text-align: center;  background: rgba(255,255,255, 0.9); color:#000080;margin-left: auto;
     margin-right: auto;
@@ -61,15 +65,18 @@
       Certificate
     </button>
 
-    <mat-card-title><span class="mentor-header"><br><br>Become <b
-      style="font-size: medium;font-family: 'Courier', serif !important;">MULTI-PROFESSIONAL</b> and prepare for the new AI world. By loggin in, you can:
-    <br><br>👍🏽 Connect with our mentors <br>👍🏽 Master multiple technologies 
-      <br>👍🏽 Create a profile for you
-    <br>👍🏽 Apply as a Mentor
+    <mat-card-title><span class="mentor-header"><br><br>Get ready for the new AI world - Become <b
+      style="font-size: medium;font-family: 'Courier', serif !important;">MULTI-PROFESSIONAL</b>:
+    <br><br>👉🏼 Login with a mobile number <br>
+      👉🏼 Connect with our mentors <br>
+      👉🏼 Master multiple technologies <br>
+      👉🏼 Create a profile for you<br>
+      👉🏼 Apply as a Mentor
     </span>
-    </mat-card-title><br>
+    </mat-card-title>
+    <br>
     <button mat-button (click)="showProfile()" *ngIf="showApply()"
-         style=" text-align: center;background: rgba(19,136,8, 0.9);margin-left: auto;
+            style=" text-align: center;background: rgba(19,136,8, 0.9);margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important; ">work</mat-icon>
