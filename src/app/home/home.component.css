@@ -67,7 +67,7 @@ mat-card {
 .mentor-header {
   font-family: "Courier", serif !important;
   font-weight: bold !important;
-  color: lightslategray;
+  color: white;
   width:100%;
   font-size: small;
 
@@ -77,7 +77,7 @@ mat-card {
 .mentor-header-center {
   font-family: "Courier", serif !important;
   font-weight: bold !important;
-  color: lightslategray;
+  color: white;
   width:100%;
   font-size: medium;
   text-align:center;
