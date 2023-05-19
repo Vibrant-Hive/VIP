@@ -28,7 +28,7 @@ html, body {
 }
 
 * {
-  font-family: 'Cambria', sans-serif !important;
+    font-family: "Courier", serif !important;
 }
 
 .mat-dialog-container {
