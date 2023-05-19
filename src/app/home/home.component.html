@@ -13,7 +13,7 @@
     </mat-card-title> <br>
     <!--    <br><p style="padding:13px">Everything is on the internet. All you need is a roadmap to learn any technology.</p>-->
     <button mat-button cdkFocusInitial routerLink="/roadmap" *ngIf="showRoadmap()"
-            style="background: rgba(255,153,51, 0.7);color: black;text-align: center; margin-left: auto;
+            style="background: rgba(255,153,51, 0.9);color: black;text-align: center; margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important; "
@@ -25,14 +25,14 @@
     <mat-card-title><span class="mentor-header"><br><br>Our 1:1 mentors are skillful and<b
       style="font-size: medium;font-family: 'Courier', serif !important;"> QUALIFIED PROFESSIONALS</b> who will:
 
-    <br><br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">P</b>repare you for the real time tasks
-    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">U</b>nderstand where you can improve
-    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">S</b>hape you up for the future
-    <br>💪🏼 <b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">H</b>elp you in reaching your goals
+    <br><br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">P</b>repare you for the real time tasks
+    <br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">U</b>nderstand where you can improve
+    <br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">S</b>hape you up for the future
+    <br><b style="color:rgb(255,153,51);font-size: medium;font-family: 'Courier', serif !important;">H</b>elp you in reaching your goals
     </span>
     </mat-card-title><br>
     <button mat-button routerLink="/mentors" *ngIf="showMentors()"
-            style=" text-align: center; background: rgba(255,255,255, 0.7); color:#000080;margin-left: auto;
+            style=" text-align: center; background: rgba(255,255,255, 0.9); color:#000080;margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important; ; color:#000080"
@@ -51,7 +51,7 @@
     </span>
     </mat-card-title><br>
     <button mat-button routerLink="/learner/0" *ngIf="showCertificate()"
-            style=" text-align: center;  background: rgba(255,255,255, 0.7); color:#000080;margin-left: auto;
+            style=" text-align: center;  background: rgba(255,255,255, 0.9); color:#000080;margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important ; ; color:#000080"
@@ -69,7 +69,7 @@
     </span>
     </mat-card-title><br>
     <button mat-button (click)="showProfile()" *ngIf="showApply()"
-         style=" text-align: center;background: rgba(19,136,8, 0.7);margin-left: auto;
+         style=" text-align: center;background: rgba(19,136,8, 0.9);margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important; ">work</mat-icon>
@@ -86,7 +86,7 @@
       Login
     </button>
     <button mat-button (click)="logout()" *ngIf="isAuthenticated"
-            style="background: rgba(19,136,8, 0.7); text-align: center;margin-left: auto;
+            style="background: rgba(19,136,8, 0.9); text-align: center;margin-left: auto;
     margin-right: auto;
     display: block;">
       <mat-icon style="font-family: 'Material Icons',serif !important;"
