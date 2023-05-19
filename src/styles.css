@@ -17,6 +17,8 @@ html, body {
   body {
     margin: 0;
     
+  background-image: url('assets/images/sky.jpeg');
+  background-size: cover;
   }
 }
 
