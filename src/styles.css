@@ -8,6 +8,9 @@ html, body {
 @media (min-width: 300px) {
   body {
     margin: 0;
+    
+  background-image: url('assets/images/tent.jpg');
+    background-size: cover;
   }
 }
 
