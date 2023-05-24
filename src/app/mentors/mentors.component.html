@@ -23,13 +23,15 @@
           <span style="margin-top: 5%;">{{mentor["experience"]}}+  years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
           <mat-grid-tile-footer>
             <div style="width:100%">
-              <mat-icon class="icon-meditate">school
-              </mat-icon>
-              <div>
-                <a class="learn">
-                  Learn
-                </a>
-              </div>
+              <button mat-button cdkFocusInitial
+                      style="background: rgba(19,136,8, 0.9);text-align: center; margin-left: auto;
+     margin-right: auto;
+     display: block; font-weight:bold;">
+                <mat-icon style="font-family: 'Material Icons',serif !important; "
+                          color="secondary">school
+                </mat-icon>
+                Learn
+              </button>
             </div>
           </mat-grid-tile-footer>
         </mat-grid-tile>
