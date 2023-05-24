@@ -208,15 +208,17 @@ export class BecomeMentorComponent implements OnInit {
   }
 
   rowHeight() {
-    if (sessionStorage.getItem('device') === 'mobile') {
-      return "1:1";
-    } else {
-      if (sessionStorage.getItem('action') === 'edit') {
-        return "1:1";
-      } else {
-        return "3:2";
-      }
-    }
+    // if (sessionStorage.getItem('device') === 'mobile') {
+    //   return "1:1";
+    // } else {
+    //   if (sessionStorage.getItem('action') === 'edit') {
+    //     return "1:1";
+    //   } else {
+    //     return "3:2";
+    //   }
+    // }
+
+    return "210px";
   }
 
   whatsAppRedirect() {

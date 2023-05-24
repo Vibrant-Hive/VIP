@@ -28,7 +28,7 @@ mat-grid-tile-header{
   text-align: center;
   width: 75%;
   margin: auto!important;
-  background-color: rgba(0,0,0,0.9)!important;
+  background-color: rgba(0,0,0,0.7)!important;
 }
 
 .mentor-card{
@@ -70,7 +70,7 @@ mat-grid-tile-header{
 }
 
 .mentor-section{
-  background-color: rgba(120,120,120,0.3)!important;
+  background-color: rgba(0,0,0,0)!important;
   min-height: 100%;
   min-width: 100%;
 }
