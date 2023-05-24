@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <main>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
 <!--  <mat-card class="maintenance" style="text-align: center">-->
 <!--    <mat-card-title><span class="mentor-header">&nbsp;SLEEPING NOW FOR A GOOD CAUSE&nbsp;</span></mat-card-title>-->
 <!--    <span> WhatsApp Only (Look at the bottom of this page)</span>-->
