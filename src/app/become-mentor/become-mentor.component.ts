@@ -218,7 +218,7 @@ export class BecomeMentorComponent implements OnInit {
     //   }
     // }
 
-    return "210px";
+    return "220px";
   }
 
   whatsAppRedirect() {
