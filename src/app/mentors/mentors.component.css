@@ -3,9 +3,6 @@
   flex-direction: column;
 }
 
-mat-card {
-  background-color: rgba(0,0,0,0.7)!important;
-}
 
 mat-card-content img{
   border-style: inset;
@@ -15,15 +12,14 @@ mat-card-content img{
   width: 25%;
 }
 
-.mentor-all-details{
-  margin: 2% 2% 1%;
-  text-align: center;
-  padding: 2%;
+.mentor{
+  background-color: rgba(0,0,0,0)!important;
 }
 
 .available-mentors{
   margin: 0 2%;
   text-align: center;
+  background-color: rgba(0,0,0,0.7)!important;
 }
 
 mat-divider{

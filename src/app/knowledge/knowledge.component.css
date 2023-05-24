@@ -62,6 +62,7 @@
   text-align: left;
   width: 90%;
   padding: 0 16px;
+  font-weight:bold;
 }
 
 .learn {
@@ -82,5 +83,5 @@
 }
 
 .learn-tile {
-  border-top: 1px solid darkslategray;
+  border-top: 10px solid rgba(0,0,0,0);
 }

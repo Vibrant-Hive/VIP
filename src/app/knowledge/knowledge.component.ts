@@ -32,7 +32,7 @@ export class KnowledgeComponent implements OnInit {
 
   rowHeight() {
     // if (sessionStorage.getItem('device') === 'mobile') {
-    return "250px";
+    return "300px";
     // } else {
     //   return "5:4";
     // }
