@@ -15,12 +15,11 @@
               <span
                 style="color: lightslategray;font-weight: bold; font-size: small;">{{mentor.skillSet.skillSetName}}</span>
               <div class="mentor-image">
-                <img [src]="mentor['displayPic']" alt="" height="77px">
+                <img [src]="mentor['displayPic']" alt="" height="50px">
               </div>
-
+              <span style="margin-top: 5%;">{{mentor["experience"]}}+  years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
             </mat-card-content>
           </mat-card>
-          <span style="margin-top: 5%;">{{mentor["experience"]}}+  years Exp <br><br> {{mentor["languages"] ? mentor["languages"].toString().replace(',', ', ') : ''}}</span>
           <mat-grid-tile-footer>
             <div style="width:100%">
               <button mat-button cdkFocusInitial
