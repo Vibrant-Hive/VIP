@@ -28,7 +28,7 @@ html, body {
 }
 
 * {
-    font-family: "Calibri Light", serif !important;
+    font-family: "Calibri", serif !important;
 }
 
 .mat-dialog-container {
@@ -70,7 +70,6 @@ html, body {
 }
 
 .mat-menu-item {
-  font-family: Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 16px;
   font-weight: normal;
   color: lightgray;
