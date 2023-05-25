@@ -82,3 +82,8 @@ mat-card {
   /*font-family: Agency FB, serif!important;*/
 }
 
+.expansion {
+  background: rgba(0,0,0,0);
+}
+
+

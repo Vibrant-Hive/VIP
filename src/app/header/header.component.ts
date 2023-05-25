@@ -82,6 +82,10 @@ export class HeaderComponent implements OnInit {
     return !this._router.url.includes('home');
   }
 
+  showServices() {
+    return !this._router.url.includes('services');
+  }
+
   showMenu() {
     return this.isMobile() && !this._router.url.includes('home');
   }

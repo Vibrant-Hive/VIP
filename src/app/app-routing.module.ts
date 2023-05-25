@@ -10,6 +10,7 @@ import {AuthGuard} from "./auth.guard";
 import {WelcomeKitComponent} from "./welcome-kit/welcome-kit.component";
 import {VideoComponent} from "./video/video.component";
 import {KnowledgeComponent} from "./knowledge/knowledge.component";
+import {ServicesComponent} from "./services/services.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'welcome', component: WelcomeKitComponent},
   {path: 'video', component: VideoComponent},
   {path: 'roadmap', component: KnowledgeComponent},
+  {path: 'services', component: ServicesComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

@@ -14,6 +14,7 @@ export class KnowledgeComponent implements OnInit {
   content: string = '';
   private pdfName: string = '';
 
+
   constructor(public dialog: MatDialog,
               public _gtmService: GoogleTagManagerService,
               public _userService: UserService) {

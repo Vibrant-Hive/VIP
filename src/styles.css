@@ -28,7 +28,7 @@ html, body {
 }
 
 * {
-    font-family: "Courier", serif !important;
+    font-family: "Calibri Light", serif !important;
 }
 
 .mat-dialog-container {
@@ -105,4 +105,8 @@ html, body {
 
 a {
   color: white;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 0!important;
 }

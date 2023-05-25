@@ -44,6 +44,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {NgChartsModule} from "ng2-charts";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {GoogleTagManagerModule} from "angular-google-tag-manager";
+import { ServicesComponent } from './services/services.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import {GoogleTagManagerModule} from "angular-google-tag-manager";
     BarChartComponent,
     VideoComponent,
     KnowledgeComponent,
-    DialogComponent
+    DialogComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import {GoogleTagManagerModule} from "angular-google-tag-manager";
     MatMenuModule,
     NgChartsModule,
     MatTooltipModule,
+    MatExpansionModule,
     GoogleTagManagerModule.forRoot({
       id: 'G-VSHNE6NQB6',
     })

@@ -15,6 +15,10 @@
                 color="secondary">work
       </mat-icon>
       {{applyButtonText}}</button>
+    <button mat-raised-button color="secondary" routerLink="/services" *ngIf="showServices()">
+      <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">school</mat-icon>
+      Services
+    </button>
     <button mat-raised-button color="secondary" routerLink="/roadmap" *ngIf="showRoadmap()">
       <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>
       Roadmap
@@ -54,6 +58,10 @@
                   color="secondary">work
         </mat-icon>
         {{applyButtonText}}</button>
+      <button mat-menu-item routerLink="/services" *ngIf="showServices()">
+        <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">school</mat-icon>
+        Services
+      </button>
       <button mat-menu-item routerLink="/roadmap" *ngIf="showRoadmap()">
         <mat-icon style="font-family: 'Material Icons',serif !important;" color="secondary">route</mat-icon>
         Roadmap
@@ -83,5 +91,14 @@
     </mat-icon>
   </button>
 
-  <img *ngIf="showLetsVibe()" src="../../assets/images/letsVibe.png" [style]="isMobile()? 'height: 21px;cursor: pointer' : 'height: 42px;cursor: pointer'" alt="" (click)="openDialog()">
+<!--  <img *ngIf="showLetsVibe()" src="../../assets/images/letsVibe.png" [style]="isMobile()? 'height: 21px;cursor: pointer' : 'height: 42px;cursor: pointer'" alt="" (click)="openDialog()">-->
+  <button mat-button routerLink="/services" *ngIf="showLetsVibe()"
+          style=" text-align: center; background: rgba(255,255,255, 0.9); color:#000080;margin-left: auto;
+    margin-right: auto;
+    display: block; font-weight:bold;">
+    <mat-icon style="font-family: 'Material Icons',serif !important; ; color:#000080"
+              color="secondary">school
+    </mat-icon>
+    Services
+  </button>
 </mat-toolbar>
