@@ -1,7 +1,7 @@
 <mat-card class="box">
   <form #registerForm="ngForm" class="example-form" (ngSubmit)="register()">
     <mat-card-content>
-      <h2 style="color:rgba(255,153,51, 0.7)">Register</h2>
+      <h2 style="color:rgba(255,153,51, 0.7)">Create Account</h2>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Mobile Number" [(ngModel)]="mobileNo" name="mobileNo"
                (input)="mobileNoAlreadyExist = false" pattern="[789][0-9]{9}" required>
