@@ -111,3 +111,7 @@ a {
   flex-grow: 0 !important;
   font-size: small !important;
 }
+.mat-button{
+  padding:0 12px !important;
+  line-height:34px!important;
+}
