@@ -8,8 +8,8 @@ html, body {
   body {
     margin: 0;
 
-  background-image: url('assets/images/sky.jpeg');
-  background-size: cover;
+    background-image: url('assets/images/sky.jpeg');
+    background-size: cover;
   }
 }
 
@@ -17,8 +17,8 @@ html, body {
   body {
     margin: 0;
 
-  background-image: url('assets/images/sky.jpeg');
-  background-size: cover;
+    background-image: url('assets/images/sky.jpeg');
+    background-size: cover;
   }
 }
 
@@ -28,12 +28,13 @@ html, body {
 }
 
 * {
-    font-family: "Calibri" !important;
+  font-family: "Calibri" !important;
+  line-height: 21px;
 }
 
 .mat-dialog-container {
   background-color: rgba(0, 0, 0, 0.9) !important;
-  border: 1px solid rgba(255,153,51, 0.7);;
+  border: 1px solid rgba(255, 153, 51, 0.7);;
 
 }
 
@@ -107,6 +108,6 @@ a {
 }
 
 .mat-expansion-panel-header-description {
-  flex-grow: 0!important;
-  font-size:small!important;
+  flex-grow: 0 !important;
+  font-size: small !important;
 }
